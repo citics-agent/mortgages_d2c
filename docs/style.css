@@ -2956,8 +2956,18 @@
 
     .policy-panel img {
       width: 100%;
+      height: auto;
       display: block;
       border-radius: 0;
+    }
+
+    /* Reserve space for tallest policy image (buyer-secondary: 2269.5 x 1875.75) */
+    .policy-panels::after {
+      content: '';
+      grid-area: 1 / 1;
+      width: 100%;
+      aspect-ratio: 2269.5 / 1875.75;
+      visibility: hidden;
     }
 
     /* ========== FAQ ACCORDION ========== */
@@ -3729,9 +3739,10 @@
     .footer-qr-img {
       width: 120px;
       height: 120px;
-      border-radius: 12px;
+      border-radius: 0;
       background: #fff;
       padding: 4px;
+      object-fit: contain;
     }
 
     .footer-store-badge {
