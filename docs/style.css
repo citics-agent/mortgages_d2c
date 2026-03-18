@@ -2931,18 +2931,25 @@
       max-width: 80%;
       margin-left: auto;
       margin-right: auto;
+      transition: height 0.4s ease;
     }
 
     .policy-panel {
-      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       overflow: hidden;
       border-radius: var(--card-radius);
-      animation: policyFadeIn 0.4s ease;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
     }
 
     .policy-panel.active {
-      display: block;
+      position: relative;
+      opacity: 1;
+      pointer-events: auto;
     }
 
     @keyframes policyFadeIn {
@@ -3456,7 +3463,7 @@
     .partner-training {
       background: var(--blue);
       color: var(--white);
-      padding: 80px 0 0;
+      padding: 80px 0 40px;
       position: relative;
       overflow: hidden;
     }
@@ -3953,6 +3960,10 @@
         text-align: center;
       }
 
+      .hero-eyebrow {
+        justify-content: center;
+      }
+
       .hero-sub {
         margin: 0 auto 20px;
       }
@@ -3978,6 +3989,26 @@
 
       .usp-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .usp-card {
+        padding: 20px 24px;
+        cursor: pointer;
+      }
+
+      .usp-card p {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin: 0;
+        transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
+      }
+
+      .usp-card.usp-open p {
+        max-height: 200px;
+        opacity: 1;
+        margin-top: 12px;
       }
 
       /* Pain Point Hub - mobile */
