@@ -51,14 +51,17 @@
     }
 
     // ─── USP ACCORDION (mobile) ───
-    document.querySelectorAll('.usp-card').forEach(card => {
-      card.addEventListener('click', () => {
+    const uspGrid = document.querySelector('.usp-grid');
+    if (uspGrid) {
+      uspGrid.addEventListener('click', (e) => {
         if (!window.matchMedia('(max-width: 768px)').matches) return;
+        const card = e.target.closest('.usp-card');
+        if (!card) return;
         const isOpen = card.classList.contains('usp-open');
-        document.querySelectorAll('.usp-card').forEach(c => c.classList.remove('usp-open'));
+        uspGrid.querySelectorAll('.usp-card').forEach(c => c.classList.remove('usp-open'));
         if (!isOpen) card.classList.add('usp-open');
       });
-    });
+    }
 
     // ─── SCROLL REVEAL (IntersectionObserver) ───
     const revealElements = document.querySelectorAll('.reveal');

@@ -2941,17 +2941,13 @@
       pointer-events: none;
       transition: opacity 0.4s ease;
       visibility: hidden;
+      align-self: start;
     }
 
     .policy-panel.active {
       opacity: 1;
       pointer-events: auto;
       visibility: visible;
-    }
-
-    @keyframes policyFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
 
     .policy-panel img {
@@ -2961,13 +2957,13 @@
       border-radius: 0;
     }
 
-    /* Reserve space for tallest policy image (buyer-secondary: 2269.5 x 1875.75) */
+    /* Reserve space for tallest policy image (buyer-secondary: 2269.5 x 1875.75)
+       This prevents page content below from jumping when switching tabs */
     .policy-panels::after {
       content: '';
       grid-area: 1 / 1;
       width: 100%;
       aspect-ratio: 2269.5 / 1875.75;
-      visibility: hidden;
     }
 
     /* ========== FAQ ACCORDION ========== */
@@ -3737,11 +3733,11 @@
     }
 
     .footer-qr-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 0;
+      width: 140px;
+      height: 140px;
+      border-radius: 0 !important;
       background: #fff;
-      padding: 4px;
+      padding: 8px;
       object-fit: contain;
     }
 
@@ -4016,20 +4012,49 @@
       .usp-card {
         padding: 20px 24px;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .usp-card h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .usp-card h3::after {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid var(--gray-600);
+        border-bottom: 2px solid var(--gray-600);
+        transform: rotate(45deg);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+        margin-left: 12px;
+      }
+
+      .usp-card.usp-open h3::after {
+        transform: rotate(-135deg);
       }
 
       .usp-card p {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        margin: 0;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
         transition: max-height 0.3s ease, opacity 0.3s ease, margin 0.3s ease;
       }
 
       .usp-card.usp-open p {
-        max-height: 200px;
-        opacity: 1;
-        margin-top: 12px;
+        max-height: 200px !important;
+        opacity: 1 !important;
+        margin-top: 12px !important;
+      }
+
+      .usp-card:hover {
+        transform: none;
+        box-shadow: none;
       }
 
       /* TIEC banner - ensure visible on mobile despite overflow:hidden parent */
