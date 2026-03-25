@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# OS
+.DS_Store
+
+# Temp/scratch
+.tmp/
+
+# AI tooling (development only)
+.agent/
+.claude/
+SKILLS/
+CLAUDE.md
+brand-guidelines/
+Reference/
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Next.js auto-generated
+next-env.d.ts

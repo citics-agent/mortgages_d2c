@@ -4,1393 +4,1029 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Citics Agent - La Bàn Cho Môi Giới BĐS Thế Hệ Mới</title>
+  <title>Citics Mortgages — La Bàn Cho Vay Thế Chấp Bất Động Sản</title>
+  <meta name="description" content="Citics Mortgages kết nối hồ sơ vay thế chấp của bạn với ngân hàng phù hợp, tăng khả năng phê duyệt và tiết kiệm thời gian chuẩn bị thủ tục.">
   <link rel="icon" type="image/svg+xml" href="assets/C-Ribbon2-noshadow.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="preload" as="image" type="image/webp" href="assets/hero-1920x1080.webp" media="(min-width: 769px)">
-  <link rel="preload" as="image" type="image/webp" href="assets/hero-1080x1080.webp" media="(max-width: 768px)">
 </head>
 
 <body>
 
-  <!-- Scroll Progress -->
+  <!-- Scroll Progress Bar -->
   <div class="scroll-progress" id="scrollProgress"></div>
 
   <!-- ===== NAV ===== -->
   <nav class="nav" id="nav">
     <div class="container nav-inner">
-      <img src="assets/Logo_citics_main_w.png" alt="Citics" class="nav-logo">
+      <a href="#" class="nav-brand">
+        <img src="assets/logo-mortgages-w.png" alt="Citics Mortgages" class="nav-logo">
+      </a>
       <div class="nav-links">
         <a href="#usp">Lợi ích</a>
-        <a href="#cacn">Citics Agent</a>
-        <a href="#roles">Vai trò</a>
+        <a href="#flow">Hành trình</a>
         <a href="#policies">Chính sách</a>
-        <a href="#events">Sự kiện</a>
+        <a href="#banks">Ngân hàng</a>
         <a href="#news">Tin tức</a>
-        <a href="#form1" class="btn btn-primary nav-cta">Nhận tư vấn</a>
+        <a href="#form1" class="btn btn-amber nav-cta">Nhận tư vấn</a>
       </div>
-      <div class="nav-hamburger" id="navHamburger" aria-label="Menu">
+      <button type="button" class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false">
         <span></span><span></span><span></span>
-      </div>
+      </button>
     </div>
   </nav>
 
   <!-- Mobile Menu -->
-  <div class="nav-mobile-menu" id="navMobileMenu">
+  <div class="nav-mobile-menu" id="navMobileMenu" aria-hidden="true">
     <a href="#usp">Lợi ích</a>
-    <a href="#cacn">C-ACN</a>
-    <a href="#roles">Vai trò</a>
+    <a href="#flow">Hành trình</a>
     <a href="#policies">Chính sách</a>
-    <a href="#events">Sự kiện</a>
+    <a href="#banks">Ngân hàng</a>
     <a href="#news">Tin tức</a>
-    <a href="#form1" class="btn btn-primary">Nhận tư vấn</a>
+    <a href="#form1" class="btn btn-amber">Nhận tư vấn</a>
   </div>
 
   <!-- ===== 1. HERO ===== -->
   <section class="hero grain" id="hero">
     <div class="checker-bg"></div>
     <div class="hero-particles" id="heroParticles"></div>
-    <div class="hero-shape hero-shape-1"></div>
-    <div class="hero-shape hero-shape-2"></div>
     <div class="container hero-inner">
       <div class="hero-content">
-        <div class="hero-eyebrow">
-          CITICS AGENT
-        </div>
-        <h1>La Bàn Cho<br>Môi Giới Bất Động Sản Thế Hệ Mới</h1>
-        <p class="hero-sub">
-          Nền tảng bất động sản số ứng dụng dữ liệu & AI, giúp môi giới làm chủ nghề và mở khóa tăng trưởng thu nhập bền
-          vững.
-        </p>
-        <div class="hero-cta">
-          <a href="#form1" class="btn btn-primary">Nhận tư vấn</a>
+        <div class="hero-eyebrow">CITICS MORTGAGES</div>
+        <h1 class="hero-headline">La Bàn Cho Vay<br>Thế Chấp Bất Động Sản</h1>
+        <p class="hero-sub">Giúp bạn kết nối hồ sơ vay thế chấp với ngân hàng phù hợp, tăng khả năng phê duyệt và tiết kiệm thời gian chuẩn bị thủ tục.</p>
+        <ul class="hero-checks">
+          <li><span class="check-icon">✔</span> So sánh nhiều ngân hàng</li>
+          <li><span class="check-icon">✔</span> Tư vấn hồ sơ vay miễn phí</li>
+          <li><span class="check-icon">✔</span> Tăng khả năng được phê duyệt khoản vay</li>
+        </ul>
+        <div class="hero-cta-row">
+          <a href="#form1" class="btn btn-amber btn-lg">Nhận tư vấn miễn phí <span class="sparkle">✦</span></a>
+          <a href="#" class="btn btn-ghost btn-lg">Tải app</a>
         </div>
       </div>
       <div class="hero-visual">
-        <picture>
-          <source media="(min-width: 769px)" srcset="assets/hero-1920x1080.webp" type="image/webp">
-          <source media="(min-width: 769px)" srcset="assets/hero-1920x1080.png" type="image/png">
-          <source srcset="assets/hero-1080x1080.webp" type="image/webp">
-          <img src="assets/hero-1080x1080.png" alt="Citics Agent - Môi giới BĐS thế hệ mới" class="hero-img"
-            loading="eager">
-        </picture>
+        <div class="asset-ph asset-ph--hero">
+          <div class="asset-ph-icon">🏡</div>
+          <div class="asset-ph-file">hero-visual.png / .jpg</div>
+          <div class="asset-ph-size">Desktop 1120 × 960px &nbsp;·&nbsp; Mobile 800 × 800px</div>
+          <div class="asset-ph-desc">Ảnh gia đình nhận chìa khóa nhà mới<br>hoặc illustration mortgage (cut-out, transparent bg)</div>
+        </div>
       </div>
     </div>
-    <div class="wave-divider wave-divider--hero-bottom">
-      <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 100 H1440 V25 H520 C480 25 460 100 420 100 Z" fill="white" />
+    <div class="wave-divider wave-blue-white">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,60 L720,0 L1440,60 L1440,80 L0,80 Z" fill="#FFFFFF"/>
       </svg>
     </div>
   </section>
 
+
   <!-- ===== 2. USP ===== -->
-  <section class="section usp" id="usp">
+  <section class="section" id="usp">
     <div class="container">
-      <div class="section-label reveal">Why Citics</div>
-      <h2 class="section-title reveal">Vì sao hàng nghìn môi giới chọn<br>Citics Agent để phát triển sự nghiệp?</h2>
-      <div class="usp-grid">
-        <div class="usp-card reveal reveal-delay-1">
-          <div class="usp-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-            </svg></div>
-          <h3>Công cụ & đào tạo miễn phí</h3>
-          <p>Truy cập 32 triệu dữ liệu BĐS đã được số hoá. Tra cứu nhanh chóng nhờ trợ lý AI CiCi. Tham gia các chương
-            trình đào tạo phát triển nghề.</p>
+      <div class="section-header section-header--center reveal">
+        <div class="section-label section-label--center">Lợi ích</div>
+        <h2 class="section-title">Vì sao nên tìm khoản vay qua<br><em>Citics Mortgages</em>?</h2>
+      </div>
+      <div class="usp-cards reveal">
+
+        <div class="usp-card usp-card--1">
+          <div class="usp-card-top">
+            <h3 class="usp-card-title">Độ Tin Cậy Cao</h3>
+            <p class="usp-card-desc">Kết nối với 8+ ngân hàng uy tín, hồ sơ được xét duyệt đúng tiêu chí từng ngân hàng.</p>
+          </div>
+          <div class="usp-card-shape" aria-hidden="true"></div>
+          <div class="usp-card-footer">
+            <span class="usp-card-tag">Kết nối 8+ ngân hàng</span>
+            <button type="button" class="usp-card-btn" aria-label="Tìm hiểu thêm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="usp-card reveal reveal-delay-2">
-          <div class="usp-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="12" y1="1" x2="12" y2="23" />
-              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-            </svg></div>
-          <h3>Hoa hồng không giới hạn</h3>
-          <p>Gia tăng thu nhập với cùng một BĐS từ nhiều dịch vụ: định giá, vay thế chấp, mua bán và dịch vụ hậu giao
-            dịch.</p>
+
+        <div class="usp-card usp-card--2">
+          <div class="usp-card-top">
+            <h3 class="usp-card-title">Lãi Suất Ưu Đãi</h3>
+            <p class="usp-card-desc">Mức lãi suất ưu đãi dành riêng cho đối tác chiến lược của Citics Mortgages.</p>
+          </div>
+          <div class="usp-card-shape" aria-hidden="true"></div>
+          <div class="usp-card-footer">
+            <span class="usp-card-tag">Lãi suất đặc quyền</span>
+            <button type="button" class="usp-card-btn" aria-label="Tìm hiểu thêm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="usp-card reveal reveal-delay-3">
-          <div class="usp-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="3" />
-              <path
-                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-            </svg></div>
-          <h3>Chuẩn hoá hợp tác</h3>
-          <p>Phân vai rõ ràng giữa các bên. Quy trình hợp tác chuẩn hoá trên hệ thống. Dữ liệu giao dịch minh bạch.</p>
+
+        <div class="usp-card usp-card--3">
+          <div class="usp-card-top">
+            <h3 class="usp-card-title">Xử Lý Nhanh Chóng</h3>
+            <p class="usp-card-desc">Phản hồi trong 24–48 giờ làm việc sau khi nhận hồ sơ đầy đủ.</p>
+          </div>
+          <div class="usp-card-shape" aria-hidden="true"></div>
+          <div class="usp-card-footer">
+            <span class="usp-card-tag">Phản hồi 24–48h</span>
+            <button type="button" class="usp-card-btn" aria-label="Tìm hiểu thêm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
-        <div class="usp-card reveal reveal-delay-4">
-          <div class="usp-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
-              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg></div>
-          <h3>Đảm bảo tuân thủ & quyền lợi</h3>
-          <p>Quyền lợi được ghi nhận và bảo vệ bằng hệ thống. Hỗ trợ môi giới đủ điều kiện hoạt động theo chuẩn pháp lý.
-          </p>
+
+        <div class="usp-card usp-card--4">
+          <div class="usp-card-top">
+            <h3 class="usp-card-title">Hỗ Trợ Hồ Sơ</h3>
+            <p class="usp-card-desc">Hướng dẫn chuẩn bị đúng từ đầu, tăng tỷ lệ duyệt vay tối đa.</p>
+          </div>
+          <div class="usp-card-shape" aria-hidden="true"></div>
+          <div class="usp-card-footer">
+            <span class="usp-card-tag">Hỗ trợ toàn diện</span>
+            <button type="button" class="usp-card-btn" aria-label="Tìm hiểu thêm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
         </div>
+
+        <div class="usp-card usp-card--5">
+          <div class="usp-card-top">
+            <h3 class="usp-card-title">Hoàn Toàn Miễn Phí</h3>
+            <p class="usp-card-desc">Không phát sinh chi phí tư vấn ban đầu. Minh bạch, rõ ràng từ đầu đến cuối.</p>
+          </div>
+          <div class="usp-card-shape" aria-hidden="true"></div>
+          <div class="usp-card-footer">
+            <span class="usp-card-tag">Tư vấn miễn phí</span>
+            <button type="button" class="usp-card-btn" aria-label="Tìm hiểu thêm">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
-
-  <!-- Folder divider: USP (white) → Achievements (blue) -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-      <rect width="1440" height="100" fill="white" />
-      <path d="M0 100 H1440 V25 H520 C480 25 460 100 420 100 Z" fill="#0741DA" />
-    </svg>
-  </div>
 
   <!-- ===== 3. ACHIEVEMENTS ===== -->
-  <section class="achievements grain">
+  <section class="section achievements grain" id="achievements">
     <div class="checker-bg"></div>
     <div class="container">
-      <h2 class="section-title reveal section-title--white">Những thành
-        tựu của Citics</h2>
+      <h2 class="section-title section-title--white reveal">Citics Mortgages đang hỗ trợ hàng nghìn khách hàng<br>tìm khoản vay phù hợp</h2>
       <div class="stats-grid">
         <div class="stat-item reveal reveal-delay-1">
-          <div class="stat-number" data-count="32">0</div>
-          <div class="stat-label">Dữ liệu BĐS đã được số hoá</div>
+          <div class="stat-number">
+            <span class="countup" data-count="8" data-suffix="+">0</span>
+          </div>
+          <div class="stat-label">Ngân hàng đối tác</div>
         </div>
         <div class="stat-item reveal reveal-delay-2">
-          <div class="stat-number" data-count="32">0</div>
-          <div class="stat-label">Đối tác ngân hàng</div>
+          <div class="stat-number">
+            <span class="countup" data-count="5000" data-suffix="+">0</span>
+          </div>
+          <div class="stat-label">Hồ sơ đã được duyệt vay</div>
         </div>
         <div class="stat-item reveal reveal-delay-3">
-          <div class="stat-number" data-count="3900">0</div>
-          <div class="stat-label">Đối tác môi giới được xác thực</div>
+          <div class="stat-number">
+            <span class="countup" data-count="24" data-suffix="h">0</span>
+          </div>
+          <div class="stat-label">Thời gian trung bình nhận phản hồi từ ngân hàng</div>
         </div>
         <div class="stat-item reveal reveal-delay-4">
-          <div class="stat-number" data-count="5.1">0</div>
-          <div class="stat-label">USD tổng vốn đã huy động</div>
+          <div class="stat-number">90%</div>
+          <div class="stat-label">Hạn mức vay / giá trị tài sản</div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Folder divider: Achievements (blue) → C-ACN Model (lavender) -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-      <rect width="1440" height="100" fill="#0741DA" />
-      <path d="M0 100 H1440 V25 H520 C480 25 460 100 420 100 Z" fill="#F0F4FD" />
-    </svg>
-  </div>
-
-  <!-- ===== 5. C-ACN MODEL (Banner) ===== -->
-  <section class="section cacn-model" id="cacn">
-    <div class="container">
-      <div class="section-label reveal">Mô hình</div>
-      <h2 class="section-title reveal">Citics Agent Cooperation Network (C-ACN) là gì?</h2>
-      <p class="section-subtitle reveal">C-ACN kết nối môi giới bất động sản, chuyên viên tài chính, định giá và pháp lý
-        trong một mạng lưới hợp tác minh bạch, nơi mỗi người làm đúng vai, công sức được ghi nhận và quyền lợi được bảo
-        vệ</p>
-
-      <div class="cacn-banner-wrap reveal">
-        <picture>
-          <source media="(min-width: 768px)" srcset="assets/launching-1920x750.webp" type="image/webp">
-          <source media="(min-width: 768px)" srcset="assets/launching-1920x750.png" type="image/png">
-          <source srcset="assets/launching-1080x1080.webp" type="image/webp">
-          <img src="assets/launching-1080x1080.png" alt="Ra mắt Citics Agent Cooperation Network"
-            class="cacn-banner-img" loading="lazy">
-        </picture>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== NEW: VÌ SAO C-ACN ĐƯỢC XÂY DỰNG? ===== -->
-  <section class="section comparison" id="comparison" style="padding-top:0;">
-    <div class="container">
-      <h2 class="section-title reveal">Vì sao C-ACN được xây dựng?</h2>
-      <p class="section-subtitle reveal">Nỗi đau của thị trường — Môi giới hiện nay đang đối mặt với hàng loạt thách
-        thức: nguồn hàng phân mảnh, khách hàng khó tiếp cận, công cụ rời rạc và thiếu một hệ thống hợp tác minh bạch.
-      </p>
-
-      <!-- Pain Point Hub Diagram -->
-      <div class="pp-hub reveal">
-        <!-- Labels -->
-        <div class="pp-hub-labels">
-          <span class="pp-hub-label pp-hub-label--left">Vấn đề thị trường</span>
-          <span class="pp-hub-label pp-hub-label--right">C-ACN giải quyết</span>
-        </div>
-
-        <!-- Main diagram -->
-        <div class="pp-hub-diagram">
-          <!-- SVG connector lines -->
-          <svg class="pp-hub-lines" viewBox="0 0 896 456" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <marker id="arr-gray" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#9ca3af" />
-              </marker>
-              <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-                <path d="M0,0 L8,4 L0,8 L2,4 Z" fill="#0741DA" />
-              </marker>
-            </defs>
-            <!-- Left: cards → hub (horizontal then angled to hub circle) -->
-            <polyline points="310,48 334,48 381,168" fill="none" stroke="#9ca3af" stroke-width="1.5"
-              marker-end="url(#arr-gray)" />
-            <polyline points="310,168 334,168 363,198" fill="none" stroke="#9ca3af" stroke-width="1.5"
-              marker-end="url(#arr-gray)" />
-            <polyline points="310,288 334,288 363,258" fill="none" stroke="#9ca3af" stroke-width="1.5"
-              marker-end="url(#arr-gray)" />
-            <polyline points="310,408 334,408 381,288" fill="none" stroke="#9ca3af" stroke-width="1.5"
-              marker-end="url(#arr-gray)" />
-            <!-- Right: hub → cards (angled from hub circle then horizontal) -->
-            <polyline points="515,168 562,48 586,48" fill="none" stroke="#0741DA" stroke-width="1.5"
-              marker-end="url(#arr-blue)" />
-            <polyline points="533,198 562,168 586,168" fill="none" stroke="#0741DA" stroke-width="1.5"
-              marker-end="url(#arr-blue)" />
-            <polyline points="533,258 562,288 586,288" fill="none" stroke="#0741DA" stroke-width="1.5"
-              marker-end="url(#arr-blue)" />
-            <polyline points="515,288 562,408 586,408" fill="none" stroke="#0741DA" stroke-width="1.5"
-              marker-end="url(#arr-blue)" />
-          </svg>
-
-          <!-- Left: Problems -->
-          <div class="pp-col pp-col--left">
-            <div class="pp-row">
-              <div class="pp-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                  <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-              </div>
-              <div class="pp-card pp-card--white">
-                <strong>Thiếu nguồn hàng</strong>
-                <small>Khan hiếm, phụ thuộc quan hệ cá nhân</small>
-              </div>
-            </div>
-            <div class="pp-row">
-              <div class="pp-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 00-3-3.87" />
-                  <path d="M16 3.13a4 4 0 010 7.75" />
-                </svg>
-              </div>
-              <div class="pp-card pp-card--white">
-                <strong>Thiếu nguồn khách</strong>
-                <small>Không có hệ thống phân phối lead ổn định</small>
-              </div>
-            </div>
-            <div class="pp-row">
-              <div class="pp-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path
-                    d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" />
-                </svg>
-              </div>
-              <div class="pp-card pp-card--white">
-                <strong>Thiếu công cụ</strong>
-                <small>Định giá, pháp lý, tài chính không tích hợp</small>
-              </div>
-            </div>
-            <div class="pp-row">
-              <div class="pp-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
-              </div>
-              <div class="pp-card pp-card--white">
-                <strong>Thiếu hệ thống hợp tác</strong>
-                <small>Không minh bạch vai trò, hoa hồng</small>
-              </div>
-            </div>
-          </div>
-
-          <!-- Center Hub -->
-          <div class="pp-hub-center">
-            <div class="pp-hub-ring">
-              <div class="pp-hub-inner">
-                <div class="pp-hub-people">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)"
-                    stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                  </svg>
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                  </svg>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)"
-                    stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                  </svg>
-                </div>
-                <span class="pp-hub-text">C-ACN</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Solutions -->
-          <div class="pp-col pp-col--right">
-            <div class="pp-row">
-              <div class="pp-card pp-card--blue">
-                <strong>Nguồn hàng đa dạng</strong>
-                <small>Ngân hàng, Sơ cấp, Thứ cấp</small>
-              </div>
-              <div class="pp-icon-box pp-icon-box--blue">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <ellipse cx="12" cy="5" rx="9" ry="3" />
-                  <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-                  <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
-                </svg>
-              </div>
-            </div>
-            <div class="pp-row">
-              <div class="pp-card pp-card--blue">
-                <strong>Phân phối lead tự động</strong>
-                <small>Hợp tác giữa các Agent</small>
-              </div>
-              <div class="pp-icon-box pp-icon-box--blue">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <circle cx="18" cy="5" r="3" />
-                  <circle cx="6" cy="12" r="3" />
-                  <circle cx="18" cy="19" r="3" />
-                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
-                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
-                </svg>
-              </div>
-            </div>
-            <div class="pp-row">
-              <div class="pp-card pp-card--blue">
-                <strong>Tích hợp một nền tảng</strong>
-                <small>Định giá, pháp lý, tài chính</small>
-              </div>
-              <div class="pp-icon-box pp-icon-box--blue">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <rect x="3" y="3" width="7" height="7" rx="1" />
-                  <rect x="14" y="3" width="7" height="7" rx="1" />
-                  <rect x="3" y="14" width="7" height="7" rx="1" />
-                  <rect x="14" y="14" width="7" height="7" rx="1" />
-                </svg>
-              </div>
-            </div>
-            <div class="pp-row">
-              <div class="pp-card pp-card--blue">
-                <strong>Mạng lưới chuẩn hoá</strong>
-                <small>Ghi nhận vai trò, hoa hồng minh bạch</small>
-              </div>
-              <div class="pp-icon-box pp-icon-box--blue">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <polyline points="9 12 11 14 15 10" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="wave-divider wave-blue-lavender">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,55 L1440,80 L0,80 Z" fill="#E6ECFB"/>
+      </svg>
     </div>
   </section>
 
   <!-- ===== 4. EFORM #1 ===== -->
-  <section class="eform" id="form1">
-    <div class="container">
-      <div class="eform-header reveal">
-        <div class="section-label section-label--center section-label--white">Đăng ký nhận tư vấn</div>
-        <h2>Tham gia Citics Agent ngay hôm nay</h2>
-        <p>Chọn loại hình phù hợp và điền thông tin. Đội ngũ Citics Agent sẽ liên hệ bạn trong 24 giờ làm việc.</p>
-      </div>
-
-      <div class="form-box reveal">
-        <!-- Tabs -->
-        <div class="form-tabs">
-          <button type="button" class="form-tab active" data-form-tab="agent">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-              <circle cx="12" cy="7" r="4" />
-            </svg>
-            Đăng ký Agent
-          </button>
-          <button type="button" class="form-tab" data-form-tab="store">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-              <polyline points="9 22 9 12 15 12 15 22" />
-            </svg>
-            Đăng ký Store
-          </button>
-        </div>
-
-        <!-- Agent Form -->
-        <div class="form-tab-content active" id="form-agent">
-          <form class="form-body" id="agent-form" novalidate>
+  <section class="section eform eform-primary" id="form1">
+    <div class="eform-bg-gradient"></div>
+    <div class="container eform-inner">
+      <div class="eform-content reveal">
+        <h2 class="section-title section-title--white">Tham gia Citics Mortgages<br>ngay hôm nay</h2>
+        <p class="eform-sub">Điền thông tin để nhận tư vấn. Đội ngũ Citics Mortgages sẽ liên hệ bạn trong 24 giờ làm việc.</p>
+        <div class="form-wrap" id="formWrap1">
+          <form class="mortgage-form" id="mortgageForm1" novalidate>
             <div class="form-row">
-              <div class="form-field">
-                <label>Họ và tên</label>
-                <input type="text" name="name" placeholder="Nguyễn Văn A" required>
+              <div class="form-group">
+                <label for="name1">Họ &amp; tên</label>
+                <input type="text" id="name1" name="name" placeholder="Nguyễn Văn A" required>
               </div>
-              <div class="form-field">
-                <label>Số điện thoại</label>
-                <input type="tel" name="phone" placeholder="0901 234 567" required>
+              <div class="form-group">
+                <label for="year1">Năm sinh</label>
+                <input type="number" id="year1" name="year" placeholder="1990" min="1940" max="2005" required>
               </div>
             </div>
             <div class="form-row">
-              <div class="form-field">
-                <label for="agent-city">Thành phố</label>
-                <select id="agent-city" name="city" aria-label="Thành phố" required>
-                  <option value="" disabled selected>Chọn thành phố</option>
-                  <option>Hồ Chí Minh</option>
-                  <option>Hà Nội</option>
-                  <option>Đà Nẵng</option>
-                  <option>Khác</option>
-                </select>
+              <div class="form-group">
+                <label for="phone1">Số điện thoại</label>
+                <input type="tel" id="phone1" name="phone" placeholder="0901 234 567" required>
               </div>
-              <div class="form-field">
-                <label for="experience">Kinh nghiệm</label>
-                <select id="experience" name="experience" aria-label="Kinh nghiệm" required>
-                  <option value="" disabled selected>Chọn kinh nghiệm</option>
-                  <option>Chưa có kinh nghiệm</option>
-                  <option>Dưới 1 năm</option>
-                  <option>1-3 năm</option>
-                  <option>Trên 3 năm</option>
+              <div class="form-group">
+                <label for="need1">Nhu cầu vay</label>
+                <select id="need1" name="need" required>
+                  <option value="" disabled selected>Chọn nhu cầu vay</option>
+                  <option value="mua-nha">Vay mua nhà</option>
+                  <option value="xay-sua">Vay xây sửa nhà</option>
+                  <option value="kinh-doanh">Vay kinh doanh</option>
+                  <option value="tieu-dung">Vay tiêu dùng</option>
                 </select>
               </div>
             </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="agent-type">Loại Agent</label>
-                <select id="agent-type" name="agentType" aria-label="Loại Agent" required>
-                  <option value="" disabled selected>Chọn loại Agent</option>
-                  <option>Môi giới bất động sản</option>
-                  <option>Chuyên viên tài chính</option>
-                  <option>Chuyên viên định giá</option>
-                  <option>Chuyên viên pháp lý</option>
+            <div class="form-row form-row--single">
+              <div class="form-group">
+                <label for="area1">Khu vực BĐS thế chấp</label>
+                <select id="area1" name="area" required>
+                  <option value="" disabled selected>Chọn khu vực</option>
+                  <option value="hcm">Hồ Chí Minh</option>
+                  <option value="hn">Hà Nội</option>
+                  <option value="dn">Đà Nẵng</option>
+                  <option value="other">Khác</option>
                 </select>
               </div>
-              <div class="form-field">
-                <label>Số điện thoại người giới thiệu</label>
-                <input type="text" name="referral" placeholder="0901 234 567">
-              </div>
             </div>
-            <div class="form-checkbox">
-              <label>
-                <input type="checkbox" name="courseInterest" id="agent-course-interest">
-                <span>Tôi có quan tâm đến khoá học Chứng nhận bồi dưỡng kiến thức môi giới BĐS</span>
-              </label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-submit">Đăng ký làm Agent</button>
+            <button type="submit" class="btn btn-amber btn-lg btn-full">
+              Nhận tư vấn miễn phí <span class="sparkle">✦</span>
+            </button>
           </form>
+          <div class="form-success hidden" id="formSuccess1">
+            <div class="success-icon">✦</div>
+            <h3>Cảm ơn bạn đã đăng ký!</h3>
+            <p>Đội ngũ Citics Mortgages sẽ liên hệ bạn trong 24 giờ làm việc.</p>
+          </div>
         </div>
-
-        <!-- Store Form -->
-        <div class="form-tab-content" id="form-store">
-          <form class="form-body" id="store-form" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label>Tên Công ty / Người đại diện</label>
-                <input type="text" name="name" placeholder="Nhập tên công ty / người đại diện" required>
-              </div>
-              <div class="form-field">
-                <label>Số điện thoại</label>
-                <input type="tel" name="phone" placeholder="0901 234 567" required>
-              </div>
+        <div class="app-downloads reveal">
+          <p class="app-downloads-label">Hoặc tải app Citics</p>
+          <div class="app-qr-row">
+            <div class="app-qr-item">
+              <img src="assets/qr-ios.png" alt="QR iOS" class="qr-img">
+              <span>App Store</span>
             </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="store-city">Thành phố</label>
-                <select id="store-city" name="city" aria-label="Thành phố" required>
-                  <option value="" disabled selected>Chọn thành phố</option>
-                  <option>Hồ Chí Minh</option>
-                  <option>Hà Nội</option>
-                  <option>Đà Nẵng</option>
-                  <option>Khác</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="store-agent-count">Số lượng Agent</label>
-                <select id="store-agent-count" name="agentCount" aria-label="Số lượng Agent" required>
-                  <option value="" disabled selected>Chọn số lượng</option>
-                  <option>1-5 người</option>
-                  <option>5-20 người</option>
-                  <option>20-50 người</option>
-                  <option>Trên 50 người</option>
-                </select>
-              </div>
+            <div class="app-qr-item">
+              <img src="assets/qr-android.png" alt="QR Android" class="qr-img">
+              <span>Google Play</span>
             </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="store-type">Loại hình hợp tác</label>
-                <select id="store-type" name="storeType" aria-label="Loại hình hợp tác" required>
-                  <option value="" disabled selected>Chọn loại hình</option>
-                  <option>Store Partner</option>
-                  <option>Store Franchise</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label>Số điện thoại người giới thiệu</label>
-                <input type="text" name="referral" placeholder="0901 234 567">
-              </div>
-            </div>
-            <div class="form-checkbox">
-              <label>
-                <input type="checkbox" name="courseInterest" id="store-course-interest">
-                <span>Tôi có quan tâm đến khoá học Chứng nhận bồi dưỡng kiến thức môi giới BĐS</span>
-              </label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-submit">Đăng ký làm Store</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 6. ROLES — LIFECYCLE + COOPERATION ===== -->
-  <section class="section roles" id="roles">
-    <video class="roles-bg-video" autoplay muted loop playsinline>
-      <source src="assets/roles-bg.mp4" type="video/mp4">
-    </video>
+  <!-- ===== 5. PERSONAS ===== -->
+  <section class="section personas" id="personas">
     <div class="container">
-      <div class="section-label reveal">Vai trò</div>
+      <div class="section-header reveal">
+        <div class="section-label">Đối tượng</div>
+        <h2 class="section-title">Dịch vụ phù hợp với</h2>
+      </div>
+      <div class="personas-layout reveal">
 
-      <!-- COOPERATION CIRCLE -->
-      <div class="coop-section reveal">
-        <h3 class="coop-section-title">Vòng đời hợp tác Agent</h3>
-        <p class="coop-note coop-note--normal">Store được ghi nhận doanh thu khi Agent trong
-          Store tham gia vào bất kỳ điểm nào trong vòng đời giao dịch.</p>
-
-        <div class="coop-layout">
-          <div class="coop-circle">
-            <svg class="coop-arrows" viewBox="0 0 600 600" fill="none">
-              <!-- Continuous orbital track -->
-              <circle cx="300" cy="300" r="260" stroke="var(--gray-300)" stroke-width="1.5" stroke-dasharray="6 6"
-                fill="none" opacity="0.6"></circle>
-
-              <defs>
-                <path id="arc-listing" d="M 300,40 A 260,260 0 0,1 547,220" />
-                <path id="arc-buyer" d="M 547,220 A 260,260 0 0,1 452,510" />
-                <path id="arc-mortgage" d="M 148,510 A 260,260 0 0,0 452,510" />
-                <path id="arc-value" d="M 148,510 A 260,260 0 0,1 53,220" />
-                <path id="arc-legal" d="M 53,220 A 260,260 0 0,1 300,40" />
-              </defs>
-
-              <!-- Arrows between nodes -->
-              <path data-arrow="listing" d="M 300,40 A 260,260 0 0,1 547,220" />
-              <path data-arrow="buyer" d="M 547,220 A 260,260 0 0,1 452,510" />
-              <path data-arrow="mortgage" d="M 452,510 A 260,260 0 0,1 148,510" />
-              <path data-arrow="value" d="M 148,510 A 260,260 0 0,1 53,220" />
-              <path data-arrow="legal" d="M 53,220 A 260,260 0 0,1 300,40" />
-            </svg>
-
-            <!-- SVG Text Labels (Z-index 5 wrapper) -->
-            <svg class="coop-action-badges-svg" viewBox="0 0 600 600" fill="none">
-              <text class="coop-action-badge active" data-label="listing" dy="-20">
-                <textPath href="#arc-listing" startOffset="50%" text-anchor="middle" spacing="auto">Niêm yết tài sản
-                </textPath>
-              </text>
-              <text class="coop-action-badge" data-label="buyer" dy="-20">
-                <textPath href="#arc-buyer" startOffset="50%" text-anchor="middle" spacing="auto">Giới thiệu khách mua
-                </textPath>
-              </text>
-              <text class="coop-action-badge" data-label="mortgage" dy="25">
-                <textPath href="#arc-mortgage" startOffset="50%" text-anchor="middle" spacing="auto">Tư vấn vay
-                </textPath>
-              </text>
-              <text class="coop-action-badge" data-label="value" dy="-20">
-                <textPath href="#arc-value" startOffset="50%" text-anchor="middle" spacing="auto">Thẩm định giá tài sản
-                </textPath>
-              </text>
-              <text class="coop-action-badge" data-label="legal" dy="-20">
-                <textPath href="#arc-legal" startOffset="50%" text-anchor="middle" spacing="auto">Hỗ trợ pháp lý
-                </textPath>
-              </text>
-            </svg>
-
-            <div class="coop-center">
-              <img src="assets/Logo_citics_main_w.png" alt="Citics Agent">
+        <!-- LEFT: Tab list -->
+        <div class="persona-tabs" id="personaTabs">
+          <!-- Tab 1 -->
+          <div class="persona-tab active" data-index="0">
+            <div class="persona-tab-icon">
+              <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 13.5L14 5l10 8.5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 12V24h5v-5.5a2 2 0 0 1 4 0V24h5V12" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><rect x="17.5" y="13.5" width="3.5" height="3.5" rx="0.75" stroke="white" stroke-width="1.25" opacity="0.65"/></svg>
             </div>
-
-            <!-- 5 pill-card nodes -->
-            <div class="coop-node active" data-coop="listing">
-              <div class="coop-node-icon"><svg viewBox="0 0 24 24">
-                  <path d="M12 3L2 12h3v8h6v-5h2v5h6v-8h3L12 3z" />
-                </svg></div>
-              <span class="coop-node-label">Listing Agent</span>
+            <div class="persona-tab-info">
+              <div class="persona-tab-title">Người mua nhà lần đầu</div>
+              <div class="persona-tab-desc">Cần được tư vấn &amp; xác định khả năng vay phù hợp với thu nhập thực tế.</div>
             </div>
-            <div class="coop-node" data-coop="buyer">
-              <div class="coop-node-icon"><svg viewBox="0 0 24 24">
-                  <path
-                    d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-.32 0-.63.05-.91.14.57.81.9 1.79.9 2.86s-.34 2.05-.9 2.86c.28.09.59.14.91.14zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-                </svg></div>
-              <span class="coop-node-label">Buyer Agent</span>
-            </div>
-            <div class="coop-node" data-coop="mortgage">
-              <div class="coop-node-icon"><svg viewBox="0 0 24 24">
-                  <path
-                    d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
-                </svg></div>
-              <span class="coop-node-label">Mortgages Agent</span>
-            </div>
-            <div class="coop-node" data-coop="value">
-              <div class="coop-node-icon"><svg viewBox="0 0 24 24">
-                  <path
-                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                </svg></div>
-              <span class="coop-node-label">Value Agent</span>
-            </div>
-            <div class="coop-node" data-coop="legal">
-              <div class="coop-node-icon"><svg viewBox="0 0 24 24">
-                  <path
-                    d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-                </svg></div>
-              <span class="coop-node-label">Legal Agent</span>
-            </div>
+            <div class="persona-tab-progress"></div>
           </div>
 
-          <div class="coop-detail-box amber-border" id="coop-detail">
-            <div class="coop-detail-header">
-              <div class="coop-detail-icon" id="coop-detail-icon"><svg viewBox="0 0 24 24">
-                  <path d="M3 12l9-8 9 8v9a1 1 0 01-1 1h-5v-6h-4v6H6a1 1 0 01-1-1v-9z" fill="white" />
-                </svg></div>
-              <h3 id="coop-detail-title">Listing Agent</h3>
+          <!-- Tab 2 -->
+          <div class="persona-tab" data-index="1">
+            <div class="persona-tab-icon">
+              <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M4 13.5L14 5l10 8.5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 12V24H21V12" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 22v-9" stroke="#FFBF01" stroke-width="1.75" stroke-linecap="round"/><path d="M11.5 16l2.5-3 2.5 3" stroke="#FFBF01" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <div class="coop-detail-sub" id="coop-detail-sub">Agent đầu chủ — Nguồn hàng</div>
-            <ul id="coop-detail-list">
-              <li>Khảo sát bất động sản</li>
-              <li>Tư vấn giá cho chủ nhà</li>
-              <li>Ký hợp đồng môi giới</li>
-              <li>Quản lý điều kiện giao dịch</li>
+            <div class="persona-tab-info">
+              <div class="persona-tab-title">Người nâng cấp nhà</div>
+              <div class="persona-tab-desc">Cần xoay dòng tiền thông minh khi bán nhà cũ để mua nhà mới.</div>
+            </div>
+            <div class="persona-tab-progress"></div>
+          </div>
+
+          <!-- Tab 3 -->
+          <div class="persona-tab" data-index="2">
+            <div class="persona-tab-icon">
+              <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M2 24V16H8V24" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 24V8H17V24" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 24V12H26V24" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><line x1="1" y1="24" x2="27" y2="24" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg>
+            </div>
+            <div class="persona-tab-info">
+              <div class="persona-tab-title">Nhà đầu tư BĐS</div>
+              <div class="persona-tab-desc">Muốn tối ưu khoản vay để tối đa hoá lợi suất đầu tư bất động sản.</div>
+            </div>
+            <div class="persona-tab-progress"></div>
+          </div>
+
+          <!-- Tab 4 -->
+          <div class="persona-tab" data-index="3">
+            <div class="persona-tab-icon">
+              <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><rect x="3" y="10" width="22" height="14" rx="2.5" stroke="white" stroke-width="1.75"/><path d="M10.5 10V8a1.5 1.5 0 0 1 1.5-1.5h4A1.5 1.5 0 0 1 17.5 8v2" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="17" x2="25" y2="17" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/><line x1="14" y1="14.5" x2="14" y2="19.5" stroke="white" stroke-width="1.75" stroke-linecap="round"/></svg>
+            </div>
+            <div class="persona-tab-info">
+              <div class="persona-tab-title">Chủ doanh nghiệp SMEs</div>
+              <div class="persona-tab-desc">Cần xoay vòng vốn kinh doanh bằng tài sản thế chấp bất động sản.</div>
+            </div>
+            <div class="persona-tab-progress"></div>
+          </div>
+
+          <!-- Tab 5 -->
+          <div class="persona-tab" data-index="4">
+            <div class="persona-tab-icon">
+              <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="white" stroke-width="1.75"/><line x1="9.5" y1="18.5" x2="18.5" y2="9.5" stroke="white" stroke-width="1.75" stroke-linecap="round"/><circle cx="10.5" cy="10.5" r="2" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="17.5" r="2" stroke="white" stroke-width="1.5"/></svg>
+            </div>
+            <div class="persona-tab-info">
+              <div class="persona-tab-title">Người tái cấu trúc khoản vay</div>
+              <div class="persona-tab-desc">Muốn tối ưu chi phí lãi vay hiện tại bằng cách tái cấu trúc khoản vay.</div>
+            </div>
+            <div class="persona-tab-progress"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Detail panel -->
+        <div class="persona-detail">
+          <div class="persona-detail-visual" id="personaDetailVisual" data-persona="0">
+          </div>
+          <div class="persona-detail-body" id="personaDetailBody">
+            <h3 class="persona-detail-name" id="personaDetailName">Người mua nhà lần đầu</h3>
+            <p class="persona-detail-text" id="personaDetailText">Cần được tư vấn &amp; xác định khả năng vay phù hợp với thu nhập thực tế.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 6. PAINPOINTS ===== -->
+  <section class="section painpoints" id="painpoints">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Nỗi đau</div>
+        <h2 class="section-title section-title--white">Nhiều khách hàng gặp khó khăn khi<br>tìm khoản vay phù hợp</h2>
+      </div>
+      <div class="maze-wrapper" id="mazeWrapper">
+
+        <!-- Central spine -->
+        <div class="maze-spine">
+          <div class="maze-spine-fill" id="mazeSpineFill"></div>
+        </div>
+
+        <!-- Pain 1: LEFT -->
+        <div class="maze-row maze-row--left" data-maze-row="0">
+          <div class="maze-half maze-half--card">
+            <div class="maze-card">
+              <div class="maze-card-icon">
+                <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="#FFBF01" stroke-width="2"/><path d="M14 8v6M14 18v1" stroke="#FFBF01" stroke-width="2.5" stroke-linecap="round"/></svg>
+              </div>
+              <h3 class="maze-card-title">Không biết mình vay được bao nhiêu</h3>
+              <p class="maze-card-desc">Khó xác định hạn mức vay thực tế mà không có chuyên gia hỗ trợ phân tích.</p>
+            </div>
+          </div>
+          <div class="maze-dot-wrap"><div class="maze-dot"></div></div>
+          <div class="maze-half maze-half--empty"></div>
+        </div>
+
+        <!-- Pain 2: RIGHT -->
+        <div class="maze-row maze-row--right" data-maze-row="1">
+          <div class="maze-half maze-half--empty"></div>
+          <div class="maze-dot-wrap"><div class="maze-dot"></div></div>
+          <div class="maze-half maze-half--card">
+            <div class="maze-card">
+              <div class="maze-card-icon">
+                <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><path d="M4 20l8-8 4 4 8-10" stroke="#11DAEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="22" cy="6" r="4" fill="#11DAEF" opacity="0.2" stroke="#11DAEF" stroke-width="1.5"/></svg>
+              </div>
+              <h3 class="maze-card-title">Không biết ngân hàng nào phù hợp với hồ sơ</h3>
+              <p class="maze-card-desc">Mỗi ngân hàng có tiêu chí khác nhau, rất khó tự đánh giá mà không có dữ liệu.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain 3: LEFT -->
+        <div class="maze-row maze-row--left" data-maze-row="2">
+          <div class="maze-half maze-half--card">
+            <div class="maze-card">
+              <div class="maze-card-icon">
+                <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><rect x="6" y="5" width="16" height="20" rx="3" stroke="#FFBF01" stroke-width="2"/><path d="M10 11h8M10 15h5" stroke="#FFBF01" stroke-width="2" stroke-linecap="round"/><path d="M17 19l2 2 4-4" stroke="#FFBF01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="maze-card-title">Hồ sơ chuẩn bị nhiều nhưng vẫn bị từ chối</h3>
+              <p class="maze-card-desc">Thiếu hiểu biết về điều kiện cho vay dẫn đến hồ sơ không đáp ứng yêu cầu.</p>
+            </div>
+          </div>
+          <div class="maze-dot-wrap"><div class="maze-dot"></div></div>
+          <div class="maze-half maze-half--empty"></div>
+        </div>
+
+        <!-- Pain 4: RIGHT -->
+        <div class="maze-row maze-row--right" data-maze-row="3">
+          <div class="maze-half maze-half--empty"></div>
+          <div class="maze-dot-wrap"><div class="maze-dot"></div></div>
+          <div class="maze-half maze-half--card">
+            <div class="maze-card">
+              <div class="maze-card-icon">
+                <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="#11DAEF" stroke-width="2"/><path d="M14 8v6l4 2.5" stroke="#11DAEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="maze-card-title">Thủ tục vay phức tạp và mất thời gian</h3>
+              <p class="maze-card-desc">Quy trình ngân hàng nhiều bước, mỗi ngân hàng lại yêu cầu hồ sơ khác nhau.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pain 5: LEFT -->
+        <div class="maze-row maze-row--left" data-maze-row="4">
+          <div class="maze-half maze-half--card">
+            <div class="maze-card">
+              <div class="maze-card-icon">
+                <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><path d="M14 4l2.5 7.5H24l-6.5 4.5 2.5 7.5L14 19l-6 4.5 2.5-7.5L4 11.5h7.5z" stroke="#FFBF01" stroke-width="2" stroke-linejoin="round"/></svg>
+              </div>
+              <h3 class="maze-card-title">Mất nhiều chi phí để có thể được vay vốn</h3>
+              <p class="maze-card-desc">Phí thẩm định, phí môi giới và các chi phí ẩn khác làm tăng tổng chi phí vay vốn.</p>
+            </div>
+          </div>
+          <div class="maze-dot-wrap"><div class="maze-dot"></div></div>
+          <div class="maze-half maze-half--empty"></div>
+        </div>
+
+        <!-- Solution CTA: CENTER -->
+        <div class="maze-solution" data-maze-row="5">
+          <div class="maze-dot-wrap maze-dot-wrap--solution"><div class="maze-dot maze-dot--solution"></div></div>
+          <div class="maze-solution-card">
+            <div class="maze-solution-icon">
+              <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><path d="M14 4l2.5 7.5H24l-6.5 4.5 2.5 7.5L14 19l-6 4.5 2.5-7.5L4 11.5h7.5z" fill="rgba(255,191,1,0.2)" stroke="#FFBF01" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="maze-solution-title">Citics Mortgages giải quyết tất cả những nỗi đau này</h3>
+            <p class="maze-solution-desc">Chuyên viên tư vấn 1-1, phân tích hồ sơ chuyên nghiệp, kết nối ngân hàng phù hợp.</p>
+            <a href="#hero" class="btn btn-amber">Đăng ký tư vấn miễn phí</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Storytelling bridge: dark → blue -->
+    <div class="pain-bridge">
+      <div class="pain-bridge-inner reveal">
+        <span class="pain-bridge-sparkle">✦</span>
+        <span class="pain-bridge-text">Nhưng có một giải pháp</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. SOLUTIONS ===== -->
+  <section class="section solutions grain" id="solutions">
+    <div class="checker-bg"></div>
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label section-label--white">Giải pháp</div>
+        <h2 class="section-title section-title--white">Citics Mortgages kết nối người có nhu cầu vay thế chấp<br>bất động sản với ngân hàng phù hợp</h2>
+      </div>
+      <div class="solutions-grid">
+        <div class="solution-card reveal reveal-delay-1">
+          <div class="solution-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M4 28l6-8 4 4 6-10 6 14" stroke="#11DAEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="28" cy="6" r="4" fill="rgba(17,218,239,0.2)" stroke="#11DAEF" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">Phân tích hồ sơ vay</h3>
+          <p class="solution-desc">Đánh giá khả năng vay dựa trên thu nhập và tài sản, đưa ra báo cáo sơ bộ rõ ràng.</p>
+        </div>
+        <div class="solution-card reveal reveal-delay-2">
+          <div class="solution-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="2" y="8" width="28" height="18" rx="4" stroke="#11DAEF" stroke-width="2"/>
+              <path d="M8 17h4M20 17h4M8 21h3M21 21h3" stroke="#11DAEF" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="16" cy="17" r="3" fill="#11DAEF" opacity="0.3"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">So sánh nhiều ngân hàng</h3>
+          <p class="solution-desc">Đề xuất ngân hàng phù hợp với hồ sơ và mục tiêu ưu tiên: lãi suất, tốc độ giải ngân, hạn mức vay.</p>
+        </div>
+        <div class="solution-card reveal reveal-delay-3">
+          <div class="solution-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <rect x="7" y="4" width="18" height="24" rx="3" stroke="#11DAEF" stroke-width="2"/>
+              <path d="M12 13h8M12 17h6M12 21h4" stroke="#11DAEF" stroke-width="2" stroke-linecap="round"/>
+              <path d="M20 9l2 2-2 2" stroke="#11DAEF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">Hỗ trợ chuẩn bị hồ sơ</h3>
+          <p class="solution-desc">Tăng khả năng phê duyệt khoản vay bằng cách chuẩn bị hồ sơ đúng theo yêu cầu ngân hàng.</p>
+        </div>
+        <div class="solution-card reveal reveal-delay-4">
+          <div class="solution-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M16 4l3 9h9l-7.5 5.5 3 9L16 23l-7.5 5.5 3-9L4 13h9z" stroke="#11DAEF" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">Chính sách ưu đãi</h3>
+          <p class="solution-desc">Các chính sách ngân hàng dành riêng cho đối tác chiến lược của Citics Mortgages.</p>
+        </div>
+        <div class="solution-card reveal reveal-delay-4">
+          <div class="solution-icon">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <path d="M6 16c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10" stroke="#11DAEF" stroke-width="2" stroke-linecap="round"/>
+              <path d="M10 16h12M16 10l6 6-6 6" stroke="#11DAEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="solution-title">Quy trình giải ngân</h3>
+          <p class="solution-desc">Kết nối hồ sơ &amp; quy trình giải ngân minh bạch, theo dõi tiến độ rõ ràng từng bước.</p>
+        </div>
+      </div>
+    </div>
+    <div class="wave-divider wave-blue-white">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,55 L1440,0 L1440,80 L0,80 Z" fill="#FFFFFF"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== 8. EFORM #2 (compact) ===== -->
+  <section class="section eform eform-compact" id="form2">
+    <div class="container">
+      <div class="eform-compact-inner reveal">
+        <h2 class="eform-compact-title">Nhận tư vấn vay thế chấp miễn phí ngay hôm nay</h2>
+        <form class="compact-form" id="mortgageForm2" novalidate>
+          <div class="compact-form-fields">
+            <input type="text" name="name" placeholder="Họ tên của bạn" required>
+            <input type="tel" name="phone" placeholder="Số điện thoại" required>
+            <button type="submit" class="btn btn-amber">Nhận tư vấn <span class="sparkle">✦</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 9. OPERATING MODEL ===== -->
+  <section class="section opmodel" id="opmodel">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <div class="section-label section-label--center">Mô hình</div>
+        <h2 class="section-title">Citics Mortgages hoạt động<br><em>ra sao?</em></h2>
+        <p class="section-subtitle opmodel-sub">Chỉ 3 bước đơn giản — kết nối hồ sơ vay của bạn với ngân hàng phù hợp nhất.</p>
+      </div>
+      <div class="opmodel-steps reveal">
+        <div class="opmodel-step">
+          <div class="opmodel-step-num">BƯỚC 1</div>
+          <h3 class="opmodel-step-title">Khách hàng đăng ký thông tin vay</h3>
+          <div class="opmodel-step-icon">
+            <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+              <circle cx="70" cy="70" r="60" fill="#E6ECFB"/>
+              <rect x="38" y="44" width="64" height="54" rx="8" fill="white" stroke="#0741DA" stroke-width="2.5"/>
+              <path d="M50 65h40M50 77h28" stroke="#0741DA" stroke-width="2.5" stroke-linecap="round"/>
+              <rect x="50" y="56" width="28" height="4" rx="2" fill="#E6ECFB"/>
+              <circle cx="96" cy="48" r="14" fill="#FFBF01"/>
+              <path d="M91 48l4 4 8-8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <p class="opmodel-step-desc">Điền thông tin cá nhân, thu nhập và nhu cầu vay trên nền tảng Citics Mortgages.</p>
+        </div>
+        <div class="opmodel-step-arrow">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h20M18 8l8 8-8 8" stroke="#0741DA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="opmodel-step">
+          <div class="opmodel-step-num">BƯỚC 2</div>
+          <h3 class="opmodel-step-title">Citics phân tích &amp; kết nối ngân hàng</h3>
+          <div class="opmodel-step-icon">
+            <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+              <circle cx="70" cy="70" r="60" fill="#E6ECFB"/>
+              <circle cx="70" cy="70" r="26" fill="white" stroke="#0741DA" stroke-width="2.5"/>
+              <path d="M58 70l8 8 18-16" stroke="#0741DA" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="30" cy="34" r="12" fill="#FFBF01" opacity="0.9"/>
+              <circle cx="110" cy="34" r="12" fill="#11DAEF" opacity="0.9"/>
+              <circle cx="30" cy="106" r="12" fill="#11DAEF" opacity="0.9"/>
+              <circle cx="110" cy="106" r="12" fill="#FFBF01" opacity="0.9"/>
+              <line x1="41" y1="44" x2="55" y2="57" stroke="#0741DA" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+              <line x1="99" y1="44" x2="85" y2="57" stroke="#0741DA" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+              <line x1="41" y1="96" x2="55" y2="83" stroke="#0741DA" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+              <line x1="99" y1="96" x2="85" y2="83" stroke="#0741DA" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+            </svg>
+          </div>
+          <p class="opmodel-step-desc">Hệ thống so sánh và đề xuất ngân hàng phù hợp nhất với hồ sơ của bạn.</p>
+        </div>
+        <div class="opmodel-step-arrow">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 16h20M18 8l8 8-8 8" stroke="#0741DA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="opmodel-step">
+          <div class="opmodel-step-num">BƯỚC 3</div>
+          <h3 class="opmodel-step-title">Nhận kết quả &amp; giải ngân</h3>
+          <div class="opmodel-step-icon">
+            <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+              <circle cx="70" cy="70" r="60" fill="#E6ECFB"/>
+              <rect x="34" y="50" width="72" height="48" rx="10" fill="white" stroke="#0741DA" stroke-width="2.5"/>
+              <path d="M34 66h72" stroke="#0741DA" stroke-width="1.5" opacity="0.4"/>
+              <rect x="44" y="76" width="20" height="10" rx="4" fill="#E6ECFB"/>
+              <circle cx="96" cy="81" r="10" fill="#FFBF01"/>
+              <path d="M91 81l4 4 8-8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M44 58h24" stroke="#0741DA" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+            </svg>
+          </div>
+          <p class="opmodel-step-desc">Ngân hàng phê duyệt, ký hợp đồng và giải ngân theo điều kiện phù hợp với bạn.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 10. FLOW DIAGRAM ===== -->
+  <section class="section flow" id="flow">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-label">Quy trình</div>
+        <h2 class="section-title section-title--white">Hành trình vay thế chấp<br>cùng Citics Mortgages</h2>
+      </div>
+      <div class="flow-layout">
+
+        <!-- LEFT: sticky step tracker -->
+        <div class="flow-sidebar" id="flowSidebar">
+          <div class="flow-sidebar-spine">
+            <div class="flow-sidebar-fill" id="flowSidebarFill"></div>
+          </div>
+          <div class="flow-step-list" id="flowStepList">
+            <div class="flow-cursor" id="flowCursor"></div>
+            <div class="flow-step" data-flow-step="0">
+              <div class="flow-step-dot"><div class="flow-step-dot-inner"></div></div>
+              <span class="flow-step-num">01</span>
+            </div>
+            <div class="flow-step" data-flow-step="1">
+              <div class="flow-step-dot"><div class="flow-step-dot-inner"></div></div>
+              <span class="flow-step-num">02</span>
+            </div>
+            <div class="flow-step" data-flow-step="2">
+              <div class="flow-step-dot"><div class="flow-step-dot-inner"></div></div>
+              <span class="flow-step-num">03</span>
+            </div>
+            <div class="flow-step" data-flow-step="3">
+              <div class="flow-step-dot"><div class="flow-step-dot-inner"></div></div>
+              <span class="flow-step-num">04</span>
+            </div>
+            <div class="flow-step" data-flow-step="4">
+              <div class="flow-step-dot"><div class="flow-step-dot-inner"></div></div>
+              <span class="flow-step-num">05</span>
+            </div>
+            <div class="flow-step" data-flow-step="5">
+              <div class="flow-step-dot"><div class="flow-step-dot-inner"></div></div>
+              <span class="flow-step-num">06</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: step content panels -->
+        <div class="flow-panels" id="flowPanels">
+
+          <div class="flow-panel" data-flow-panel="0">
+            <div class="flow-panel-head">
+              <span class="flow-panel-badge">Bước 01</span>
+              <h3 class="flow-panel-title">Khách hàng đăng ký thông tin vay</h3>
+              <p class="flow-panel-sub">Thông tin cá nhân, liên lạc, tài chính</p>
+            </div>
+            <ul class="flow-panel-details">
+              <li>Điền thông tin cá nhân: họ tên, ngày sinh, CMND/CCCD</li>
+              <li>Cung cấp thông tin thu nhập và nghề nghiệp</li>
+              <li>Mô tả tài sản thế chấp và nhu cầu vay vốn</li>
+              <li>Chọn mục đích vay: mua nhà, xây sửa, kinh doanh, tái cấu trúc</li>
             </ul>
           </div>
-        </div>
-      </div>
 
-      <!-- LIFECYCLE: Stepper + shared detail -->
-      <h3 class="coop-section-title reveal" style="margin-top: 80px;">Giá trị khi tham gia C-ACN</h3>
-
-      <div class="lifecycle-wrap reveal">
-        <div class="lifecycle-stepper">
-          <div class="lifecycle-fill" id="lc-fill"></div>
-          <div class="lc-step active" data-lc="0">
-            <div class="lc-step-num">01</div>
-            <div class="lc-step-icon"><svg viewBox="0 0 24 24">
-                <path d="M12 3L2 12h3v8h6v-5h2v5h6v-8h3L12 3z" />
-              </svg></div>
-            <div class="lc-step-name">Nguồn hàng</div>
-          </div>
-          <div class="lc-step" data-lc="1">
-            <div class="lc-step-num">02</div>
-            <div class="lc-step-icon"><svg viewBox="0 0 24 24">
-                <path
-                  d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-.32 0-.63.05-.91.14.57.81.9 1.79.9 2.86s-.34 2.05-.9 2.86c.28.09.59.14.91.14zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
-              </svg></div>
-            <div class="lc-step-name">Nguồn khách</div>
-          </div>
-          <div class="lc-step" data-lc="2">
-            <div class="lc-step-num">03</div>
-            <div class="lc-step-icon"><svg viewBox="0 0 24 24">
-                <path
-                  d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
-              </svg></div>
-            <div class="lc-step-name">Nguồn vốn</div>
-          </div>
-          <div class="lc-step" data-lc="3">
-            <div class="lc-step-num">04</div>
-            <div class="lc-step-icon"><svg viewBox="0 0 24 24">
-                <path
-                  d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-              </svg></div>
-            <div class="lc-step-name">Thẩm định</div>
-          </div>
-          <div class="lc-step" data-lc="4">
-            <div class="lc-step-num">05</div>
-            <div class="lc-step-icon"><svg viewBox="0 0 24 24">
-                <path
-                  d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
-              </svg></div>
-            <div class="lc-step-name">Pháp lý</div>
-          </div>
-        </div>
-
-        <div class="lc-connector-arrow" id="lc-arrow"></div>
-        <div class="lc-detail-panel">
-          <div class="lc-detail-inner" id="lc-detail">
-            <div class="lc-d-header">
-              <div class="lc-d-icon" id="lc-d-icon"><svg viewBox="0 0 24 24">
-                  <path d="M3 12l9-8 9 8v9a1 1 0 01-1 1h-5v-6h-4v6H6a1 1 0 01-1-1v-9z" />
-                </svg></div>
-              <div>
-                <div class="lc-d-title" id="lc-d-title">Nguồn hàng</div>
-                <div class="lc-d-sub" id="lc-d-sub">Nguồn bất động sản đa dạng từ nhiều kênh</div>
-              </div>
+          <div class="flow-panel" data-flow-panel="1">
+            <div class="flow-panel-head">
+              <span class="flow-panel-badge">Bước 02</span>
+              <h3 class="flow-panel-title">Citics phân tích hồ sơ</h3>
+              <p class="flow-panel-sub">Chuyên viên liên hệ và phân tích phù hợp với ngân hàng đối tác</p>
             </div>
-            <ul id="lc-d-list">
-              <li>Nguồn hàng Sơ cấp: Các đối tác (VD: SHB)</li>
-              <li>Nguồn hàng ngân hàng & đấu giá</li>
-              <li>Nguồn hàng từ Agent listing (C-ACN)</li>
-              <li>Nguồn hàng Chủ nhà niêm yết</li>
+            <ul class="flow-panel-details">
+              <li>Chuyên viên Citics liên hệ trong vòng 24 giờ làm việc</li>
+              <li>Xác nhận nhu cầu vay và thông tin tài sản thế chấp</li>
+              <li>Phân tích hồ sơ phù hợp với các ngân hàng đối tác</li>
+              <li>Tư vấn bổ sung hồ sơ nếu cần thiết</li>
             </ul>
-            <span class="lc-detail-agent" id="lc-d-agent">Listing Agent</span>
           </div>
-        </div>
-      </div>
 
-    </div>
-  </section>
-
-  <!-- ===== POLICIES (moved after Roles) ===== -->
-  <section class="section policies" id="policies">
-    <div class="container">
-      <div class="section-label reveal">Chính sách</div>
-      <h2 class="section-title reveal">Chính sách & Chương trình khuyến mại</h2>
-      <div class="policy-tabs reveal">
-        <button class="policy-tab active" data-policy="overview">Tổng quan</button>
-        <button class="policy-tab" data-policy="mortgages">Mortgages</button>
-        <button class="policy-tab" data-policy="value">Value</button>
-        <button class="policy-tab" data-policy="buyer-secondary">Buyer Thứ cấp</button>
-        <button class="policy-tab" data-policy="buyer-primary">Buyer Sơ cấp</button>
-      </div>
-      <div class="policy-panels reveal">
-        <div class="policy-panel active" data-policy="overview">
-          <img src="assets/policy-overview-new.svg" alt="Tổng quan" loading="lazy">
-        </div>
-        <div class="policy-panel" data-policy="mortgages">
-          <img src="assets/policy-mortgages-new.svg" alt="Chính sách Mortgages" loading="lazy">
-        </div>
-        <div class="policy-panel" data-policy="value">
-          <img src="assets/policy-value-new.svg" alt="Chính sách Value" loading="lazy">
-        </div>
-        <div class="policy-panel" data-policy="buyer-secondary">
-          <img src="assets/policy-buyer-secondary-new.svg" alt="Chính sách Buyer Thứ cấp" loading="lazy">
-        </div>
-        <div class="policy-panel" data-policy="buyer-primary">
-          <img src="assets/policy-buyer-primary-new.svg" alt="Chính sách Buyer Sơ cấp" loading="lazy">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 10. HOW TO JOIN ===== -->
-  <section class="section journey" id="journey">
-    <div class="container">
-      <div class="section-label reveal">Cách thức tham gia</div>
-      <h2 class="section-title reveal">4 bước để tham gia</h2>
-
-      <!-- Tabs (temporarily hidden) -->
-      <!--
-      <div class="journey-tabs reveal">
-        <button type="button" class="j-tab active" data-journey-tab="agent">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-          </svg>
-          Đăng ký cá nhân
-        </button>
-        <button type="button" class="j-tab" data-journey-tab="store">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-            <polyline points="9 22 9 12 15 12 15 22" />
-          </svg>
-          Đăng ký theo nhóm
-        </button>
-      </div>
-      -->
-
-      <div class="journey-box reveal">
-        <!-- Agent tab content -->
-        <div class="journey-tab-content active" id="journey-agent">
-          <div class="journey-body">
-            <!-- Left: phone mockup (ZaloPay pattern) -->
-            <div class="journey-illustration">
-              <div class="phone-mockup">
-                <!-- Step 1 main image -->
-                <img class="phone-image active" data-illus="1" src="assets/step1-main.png" alt="Citics Agent - Tải app">
-                <!-- Step 1 sub-step images -->
-                <img class="phone-image" data-illus="1.1" src="assets/dangkydichvu1.jpg" alt="Đăng ký dịch vụ trên app">
-                <img class="phone-image" data-illus="1.2" src="assets/dangkydichvu2.jpg" alt="Bấm xác nhận & đăng ký">
-                <img class="phone-image" data-illus="1.3" src="assets/dangkydichvu3.jpg"
-                  alt="Xác thực thông tin tài khoản lần đầu">
-                <img class="phone-image" data-illus="1.4" src="assets/dangkydichvu4.jpg" alt="Xác thực qua CCCD">
-                <!-- Phone border frame overlay -->
-                <img class="phone-border" src="assets/phone-frame.svg" alt="device-border">
-              </div>
-              <!-- Steps 2-4 direct images (no phone frame) -->
-              <img class="step-photo" data-illus="2" src="assets/step2-main.png" alt="Hội nhập & Đào tạo">
-              <img class="step-photo" data-illus="3" src="assets/step3-main.png" alt="Thực hiện đào tạo">
-              <img class="step-photo" data-illus="4" src="assets/step4-main.png" alt="Bắt đầu sự nghiệp">
+          <div class="flow-panel" data-flow-panel="2">
+            <div class="flow-panel-head">
+              <span class="flow-panel-badge">Bước 03</span>
+              <h3 class="flow-panel-title">Kết nối ngân hàng phù hợp</h3>
+              <p class="flow-panel-sub">Gửi hồ sơ qua ngân hàng phù hợp</p>
             </div>
+            <ul class="flow-panel-details">
+              <li>Đối chiếu tiêu chí ngân hàng với hồ sơ khách hàng</li>
+              <li>Chọn ngân hàng tối ưu theo mục tiêu: lãi suất, hạn mức, tốc độ</li>
+              <li>Gửi hồ sơ chính thức đến ngân hàng đối tác</li>
+            </ul>
+          </div>
 
-            <!-- Right: steps list -->
-            <div class="journey-steps-col">
-              <div class="journey-steps-vertical">
-                <div class="journey-step" data-step="1">
-                  <div class="step-num">1</div>
-                  <div class="journey-step-content">
-                    <h3>Tải app & Đăng ký dịch vụ</h3>
-                    <p class="step-desc">Tải ứng dụng Citics Agent trên App Store (iOS) hoặc Google Play (Android) về
-                      điện thoại và đăng ký dịch vụ.</p>
-                    <div class="sub-steps">
-                      <div class="sub-step" data-substep="1.1">
-                        <div class="sub-step-num">1.1</div>
-                        <div class="sub-step-content">
-                          <h4>Đăng ký dịch vụ trên app</h4>
-                        </div>
-                      </div>
-                      <div class="sub-step" data-substep="1.2">
-                        <div class="sub-step-num">1.2</div>
-                        <div class="sub-step-content">
-                          <h4>Bấm xác nhận & đăng ký</h4>
-                        </div>
-                      </div>
-                      <div class="sub-step" data-substep="1.3">
-                        <div class="sub-step-num">1.3</div>
-                        <div class="sub-step-content">
-                          <h4>Xác thực thông tin tài khoản lần đầu</h4>
-                        </div>
-                      </div>
-                      <div class="sub-step" data-substep="1.4">
-                        <div class="sub-step-num">1.4</div>
-                        <div class="sub-step-content">
-                          <h4>Xác thực qua CCCD</h4>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="journey-step" data-step="2">
-                  <div class="step-num">2</div>
-                  <div class="journey-step-content">
-                    <h3>Hội nhập & Đào tạo</h3>
-                    <p class="step-desc">Nhận cuộc gọi tư vấn từ đội ngũ C-ACN và xác nhận lịch đào tạo phù hợp.</p>
-                  </div>
-                </div>
-                <div class="journey-step" data-step="3">
-                  <div class="step-num">3</div>
-                  <div class="journey-step-content">
-                    <h3>Thực hiện đào tạo</h3>
-                    <p class="step-desc">Tham gia khóa đào tạo online/offline để nắm vững quy trình và công cụ hỗ trợ.
-                    </p>
-                  </div>
-                </div>
-                <div class="journey-step" data-step="4">
-                  <div class="step-num">4</div>
-                  <div class="journey-step-content">
-                    <h3>Hoàn thành & Kích hoạt vai trò</h3>
-                    <p class="step-desc">Hoàn tất đào tạo, kích hoạt tài khoản Agent và bắt đầu hoạt động kinh doanh.
-                    </p>
-                  </div>
-                </div>
-              </div>
+          <div class="flow-panel" data-flow-panel="3">
+            <div class="flow-panel-head">
+              <span class="flow-panel-badge">Bước 04</span>
+              <h3 class="flow-panel-title">Ngân hàng tư vấn và thẩm định hồ sơ</h3>
+              <p class="flow-panel-sub">Chuyên viên ngân hàng liên hệ, thẩm định giá &amp; hoàn thành hồ sơ</p>
             </div>
+            <ul class="flow-panel-details">
+              <li>Chuyên viên ngân hàng liên hệ trực tiếp với khách hàng</li>
+              <li>Xác nhận và bổ sung thông tin cần thiết</li>
+              <li>Thẩm định giá tài sản thế chấp qua đơn vị định giá độc lập</li>
+              <li>Hoàn thiện hồ sơ pháp lý theo yêu cầu ngân hàng</li>
+            </ul>
           </div>
-        </div>
 
-        <!-- Store tab content (placeholder) -->
-        <div class="journey-tab-content" id="journey-store">
-          <div class="journey-body">
-            <div class="journey-placeholder">
-              <p>Hướng dẫn cho Store đang được cập nhật. Vui lòng quay lại sau.</p>
+          <div class="flow-panel" data-flow-panel="4">
+            <div class="flow-panel-head">
+              <span class="flow-panel-badge">Bước 05</span>
+              <h3 class="flow-panel-title">Phê duyệt khoản vay</h3>
+              <p class="flow-panel-sub">Trả kết quả duyệt vay cho khách hàng theo điều kiện phù hợp</p>
             </div>
+            <ul class="flow-panel-details">
+              <li>Ngân hàng ra quyết định phê duyệt khoản vay</li>
+              <li>Thông báo kết quả: hạn mức vay, lãi suất, kỳ hạn</li>
+              <li>Ký kết hợp đồng vay vốn và thế chấp tài sản</li>
+            </ul>
           </div>
+
+          <div class="flow-panel" data-flow-panel="5">
+            <div class="flow-panel-head">
+              <span class="flow-panel-badge">Bước 06</span>
+              <h3 class="flow-panel-title">Giải ngân</h3>
+              <p class="flow-panel-sub">Nhận vốn vay</p>
+            </div>
+            <ul class="flow-panel-details">
+              <li>Hoàn tất thủ tục công chứng hợp đồng thế chấp</li>
+              <li>Ngân hàng thực hiện giải ngân theo điều khoản hợp đồng</li>
+              <li>Khách hàng nhận vốn vay và bắt đầu sử dụng</li>
+              <li>Citics hỗ trợ theo dõi sau giải ngân nếu cần</li>
+            </ul>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 7. EFORM #2 (compact) ===== -->
-  <section class="cta-compact cta-compact--blue grain">
+  <!-- ===== 11. POLICIES ===== -->
+  <section class="section policies grain" id="policies">
     <div class="checker-bg"></div>
-    <div class="container u-relative-z2">
-      <h2 class="reveal">
-        Bạn đã sẵn sàng tham gia C-ACN?
-      </h2>
-      <p class="reveal">Đăng ký ngay để bắt đầu hành trình
-        môi giới chuyên nghiệp</p>
-      <div class="reveal u-flex-center-wrap">
-        <a href="#form1" class="btn btn-primary">Nhận tư vấn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 12. EVENTS ===== -->
-  <section class="section events" id="events">
     <div class="container">
-      <div class="section-label reveal">Sự kiện</div>
-      <h2 class="section-title reveal">Hoạt động dành riêng cho Agent của Citics</h2>
-
-      <div class="events-carousel-wrap reveal">
-        <div class="events-carousel" id="eventsCarousel">
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/VIUS-3.jpg" alt="Event Citics">
+      <div class="section-header reveal">
+        <div class="section-label section-label--white">Ưu đãi</div>
+        <h2 class="section-title section-title--white">Chính sách &amp; Ưu đãi Độc Quyền</h2>
+      </div>
+      <div class="policy-grid">
+        <div class="policy-card reveal reveal-delay-1">
+          <div class="policy-accent">✦</div>
+          <div class="policy-value">0.3%</div>
+          <h3 class="policy-title">Cashback độc quyền</h3>
+          <p class="policy-desc">Lần đầu tại Việt Nam khách hàng nhận Cashback lên tới 0.3% giá trị khoản vay.</p>
+        </div>
+        <div class="policy-card reveal reveal-delay-2">
+          <div class="policy-accent">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 13.5L14 5l10 8.5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 12V24h5v-5.5a2 2 0 0 1 4 0V24h5V12" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="17.5" y="13.5" width="3.5" height="3.5" rx="0.75" stroke="white" stroke-width="1.25" opacity="0.65"/>
+            </svg>
           </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/VIUS-8.jpg" alt="Event Citics">
+          <div class="policy-value">Miễn phí</div>
+          <h3 class="policy-title">Định giá tài sản</h3>
+          <p class="policy-desc">Miễn phí định giá tài sản thế chấp để vay vốn, tiết kiệm chi phí đáng kể.</p>
+        </div>
+        <div class="policy-card reveal reveal-delay-3">
+          <div class="policy-accent">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="4" width="14" height="20" rx="2.5" stroke="white" stroke-width="1.75"/>
+              <path d="M10.5 4V3a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v1" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="10" y1="11" x2="18" y2="11" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+              <line x1="10" y1="15" x2="16" y2="15" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+              <path d="M15 19l2 2 4-3.5" stroke="#FFBF01" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/VIUS-50.jpg" alt="Event Citics">
-          </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/VIUS-94.jpg" alt="Event Citics">
-          </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/IMG_0157.jpg" alt="Event Citics">
-          </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/IMG_0468.jpg" alt="Event Citics">
-          </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/IMG_3249.jpg" alt="Event Citics">
-          </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/IMG_3324.jpg" alt="Event Citics">
-          </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/IMG_3357.jpg" alt="Event Citics">
-          </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/IMG_9903.jpg" alt="Event Citics">
-          </div>
-          <div class="ev-card">
-            <img loading="lazy" src="assets/events/IMG_9982.jpg" alt="Event Citics">
-          </div>
+          <div class="policy-value">Miễn phí</div>
+          <h3 class="policy-title">Sơ bộ giá trị tài sản</h3>
+          <p class="policy-desc">Miễn phí sơ bộ giá trị tài sản, giúp khách hàng xác định khả năng vay trước khi nộp hồ sơ.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 8. TRAINING ===== -->
-  <section class="section training u-hidden" id="training">
+  <!-- ===== 12. EFORM #3 (compact) ===== -->
+  <section class="section eform eform-compact" id="form3">
     <div class="container">
-      <div class="section-label reveal">Đào tạo</div>
-      <h2 class="section-title reveal">Tham gia các buổi đào tạo miễn phí từ Citics</h2>
-      <div class="tabs reveal">
-        <div class="tab active" data-tab-target="training-value">Citics Value</div>
-        <div class="tab" data-tab-target="training-mortgages">Citics Mortgages</div>
-        <div class="tab" data-tab-target="training-homes">Citics Homes</div>
-      </div>
-      <div class="carousel reveal" id="training-value">
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 1</div>
-          <div class="carousel-body">
-            <h4>Khoá đào tạo định giá cơ bản</h4>
-            <p>Citics Value &bull; Sắp khai giảng</p>
+      <div class="eform-compact-inner reveal">
+        <h2 class="eform-compact-title">Nhận ưu đãi độc quyền từ Citics Mortgages</h2>
+        <form class="compact-form" id="mortgageForm3" novalidate>
+          <div class="compact-form-fields">
+            <input type="text" name="name" placeholder="Họ tên của bạn" required>
+            <input type="tel" name="phone" placeholder="Số điện thoại" required>
+            <button type="submit" class="btn btn-amber">Nhận ưu đãi <span class="sparkle">✦</span></button>
           </div>
-        </div>
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 2</div>
-          <div class="carousel-body">
-            <h4>Phương pháp định giá so sánh</h4>
-            <p>Citics Value &bull; Đã tổ chức</p>
-          </div>
-        </div>
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 3</div>
-          <div class="carousel-body">
-            <h4>Định giá BĐS thương mại</h4>
-            <p>Citics Value &bull; Sắp khai giảng</p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel u-hidden" id="training-mortgages">
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 4</div>
-          <div class="carousel-body">
-            <h4>Kỹ năng tư vấn tín dụng BĐS</h4>
-            <p>Citics Mortgages &bull; Đã tổ chức</p>
-          </div>
-        </div>
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 5</div>
-          <div class="carousel-body">
-            <h4>Quy trình giải ngân ngân hàng</h4>
-            <p>Citics Mortgages &bull; Sắp khai giảng</p>
-          </div>
-        </div>
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 6</div>
-          <div class="carousel-body">
-            <h4>Phân tích hồ sơ vay nâng cao</h4>
-            <p>Citics Mortgages &bull; Sắp khai giảng</p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel u-hidden" id="training-homes">
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 7</div>
-          <div class="carousel-body">
-            <h4>Thực chiến giao dịch mua bán</h4>
-            <p>Citics Homes &bull; Sắp khai giảng</p>
-          </div>
-        </div>
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 8</div>
-          <div class="carousel-body">
-            <h4>Kỹ năng đàm phán giá BĐS</h4>
-            <p>Citics Homes &bull; Đã tổ chức</p>
-          </div>
-        </div>
-        <div class="carousel-card">
-          <div class="placeholder carousel-img">ẢNH ĐÀO TẠO 9</div>
-          <div class="carousel-body">
-            <h4>Pháp lý giao dịch nhà đất</h4>
-            <p>Citics Homes &bull; Sắp khai giảng</p>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- ===== 13. TIEC PARTNERSHIP ===== -->
-  <section class="partner-training grain">
-    <div class="checker-bg"></div>
-    <div class="container partner-inner">
-      <div class="partner-banner-full reveal">
-        <picture>
-          <source media="(min-width: 769px)" srcset="assets/TIEC-1920x500.webp" type="image/webp">
-          <source media="(min-width: 769px)" srcset="assets/TIEC-1920x500.png" type="image/png">
-          <source srcset="assets/TIEC-1080x500.webp" type="image/webp">
-          <img src="assets/TIEC-1080x500.png" alt="Bồi dưỡng nghiệp vụ môi giới bất động sản - TIEC"
-            class="tiec-banner-img" loading="lazy">
-        </picture>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 14. EFORM #4 (compact) ===== -->
-  <section class="cta-compact cta-compact--blue grain">
-    <div class="checker-bg"></div>
-    <div class="container u-relative-z2">
-      <h2 class="reveal">Đăng ký ngay
-        để nhận ưu đãi đào tạo</h2>
-      <p class="reveal">Chương trình dành riêng cho Agent của Citics</p>
-      <div class="reveal u-flex-center-wrap">
-        <a href="#form1" class="btn btn-primary">Nhận tư vấn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 11. EFORM #3 (compact) [HIDDEN] =====
-  <section class="eform" style="padding: 60px 0;">
-    <div class="container" style="text-align: center;">
-      <h2 class="reveal" style="font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 12px;">Quy trình đơn
-        giản — Bắt đầu ngay hôm nay</h2>
-      <p class="reveal" style="color: var(--gray-600); margin-bottom: 32px;">Đăng ký để nhận tư vấn miễn phí và bắt đầu
-        hành trình cùng Citics</p>
-      <div class="reveal" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-        <button class="btn btn-primary">Đăng Ký Ngay <span class="sparkle">✦</span></button>
-        <a href="https://agent.citics.vn/dang-ky" target="_blank" rel="noopener" class="btn btn-secondary u-desktop-only">Truy cập Web</a>
-        <a href="https://onelink.to/a5ekgf" target="_blank" rel="noopener" class="btn btn-secondary u-mobile-only">Tải App</a>
-      </div>
-    </div>
-  </section>
-  -->
-
-  <!-- ===== NEW: FAQ ===== -->
-  <section class="section faq" id="faq">
+  <!-- ===== 13. BANKING PARTNERS ===== -->
+  <section class="section banks" id="banks">
     <div class="container">
-      <div class="section-label reveal">Câu hỏi thường gặp</div>
-      <h2 class="section-title reveal">Bạn cần biết thêm?</h2>
-      <div class="faq-list">
-        <div class="faq-item reveal reveal-delay-1">
-          <button type="button" class="faq-question" aria-expanded="false">
-            C-ACN là gì và hoạt động như thế nào?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>C-ACN (Citics Agent Cooperation Network) là hệ điều hành quản trị và hợp tác Agent của Citics. Mạng lưới
-              kết nối các môi giới BĐS, chuyên viên tài chính, định giá và pháp lý vào một hệ thống thống nhất — với quy
-              trình chuẩn hoá, phân vai rõ ràng và dữ liệu minh bạch.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-2">
-          <button type="button" class="faq-question" aria-expanded="false">
-            Điều kiện để tham gia C-ACN?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Bạn cần đăng ký tài khoản trên app Citics Agent, hoàn thành khoá đào tạo cơ bản và được xác minh bởi đội
-              ngũ C-ACN. Quy trình hoàn toàn miễn phí và được hỗ trợ từ A-Z.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-3">
-          <button type="button" class="faq-question" aria-expanded="false">
-            Hoa hồng được tính như thế nào?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Hoa hồng được ghi nhận cho từng dịch vụ trong cùng một giao dịch: môi giới mua bán, định giá, tín dụng,
-              pháp lý. Bạn có thể tham gia nhiều vai trò để gia tăng thu nhập từ một BĐS duy nhất.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-4">
-          <button type="button" class="faq-question" aria-expanded="false">
-            Tôi có cần kinh nghiệm môi giới không?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Không bắt buộc. Citics cung cấp chương trình đào tạo miễn phí từ cơ bản đến nâng cao, cùng công cụ AI hỗ
-              trợ và mạng lưới mentor giúp bạn bắt đầu sự nghiệp môi giới chuyên nghiệp.</p>
-          </div>
-        </div>
-        <div class="faq-item reveal reveal-delay-5">
-          <button type="button" class="faq-question" aria-expanded="false">
-            Làm sao để liên hệ hỗ trợ?
-            <span class="faq-toggle">+</span>
-          </button>
-          <div class="faq-answer">
-            <p>Bạn có thể liên hệ qua hotline 1900 633075, email cacn@citics.com.vn, hoặc trực tiếp qua app Citics
-              Agent.
-              Đội ngũ C-ACN hỗ trợ 24/7.</p>
-          </div>
+      <div class="section-header section-header--center reveal">
+        <div class="section-label section-label--center">Đối tác</div>
+        <h2 class="section-title">Ngân hàng liên kết</h2>
+        <p class="section-subtitle banks-subtitle">Kết nối được nhiều ngân hàng khác nhau trên một nền tảng. Không cần điền lại thông tin hồ sơ cho từng nơi.</p>
+      </div>
+      <!-- Infinite marquee carousel -->
+      <div class="banks-marquee">
+        <div class="banks-track" aria-hidden="false">
+          <!-- Set 1 -->
+          <div class="bank-card"><span class="bank-name--vcb">Vietcombank</span></div>
+          <div class="bank-card"><span class="bank-name--bidv">BIDV</span></div>
+          <div class="bank-card"><span class="bank-name--sacom">Sacombank</span></div>
+          <div class="bank-card"><span class="bank-name--tcb">Techcombank</span></div>
+          <div class="bank-card"><span class="bank-name--vpb">VPBank</span></div>
+          <div class="bank-card"><span class="bank-name--msb">MSB</span></div>
+          <div class="bank-card"><span class="bank-name--mb">MB Bank</span></div>
+          <div class="bank-card"><span class="bank-name--ocb">OCB</span></div>
+          <div class="bank-card"><span class="bank-name--vtb">VietinBank</span></div>
+          <div class="bank-card"><span class="bank-name--agr">Agribank</span></div>
+          <div class="bank-card"><span class="bank-name--acb">ACB</span></div>
+          <div class="bank-card"><span class="bank-name--shb">SHB</span></div>
+          <!-- Set 2 — duplicate for seamless loop -->
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--vcb">Vietcombank</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--bidv">BIDV</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--sacom">Sacombank</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--tcb">Techcombank</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--vpb">VPBank</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--msb">MSB</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--mb">MB Bank</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--ocb">OCB</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--vtb">VietinBank</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--agr">Agribank</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--acb">ACB</span></div>
+          <div class="bank-card" aria-hidden="true"><span class="bank-name--shb">SHB</span></div>
         </div>
       </div>
+      <p class="banks-note reveal">Và nhiều ngân hàng đối tác khác</p>
     </div>
   </section>
 
-  <!-- ===== 15. NEWS ===== -->
+  <!-- ===== 14. NEWS ===== -->
   <section class="section news" id="news">
     <div class="container">
-      <div class="section-label reveal">Tin tức</div>
-      <h2 class="section-title reveal">Citics có gì mới?</h2>
+      <div class="section-header section-header--center reveal">
+        <div class="section-label section-label--center">Tin tức</div>
+        <h2 class="section-title">Citics có gì mới?</h2>
+      </div>
       <div class="news-grid reveal">
-        <div class="news-card">
-          <img class="news-thumb"
-            src="https://cafefcdn.com/zoom/700_438/203337114487263232/2025/9/23/photo1758595209303-1758595209411563251734-1758620272912240529498.jpg"
-            alt="Citics và VPBank hợp tác">
-          <div class="news-body">
-            <h4>Citics và VPBank hợp tác xây dựng hệ sinh thái tài chính & bất động sản số</h4>
-            <a href="https://cafef.vn/citics-va-vpbank-hop-tac-xay-dung-he-sinh-thai-tai-chinh-bat-dong-san-so-188250923163751796.chn"
-              target="_blank" rel="noopener" class="link">Đọc thêm →</a>
+        <article class="news-card reveal reveal-delay-1">
+          <div class="news-img news-img--vpb">
+            <div class="news-img-ph">
+              <svg class="news-img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="news-img-ph-label">news-vpb.jpg</span>
+              <span class="news-img-ph-size">560 × 260px</span>
+            </div>
           </div>
-        </div>
-        <div class="news-card">
-          <img class="news-thumb"
-            src="https://c-content.citics.vn/wp-content/uploads/2025/12/KV-AI_ver-Citics-Group_Horizonal_thumb-3-scaled.png"
-            alt="Ra mắt trợ lý AI CiCi">
           <div class="news-body">
-            <h4>Citics ra mắt Trợ lý AI CiCi — Tiên phong ứng dụng AI vào nghiệp vụ BĐS & tài chính</h4>
-            <a href="https://citics.vn/tin-tuc/citics-ra-mat-tro-ly-ai-cici-tien-phong-ung-dung-ai-vao-nghiep-vu-bat-dong-san-tai-chinh"
-              target="_blank" rel="noopener" class="link">Đọc thêm →</a>
+            <div class="news-source"><span class="news-source-dot news-source-dot--green"></span>VPBank</div>
+            <h3 class="news-title">Citics Mortgages ký kết hợp tác chiến lược với VPBank mở rộng gói vay ưu đãi</h3>
+            <a href="#" class="news-link">Xem chi tiết →</a>
           </div>
-        </div>
-        <div class="news-card">
-          <img class="news-thumb"
-            src="https://c-content.sgp1.digitaloceanspaces.com/wp-content/uploads/2026/01/12091614/BHS05345-scaled.jpg"
-            alt="Hợp tác BHS Property">
+        </article>
+        <article class="news-card reveal reveal-delay-2">
+          <div class="news-img news-img--msb">
+            <div class="news-img-ph">
+              <svg class="news-img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="news-img-ph-label">news-msb.jpg</span>
+              <span class="news-img-ph-size">560 × 260px</span>
+            </div>
+          </div>
           <div class="news-body">
-            <h4>BHS Property và Citics ký kết hợp tác chiến lược, triển khai mô hình phân phối mới</h4>
-            <a href="https://citics.vn/tin-tuc/bhs-property-va-citics-ky-ket-hop-tac-chien-luoc-trien-khai-mo-hinh-phan-phoi-moi"
-              target="_blank" rel="noopener" class="link">Đọc thêm →</a>
+            <div class="news-source"><span class="news-source-dot news-source-dot--red"></span>MSB</div>
+            <h3 class="news-title">Hợp tác với MSB: thêm lựa chọn lãi suất ưu đãi cho khách hàng Citics</h3>
+            <a href="#" class="news-link">Xem chi tiết →</a>
           </div>
-        </div>
-        <div class="news-card">
-          <img class="news-thumb" src="https://c-content.citics.vn/wp-content/uploads/2025/09/IMG_7268-min-1.png"
-            alt="Hợp tác TIEC">
+        </article>
+        <article class="news-card reveal reveal-delay-3">
+          <div class="news-img news-img--mb">
+            <div class="news-img-ph">
+              <svg class="news-img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="news-img-ph-label">news-mb.jpg</span>
+              <span class="news-img-ph-size">560 × 260px</span>
+            </div>
+          </div>
           <div class="news-body">
-            <h4>Citics bắt tay TIEC: Môi giới BĐS được "tiếp sức" bằng công nghệ và kiến thức chuyên sâu</h4>
-            <a href="https://citics.vn/chi-tiet-tuyen-dung/4413" target="_blank" rel="noopener" class="link">Đọc thêm
-              →</a>
+            <div class="news-source"><span class="news-source-dot news-source-dot--blue"></span>MB Bank</div>
+            <h3 class="news-title">Citics và MB Bank ra mắt gói vay thế chấp lãi suất ưu đãi Q2/2026</h3>
+            <a href="#" class="news-link">Xem chi tiết →</a>
           </div>
-        </div>
-        <div class="news-card">
-          <img class="news-thumb" src="assets/news-vneconomy.jpeg" alt="Gọi vốn 2.1 triệu USD">
+        </article>
+        <article class="news-card reveal reveal-delay-4">
+          <div class="news-img news-img--ocb">
+            <div class="news-img-ph">
+              <svg class="news-img-ph-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              <span class="news-img-ph-label">news-ocb.jpg</span>
+              <span class="news-img-ph-size">560 × 260px</span>
+            </div>
+          </div>
           <div class="news-body">
-            <h4>Startup công nghệ BĐS Việt huy động thành công hơn 2 triệu USD vòng pre-series A</h4>
-            <a href="https://vneconomy.vn/mot-startup-cong-nghe-bat-dong-san-viet-huy-dong-thanh-cong-hon-2-trieu-usd-von-vong-pre-series-a.htm"
-              target="_blank" rel="noopener" class="link">Đọc thêm →</a>
+            <div class="news-source"><span class="news-source-dot news-source-dot--orange"></span>OCB</div>
+            <h3 class="news-title">Hợp tác với OCB: thêm lựa chọn vay linh hoạt cho khách hàng Citics</h3>
+            <a href="#" class="news-link">Xem chi tiết →</a>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Folder divider: News (lavender) → Final CTA (blue) -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-      <rect width="1440" height="100" fill="#F0F4FD" />
-      <path d="M0 100 H1440 V25 H520 C480 25 460 100 420 100 Z" fill="#0741DA" />
-    </svg>
-  </div>
-
-  <!-- ===== FINAL CTA ===== -->
-  <section class="final-cta grain">
+  <!-- ===== 15. EFORM #4 (CTA section) ===== -->
+  <section class="section eform eform-cta grain" id="form4">
     <div class="checker-bg"></div>
-    <div class="container">
-      <h2 class="reveal">Sẵn sàng phát triển sự nghiệp<br>môi giới cùng Citics?</h2>
-      <p class="reveal">Đăng ký ngay để bắt đầu hành trình chuyên nghiệp của bạn</p>
-      <div class="final-cta-buttons reveal">
-        <a href="#form1" class="btn btn-primary btn--lg">Nhận tư vấn</a>
-        <a href="https://agent.citics.vn/dang-ky" target="_blank" rel="noopener"
-          class="btn btn-ghost btn--lg u-desktop-only">Trải nghiệm ứng dụng</a>
-        <a href="https://onelink.to/a5ekgf" target="_blank" rel="noopener"
-          class="btn btn-ghost btn--lg u-mobile-only">Trải nghiệm ứng dụng</a>
-      </div>
+    <div class="container eform-cta-inner reveal">
+      <div class="section-label section-label--white">Bắt đầu ngay</div>
+      <h2 class="section-title section-title--white">Bắt đầu hành trình vay thế chấp<br>thông minh <span class="sparkle">✦</span></h2>
+      <p class="eform-cta-sub">Điền thông tin để nhận tư vấn. Đội ngũ Citics Mortgages sẽ liên hệ bạn trong 24 giờ.</p>
+      <form class="compact-form compact-form--dark" id="mortgageForm4" novalidate>
+        <div class="compact-form-fields">
+          <input type="text" name="name" placeholder="Họ tên của bạn" required>
+          <input type="tel" name="phone" placeholder="Số điện thoại" required>
+          <button type="submit" class="btn btn-amber btn-lg">Nhận tư vấn miễn phí <span class="sparkle">✦</span></button>
+        </div>
+      </form>
     </div>
   </section>
-
-  <!-- Folder divider: Final CTA (blue) → Footer (black) -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-      <rect width="1440" height="100" fill="#0741DA" />
-      <path d="M0 100 H1440 V25 H520 C480 25 460 100 420 100 Z" fill="#000000" />
-    </svg>
-  </div>
 
   <!-- ===== 16. FOOTER ===== -->
-  <footer class="footer">
-    <div class="container">
-      <!-- Link columns -->
-      <div class="footer-links">
-        <div>
-          <h4>Về Citics</h4>
-          <ul>
-            <li><a href="https://www.citics.vn/ve-chung-toi" target="_blank" rel="noopener">Giới thiệu</a></li>
-            <li><a href="https://www.citics.vn/ds-tin-tuc" target="_blank" rel="noopener">Tin tức</a></li>
-            <li><a href="https://www.citics.vn/tuyen-dung" target="_blank" rel="noopener">Tuyển dụng</a></li>
-            <li><a href="https://www.citics.vn/lien-he" target="_blank" rel="noopener">Liên hệ</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Dịch vụ</h4>
-          <ul>
-            <li><a href="https://value.citics.vn/" target="_blank" rel="noopener">Dành cho Ngân hàng</a></li>
-            <li><a href="https://agent.citics.vn/" target="_blank" rel="noopener">Dành cho môi giới BĐS</a></li>
-            <li><a href="https://valuer.citics.vn/" target="_blank" rel="noopener">Dành cho công ty Thẩm định</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Hỗ trợ</h4>
-          <ul>
-            <li><a href="https://docs.citics.vn/" target="_blank" rel="noopener">Tài liệu ứng dụng</a></li>
-            <li><a href="https://www.citics.vn/cau-hoi-thuong-gap" target="_blank" rel="noopener">Câu hỏi thường gặp</a>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h4>Văn bản & Pháp lý</h4>
-          <ul>
-            <li><a href="https://www.citics.vn/phap-ly-chi-tiet/dieu-khoan-su-dung" target="_blank" rel="noopener">Điều
-                khoản sử dụng</a></li>
-            <li><a href="https://www.citics.vn/phap-ly-chi-tiet/chinh-sach-bao-mat" target="_blank" rel="noopener">Chính
-                sách bảo mật</a></li>
-            <li><a href="https://www.citics.vn/phap-ly-chi-tiet/chinh-sach-rieng-tu" target="_blank"
-                rel="noopener">Chính sách riêng tư</a></li>
-            <li><a href="https://www.citics.vn/phap-ly" target="_blank" rel="noopener">Pháp lý</a></li>
-            <li><a href="https://www.citics.vn/phap-ly-chi-tiet/thong-bao-xu-ly-du-lieu" target="_blank"
-                rel="noopener">Thông báo xử lý dữ liệu</a></li>
-            <li><a href="https://www.citics.vn/phap-ly-chi-tiet/dieu-khoan-va-dieu-kien-ve-xu-ly-du-lieu-ca-nhan"
-                target="_blank" rel="noopener">Điều khoản xử lý dữ liệu cá nhân</a></li>
-          </ul>
-        </div>
-        <div class="footer-download">
-          <h4>Tải ứng dụng</h4>
-          <div class="footer-qr-group">
-            <div class="footer-qr">
-              <img src="assets/qr-android.png" alt="QR Android" class="footer-qr-img">
-              <a href="https://play.google.com/store/apps/details?id=vn.citics.agent" target="_blank" rel="noopener">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                  alt="Google Play" class="footer-store-badge">
-              </a>
-            </div>
-            <div class="footer-qr">
-              <img src="assets/qr-ios.png" alt="QR iOS" class="footer-qr-img">
-              <a href="https://apps.apple.com/vn/app/citics-agent/id6504488573" target="_blank" rel="noopener">
-                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                  alt="App Store" class="footer-store-badge">
-              </a>
-            </div>
-          </div>
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo-wrap">
+          <img src="assets/logo-mortgages-w.png" alt="Citics Mortgages" class="footer-logo">
+        </a>
+        <p class="footer-tagline">La Bàn Cho Vay Thế Chấp Bất Động Sản</p>
+        <div class="footer-socials">
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Zalo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z"/></svg>
+          </a>
         </div>
       </div>
-
-      <!-- Company info -->
-      <div class="footer-company">
-        <div class="footer-company-top">
-          <img src="assets/Logo_citics_main_w.png" alt="Citics" class="footer-logo">
-        </div>
-        <p class="footer-slogan">La Bàn Cho Mọi Quyết Định Bất Động Sản.<br>
-          Nền tảng bất động sản số ứng dụng dữ liệu & AI, giúp người dùng tự tin làm chủ hành trình an cư và đầu tư!</p>
-        <p class="footer-company-address">Căn LV1-00.16, Tầng trệt, Thủ Thiêm Lake View 1 - Số 19 Đường Ven Hồ Trung
-          Tâm, Phường An Khánh, Thành phố Hồ Chí Minh, Việt Nam</p>
-        <div class="footer-company-meta">
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg> Số điện thoại&ensp;<strong>1900 633075</strong></span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="M22 7l-10 7L2 7" />
-            </svg> Email&ensp;<strong>cacn@citics.com.vn</strong></span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="5" y="2" width="14" height="20" rx="2" />
-              <line x1="12" y1="18" x2="12.01" y2="18" />
-            </svg> Giấy ĐKKD số&ensp;<strong>0315391639</strong></span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg> Ngày cấp&ensp;<strong>15/11/2018</strong></span>
-          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="10" r="3" />
-              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
-            </svg> Nơi cấp&ensp;<strong>Sở KH&ĐT TP. Hồ Chí Minh</strong></span>
-        </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Điều hướng</h4>
+        <ul class="footer-links">
+          <li><a href="#">Về chúng tôi</a></li>
+          <li><a href="#">Quy chế hoạt động</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+        </ul>
       </div>
-
-      <!-- Bottom: copyright + social -->
-      <div class="footer-bottom">
-        <p>&copy; 2026 Bản quyền thuộc về Citics.vn</p>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/CiticsAgent" target="_blank" rel="noopener"
-            aria-label="Facebook Fanpage"><svg viewBox="0 0 24 24">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-            </svg></a>
-          <a href="https://www.facebook.com/groups/citicsagenthub" target="_blank" rel="noopener"
-            aria-label="Facebook Group"><svg viewBox="0 0 24 24">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-              <line x1="19" y1="8" x2="19" y2="14" stroke="currentColor" stroke-width="2" />
-              <line x1="16" y1="11" x2="22" y2="11" stroke="currentColor" stroke-width="2" />
-            </svg></a>
-          <a href="https://www.tiktok.com/@citics_agent" target="_blank" rel="noopener" aria-label="TikTok"><svg
-              viewBox="0 0 32 32">
-              <path
-                d="M16.708 0.027C18.453 0 20.188 0.016 21.921 0C22.052 1.979 22.786 3.978 24.188 5.391C25.59 6.828 27.56 7.558 29.504 7.786V12.637C27.676 12.576 25.843 12.179 24.186 11.401C23.461 11.069 22.786 10.647 22.131 10.202C22.121 14.876 22.148 19.548 22.104 24.214C21.991 26.143 21.302 28.048 20.112 29.577C18.258 32.025 15.261 33.508 12.209 33.486C10.333 33.538 8.469 32.988 6.886 31.984C4.275 30.316 2.571 27.381 2.405 24.334C2.384 23.746 2.376 23.158 2.403 22.573C2.623 19.868 3.947 17.303 5.98 15.562C8.281 13.55 11.494 12.587 14.479 13.171C14.507 15.168 14.422 17.166 14.422 19.163C13.22 18.752 11.828 18.753 10.685 19.328C9.817 19.753 9.1 20.455 8.656 21.316C8.296 21.975 8.2 22.741 8.219 23.479C8.375 25.449 10.169 27.142 12.157 27.049C13.455 27.066 14.698 26.389 15.447 25.344C15.674 25.032 15.888 24.694 15.949 24.312C16.107 22.952 16.055 21.588 16.072 20.222C16.084 13.484 16.055 6.748 16.089 0.013L16.708 0.027Z" />
-            </svg></a>
-          <a href="https://www.youtube.com/@Citics.Official" target="_blank" rel="noopener" aria-label="YouTube"><svg
-              viewBox="0 0 24 24">
-              <path
-                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z" />
-              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-            </svg></a>
-          <a href="https://zalo.me/citicsvn" target="_blank" rel="noopener" aria-label="Zalo OA"><svg
-              viewBox="0 0 24 24">
-              <path
-                d="M12 2C6.48 2 2 6.04 2 11c0 2.76 1.44 5.22 3.68 6.82V22l3.86-2.12c.78.22 1.6.34 2.46.34 5.52 0 10-4.04 10-9S17.52 2 12 2zm.88 12.2H9.2l-.02-.02c-.04-.06-.06-.14-.06-.22 0-.12.04-.24.12-.34l3.24-4.44h-3.2c-.22 0-.4-.16-.44-.38v-.04c0-.24.18-.42.42-.42h3.72c.04.04.08.1.1.16.02.08.04.16.02.24-.02.08-.04.14-.08.2L9.78 13.4h3.08c.24 0 .42.18.42.42 0 .22-.18.38-.4.38z" />
-            </svg></a>
-        </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Dịch vụ</h4>
+        <ul class="footer-links">
+          <li><a href="#usp">Lợi ích</a></li>
+          <li><a href="#flow">Quy trình vay</a></li>
+          <li><a href="#policies">Chính sách ưu đãi</a></li>
+          <li><a href="#banks">Ngân hàng đối tác</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Liên hệ</h4>
+        <ul class="footer-links footer-links--contact">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l.77-.77a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 17.18v-.26z"/></svg>
+            <span>Hotline: 1900 xxxx</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>doitac@citics.vn</span>
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>TP. Hồ Chí Minh | Hà Nội | Đà Nẵng</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Citics Mortgages. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Sticky Bottom CTA (mobile) -->
-  <div class="sticky-bottom-cta" id="stickyBottomCta">
-    <a href="#form1" class="btn btn-primary">Nhận tư vấn</a>
-    <a href="https://agent.citics.vn/dang-ky" target="_blank" rel="noopener"
-      class="btn btn-secondary btn--blue-border u-desktop-only">Trải nghiệm ứng dụng</a>
-    <a href="https://onelink.to/a5ekgf" target="_blank" rel="noopener"
-      class="btn btn-secondary btn--blue-border u-mobile-only">Trải nghiệm ứng dụng</a>
-  </div>
-
   <!-- Back to Top -->
   <button type="button" class="back-to-top" id="backToTop" aria-label="Về đầu trang">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-      stroke-linecap="round" stroke-linejoin="round">
-      <path d="M18 15l-6-6-6 6" />
-    </svg>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 12l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </button>
 
+  <!-- Sticky Mobile CTA -->
+  <div class="sticky-cta" id="stickyCta">
+    <a href="#form1" class="btn btn-amber btn-full">Nhận tư vấn miễn phí <span class="sparkle">✦</span></a>
+  </div>
+
   <script src="main.js"></script>
-
 </body>
-
 </html>

@@ -1,621 +1,383 @@
-    // ─── SCROLL PROGRESS BAR ───
-    const scrollProgress = document.getElementById('scrollProgress');
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = (scrollTop / docHeight) * 100;
-      scrollProgress.style.width = progress + '%';
-    });
+'use strict';
 
-    // ─── NAV SCROLL ───
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
-    });
+const GOOGLE_SCRIPT_URL = '';
 
-    // ─── HAMBURGER MENU ───
-    const hamburger = document.getElementById('navHamburger');
-    const mobileMenu = document.getElementById('navMobileMenu');
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+// ─── SCROLL PROGRESS BAR ───
+const scrollProgress = document.getElementById('scrollProgress');
+function updateScrollProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  scrollProgress.style.width = progress + '%';
+}
+
+// ─── NAV SCROLL STATE ───
+const nav = document.getElementById('nav');
+function updateNav() {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}
+
+// ─── BACK TO TOP ───
+const backToTop = document.getElementById('backToTop');
+function updateBackToTop() {
+  backToTop.classList.toggle('visible', window.scrollY > 400);
+}
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ─── STICKY MOBILE CTA ───
+const stickyCta = document.getElementById('stickyCta');
+const heroSection = document.getElementById('hero');
+function updateStickyCta() {
+  if (!heroSection) return;
+  const heroBottom = heroSection.getBoundingClientRect().bottom;
+  stickyCta.classList.toggle('visible', heroBottom < 0);
+}
+
+// ─── CONSOLIDATED SCROLL HANDLER ───
+window.addEventListener('scroll', () => {
+  updateScrollProgress();
+  updateNav();
+  updateBackToTop();
+  updateStickyCta();
+}, { passive: true });
+
+// Initial calls
+updateScrollProgress();
+updateNav();
+updateBackToTop();
+updateStickyCta();
+
+// ─── HAMBURGER MENU ───
+const hamburger = document.getElementById('navHamburger');
+const mobileMenu = document.getElementById('navMobileMenu');
+
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  mobileMenu.classList.remove('open');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.contains('open');
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    hamburger.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+});
+
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', closeMobileMenu);
+});
+
+document.addEventListener('click', (e) => {
+  if (
+    mobileMenu.classList.contains('open') &&
+    !mobileMenu.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ) {
+    closeMobileMenu();
+  }
+});
+
+
+// ─── HERO PARTICLES ───
+const particleContainer = document.getElementById('heroParticles');
+if (particleContainer) {
+  const fragment = document.createDocumentFragment();
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'hero-particle';
+    p.style.cssText = [
+      `left:${Math.random() * 100}%`,
+      `animation-duration:${6 + Math.random() * 10}s`,
+      `animation-delay:${Math.random() * 8}s`,
+      `width:${2 + Math.random() * 4}px`,
+      `height:${2 + Math.random() * 4}px`,
+    ].join(';');
+    fragment.appendChild(p);
+  }
+  particleContainer.appendChild(fragment);
+}
+
+// ─── SCROLL REVEAL ───
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ─── COUNTUP ANIMATION ───
+function easeOutQuart(t) {
+  return 1 - Math.pow(1 - t, 4);
+}
+
+function animateCountup(el) {
+  const target = parseInt(el.dataset.count, 10);
+  const suffix = el.dataset.suffix || '';
+  const duration = target > 1000 ? 2200 : 1400;
+  const startTime = performance.now();
+
+  function update(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easedProgress = easeOutQuart(progress);
+    const current = Math.round(easedProgress * target);
+    el.textContent = current.toLocaleString('vi-VN') + suffix;
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+const countupObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCountup(entry.target);
+      countupObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.countup').forEach(el => countupObserver.observe(el));
+
+// ─── MAZE (PAINPOINTS) ───
+(function () {
+  const wrapper = document.getElementById('mazeWrapper');
+  const spineFill = document.getElementById('mazeSpineFill');
+  const mazeRows = document.querySelectorAll('[data-maze-row]');
+  if (!wrapper || !spineFill) return;
+
+  function updateMazeSpine() {
+    const rect = wrapper.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1, (-rect.top + window.innerHeight * 0.7) / rect.height));
+    spineFill.style.height = (progress * 100) + '%';
+  }
+
+  const rowObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active');
     });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
-    document.addEventListener('click', (e) => {
-      if (mobileMenu.classList.contains('open') && !mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-        document.body.style.overflow = '';
+  }, { threshold: 0.4, rootMargin: '0px 0px -10% 0px' });
+
+  mazeRows.forEach(row => rowObserver.observe(row));
+  window.addEventListener('scroll', updateMazeSpine, { passive: true });
+  updateMazeSpine();
+})();
+
+// ─── FLOW PROGRESSIVE ───
+(function () {
+  const spineFill = document.getElementById('flowSidebarFill');
+  const panels = document.querySelectorAll('[data-flow-panel]');
+  const steps = document.querySelectorAll('[data-flow-step]');
+  const cursor = document.getElementById('flowCursor');
+  const stepListEl = document.getElementById('flowStepList');
+  const panelsEl = document.getElementById('flowPanels');
+  if (!panels.length || !steps.length) return;
+
+  let activeIdx = -1;
+
+  function setActive(idx) {
+    if (idx === activeIdx) return;
+    activeIdx = idx;
+    panels.forEach((p, i) => p.classList.toggle('active', i <= idx));
+    steps.forEach((s, i) => s.classList.toggle('active', i <= idx));
+    if (spineFill) {
+      const pct = panels.length > 1 ? (idx / (panels.length - 1)) * 100 : 0;
+      spineFill.style.height = pct + '%';
+    }
+  }
+
+  // Cursor: continuously tracks scroll progress through all panels
+  function updateCursor() {
+    if (!cursor || !panelsEl || !stepListEl) return;
+    const stepsArr = Array.from(steps);
+    const firstDot = stepsArr[0].querySelector('.flow-step-dot');
+    const lastDot = stepsArr[stepsArr.length - 1].querySelector('.flow-step-dot');
+    const listRect = stepListEl.getBoundingClientRect();
+    const firstDotRect = firstDot.getBoundingClientRect();
+    const lastDotRect = lastDot.getBoundingClientRect();
+    const firstY = firstDotRect.top + firstDotRect.height / 2 - listRect.top;
+    const lastY = lastDotRect.top + lastDotRect.height / 2 - listRect.top;
+
+    const panelsRect = panelsEl.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1,
+      (-panelsRect.top + window.innerHeight * 0.4) / panelsRect.height
+    ));
+
+    cursor.style.top = (firstY + (lastY - firstY) * progress) + 'px';
+  }
+
+  const panelObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActive(parseInt(entry.target.dataset.flowPanel, 10));
       }
     });
+  }, { threshold: 0.25, rootMargin: '0px 0px -20% 0px' });
 
-    // ─── HERO PARTICLES ───
-    const particleContainer = document.getElementById('heroParticles');
-    if (particleContainer) {
-      for (let i = 0; i < 30; i++) {
-        const p = document.createElement('div');
-        p.className = 'hero-particle';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = (6 + Math.random() * 8) + 's';
-        p.style.animationDelay = Math.random() * 6 + 's';
-        p.style.width = p.style.height = (2 + Math.random() * 4) + 'px';
-        particleContainer.appendChild(p);
+  panels.forEach(panel => panelObserver.observe(panel));
+  setActive(0);
+
+  window.addEventListener('scroll', updateCursor, { passive: true });
+  updateCursor();
+})();
+
+// ─── FORM SUBMISSION ───
+function buildFormPayload(form) {
+  const data = new FormData(form);
+  const payload = {};
+  data.forEach((value, key) => { payload[key] = value; });
+  payload.source = 'mortgages-lp';
+  payload.timestamp = new Date().toISOString();
+  return payload;
+}
+
+function showFormSuccess(formEl, successEl) {
+  formEl.classList.add('hidden');
+  formEl.style.display = 'none';
+  successEl.classList.remove('hidden');
+  successEl.style.display = 'flex';
+  successEl.style.flexDirection = 'column';
+  successEl.style.alignItems = 'center';
+}
+
+function handleFormSubmit(formId, successId) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+
+  const successEl = successId ? document.getElementById(successId) : null;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Basic validation
+    const inputs = form.querySelectorAll('input[required], select[required]');
+    let valid = true;
+    inputs.forEach(input => {
+      input.style.borderColor = '';
+      if (!input.value.trim()) {
+        input.style.borderColor = '#EF4444';
+        valid = false;
       }
+    });
+    if (!valid) return;
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalText = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Đang gửi...';
     }
 
-    // ─── SCROLL REVEAL (IntersectionObserver) ───
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    revealElements.forEach(el => revealObserver.observe(el));
+    const payload = buildFormPayload(form);
 
-    // ─── PP-HUB MOBILE INTERLEAVE ───
-    if (window.innerWidth <= 768) {
-      const diagram = document.querySelector('.pp-hub-diagram');
-      const leftRows = document.querySelectorAll('.pp-col--left .pp-row');
-      const rightRows = document.querySelectorAll('.pp-col--right .pp-row');
-      if (diagram && leftRows.length && rightRows.length) {
-        // Hide desktop columns & hub
-        diagram.querySelectorAll('.pp-col, .pp-hub-center, .pp-hub-lines').forEach(el => el.style.display = 'none');
-        // Create interleaved mobile container
-        const mobileWrap = document.createElement('div');
-        mobileWrap.className = 'pp-mobile-pairs';
-        const count = Math.min(leftRows.length, rightRows.length);
-        for (let i = 0; i < count; i++) {
-          // Problem row - slide from left
-          const prob = leftRows[i].cloneNode(true);
-          prob.classList.add('pp-slide', 'pp-slide--left');
-          mobileWrap.appendChild(prob);
-          // Arrow indicator
-          const arrow = document.createElement('div');
-          arrow.className = 'pp-mobile-arrow';
-          arrow.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0l-6-6m6 6l6-6"/></svg>';
-          mobileWrap.appendChild(arrow);
-          // Solution row - slide from right
-          const sol = rightRows[i].cloneNode(true);
-          sol.classList.add('pp-slide', 'pp-slide--right');
-          mobileWrap.appendChild(sol);
-          // Spacer between pairs (except last)
-          if (i < count - 1) {
-            const spacer = document.createElement('div');
-            spacer.className = 'pp-mobile-spacer';
-            mobileWrap.appendChild(spacer);
-          }
-        }
-        diagram.appendChild(mobileWrap);
-        // Observe each slide element
-        const slideObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('pp-slide--visible');
-              slideObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
-        mobileWrap.querySelectorAll('.pp-slide, .pp-mobile-arrow').forEach(el => slideObserver.observe(el));
-      }
-    }
-
-    // ─── COUNTUP ANIMATION ───
-    const statNumbers = document.querySelectorAll('.stat-number[data-count]');
-    const countObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el = entry.target;
-          const target = parseFloat(el.dataset.count);
-          const duration = 2000;
-          const start = performance.now();
-          const isDecimal = target % 1 !== 0;
-          const suffix = target >= 1000 ? '+' : '';
-
-          function update(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            let current = eased * target;
-
-            if (target >= 1000) {
-              el.textContent = Math.floor(current).toLocaleString('en-US') + suffix;
-            } else if (isDecimal) {
-              el.textContent = current.toFixed(1) + ' triệu';
-            } else if (target === 32) {
-              el.textContent = Math.floor(current) + ' triệu';
-            } else {
-              el.textContent = Math.floor(current);
-            }
-
-            if (progress < 1) requestAnimationFrame(update);
-          }
-          requestAnimationFrame(update);
-          countObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-    statNumbers.forEach(el => countObserver.observe(el));
-
-    // ─── STICKY BOTTOM CTA ───
-    const stickyBottomCta = document.getElementById('stickyBottomCta');
-    const heroSection = document.getElementById('hero');
-    if (stickyBottomCta && heroSection) {
-      const stickyObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          stickyBottomCta.classList.toggle('visible', !entry.isIntersecting);
+    try {
+      if (GOOGLE_SCRIPT_URL) {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
         });
-      }, { threshold: 0 });
-      stickyObserver.observe(heroSection);
-    }
-
-    // ─── BACK TO TOP ───
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 600);
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // ─── CONTENT TABS (Training & Events) ───
-    document.querySelectorAll('.tab[data-tab-target]').forEach(tab => {
-      tab.addEventListener('click', () => {
-        const section = tab.closest('section');
-        // Toggle active tab
-        section.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        // Toggle active carousel
-        section.querySelectorAll('.carousel').forEach(c => { c.classList.add('u-hidden'); c.style.display = ''; });
-        const target = document.getElementById(tab.dataset.tabTarget);
-        if (target) target.classList.remove('u-hidden');
-      });
-    });
-
-    // ─── FORM TABS ───
-    document.querySelectorAll('.form-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        const formBox = tab.closest('.form-box');
-        formBox.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
-        formBox.querySelectorAll('.form-tab-content').forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        const target = tab.dataset.formTab;
-        formBox.querySelector('#form-' + target)?.classList.add('active');
-      });
-    });
-
-    // ─── JOURNEY TABS ───
-    document.querySelectorAll('[data-journey-tab]').forEach(tab => {
-      tab.addEventListener('click', () => {
-        const section = tab.closest('.journey');
-        section.querySelectorAll('.j-tab').forEach(t => t.classList.remove('active'));
-        section.querySelectorAll('.journey-tab-content').forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('journey-' + tab.dataset.journeyTab)?.classList.add('active');
-      });
-    });
-
-    // ─── JOURNEY STEP ACCORDION (with sub-steps) ───
-    document.querySelectorAll('.journey-step[data-step]').forEach(step => {
-      step.addEventListener('click', (e) => {
-        if (e.target.closest('.sub-step')) return;
-        const body = step.closest('.journey-body');
-        const illustration = body.querySelector('.journey-illustration');
-        const phoneMockup = body.querySelector('.phone-mockup');
-        const stepNum = step.dataset.step;
-
-        body.querySelectorAll('.journey-step').forEach(s => s.classList.remove('active'));
-        step.classList.add('active');
-
-        // Reset all visuals
-        body.querySelectorAll('.phone-image').forEach(i => i.classList.remove('active'));
-        body.querySelectorAll('.step-photo').forEach(i => i.classList.remove('active'));
-
-        const subSteps = step.querySelectorAll('.sub-step');
-        const stepPhoto = body.querySelector('.step-photo[data-illus="' + stepNum + '"]');
-
-        if (subSteps.length > 0) {
-          // Has sub-steps: show phone mockup with main image
-          if (illustration) { illustration.style.display = ''; illustration.classList.remove('show-photo'); }
-          if (phoneMockup) phoneMockup.style.display = '';
-          body.classList.remove('no-mockup');
-          subSteps.forEach(ss => ss.classList.remove('active'));
-          body.querySelector('.phone-image[data-illus="' + stepNum + '"]')?.classList.add('active');
-        } else if (stepPhoto) {
-          // Has a photo: show illustration with photo, hide phone mockup
-          if (illustration) { illustration.style.display = ''; illustration.classList.add('show-photo'); }
-          if (phoneMockup) phoneMockup.style.display = 'none';
-          body.classList.remove('no-mockup');
-          stepPhoto.classList.add('active');
-        } else {
-          // No sub-steps, no photo: hide illustration
-          if (illustration) { illustration.style.display = 'none'; illustration.classList.remove('show-photo'); }
-          body.classList.add('no-mockup');
-        }
-      });
-    });
-
-    // ─── SUB-STEP CLICK ───
-    document.querySelectorAll('.sub-step[data-substep]').forEach(subStep => {
-      subStep.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const body = subStep.closest('.journey-body');
-        const phoneMockup = body.querySelector('.phone-mockup');
-        const subKey = subStep.dataset.substep;
-        const parent = subStep.closest('.sub-steps');
-        parent.querySelectorAll('.sub-step').forEach(ss => ss.classList.remove('active'));
-        subStep.classList.add('active');
-        // Show phone mockup, hide step photos
-        if (phoneMockup) phoneMockup.style.display = '';
-        body.querySelectorAll('.step-photo').forEach(i => i.classList.remove('active'));
-        body.querySelectorAll('.phone-image').forEach(i => i.classList.remove('active'));
-        body.querySelector('.phone-image[data-illus="' + subKey + '"]')?.classList.add('active');
-      });
-    });
-
-    // ─── EVENTS CAROUSEL (auto-scroll infinite) ───
-    (() => {
-      const carousel = document.getElementById('eventsCarousel');
-      if (!carousel) return;
-      // Duplicate cards for seamless loop
-      const cards = Array.from(carousel.children);
-      cards.forEach(c => carousel.appendChild(c.cloneNode(true)));
-      let scrollPos = 0;
-      const speed = 0.5; // px per frame — slow
-      let rafId;
-      function step() {
-        scrollPos += speed;
-        // When we've scrolled past the original set, jump back
-        const half = carousel.scrollWidth / 2;
-        if (scrollPos >= half) scrollPos = 0;
-        carousel.scrollLeft = scrollPos;
-        rafId = requestAnimationFrame(step);
-      }
-      // Pause on hover
-      carousel.addEventListener('mouseenter', () => cancelAnimationFrame(rafId));
-      carousel.addEventListener('mouseleave', () => { rafId = requestAnimationFrame(step); });
-      // Disable scroll-snap for smooth animation
-      carousel.style.scrollSnapType = 'none';
-      rafId = requestAnimationFrame(step);
-    })();
-
-    // ─── POLICY TABS ───
-    const policyTabs = Array.from(document.querySelectorAll('.policy-tab'));
-    const policyPanelsList = document.querySelectorAll('.policy-panel');
-
-    function activatePolicy(idx) {
-      policyTabs.forEach(t => t.classList.remove('active'));
-      policyPanelsList.forEach(p => p.classList.remove('active'));
-      policyTabs[idx].classList.add('active');
-      const policy = policyTabs[idx].dataset.policy;
-      document.querySelector(`.policy-panel[data-policy="${policy}"]`)?.classList.add('active');
-    }
-
-    // Auto-rotate every 3s, only while policy section is in view
-    let policyIdx = 0;
-    let policyAutoInterval = null;
-    const policiesSection = document.getElementById('policies');
-
-    function startPolicyRotation() {
-      if (policyAutoInterval) return;
-      policyAutoInterval = setInterval(() => {
-        policyIdx = (policyIdx + 1) % policyTabs.length;
-        activatePolicy(policyIdx);
-      }, 3000);
-    }
-
-    function stopPolicyRotation() {
-      clearInterval(policyAutoInterval);
-      policyAutoInterval = null;
-    }
-
-    // Only rotate when policy section is visible and user hasn't clicked
-    if (policiesSection) {
-      const policyVisObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (policyUserClicked) return;
-          if (entry.isIntersecting) startPolicyRotation();
-          else stopPolicyRotation();
-        });
-      }, { threshold: 0.1 });
-      policyVisObserver.observe(policiesSection);
-    }
-
-    // Stop auto-rotate permanently on user click
-    let policyUserClicked = false;
-    policyTabs.forEach((tab, idx) => {
-      tab.addEventListener('click', () => {
-        policyUserClicked = true;
-        stopPolicyRotation();
-        policyIdx = idx;
-        activatePolicy(idx);
-      });
-    });
-
-    // Preload policy images after page load
-    window.addEventListener('load', () => {
-      document.querySelectorAll('.policy-panel:not(.active) img[loading="lazy"]').forEach(img => {
-        img.loading = 'eager';
-        img.src = img.src;
-      });
-    });
-
-    // ─── FAQ ACCORDION ───
-    document.querySelectorAll('.faq-question').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const isOpen = item.classList.contains('open');
-        // Close all
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        document.querySelectorAll('.faq-question').forEach(q => q.setAttribute('aria-expanded', 'false'));
-        // Open clicked (if wasn't open)
-        if (!isOpen) {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-
-    // ─── LIFECYCLE: stepper with shared detail panel ───
-    const lcData = [
-      {
-        title: 'Nguồn hàng', sub: 'Nguồn bất động sản đa dạng từ nhiều kênh',
-        items: ['Nguồn hàng Sơ cấp: Các đối tác (VD: SHB)', 'Nguồn hàng ngân hàng & đấu giá', 'Nguồn hàng từ Agent listing (CACN)', 'Nguồn hàng Chủ nhà niêm yết'],
-        agent: 'Listing Agent',
-        icon: '<svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-5h2v5h6v-8h3L12 3z" fill="white"/></svg>'
-      },
-      {
-        title: 'Nguồn khách', sub: 'Khách hàng đến từ nhiều nguồn khác nhau',
-        items: ['Khách hàng thẩm định giá', 'Khách hàng vay vốn từ ngân hàng', 'Khách hàng từ Agent Buyer (CACN)', 'Khách hàng trực tiếp từ Citics'],
-        agent: 'Buyer Agent',
-        icon: '<svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-.32 0-.63.05-.91.14.57.81.9 1.79.9 2.86s-.34 2.05-.9 2.86c.28.09.59.14.91.14zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="white"/></svg>'
-      },
-      {
-        title: 'Nguồn vốn', sub: 'Đến từ các ngân hàng hợp tác chiến lược của Citics',
-        items: ['Kết nối 34+ ngân hàng đối tác', 'Tư vấn gói vay phù hợp', 'Hỗ trợ thủ tục giải ngân', 'Lãi suất ưu đãi từ đối tác'],
-        agent: 'Mortgages Agent',
-        icon: '<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="white"/></svg>'
-      },
-      {
-        title: 'Đội ngũ thẩm định', sub: 'Đội ngũ thẩm định giá chuyên nghiệp của Citics',
-        items: ['Đội ngũ thẩm định giá với kinh nghiệm gần 10 năm', 'Đội ngũ từ các cty thẩm định giá đối tác của Citics', 'Đội ngũ Agent thẩm định đến từ CACN'],
-        agent: 'Value Agent',
-        icon: '<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="white"/></svg>'
-      },
-      {
-        title: 'Đội ngũ Pháp lý', sub: 'Hỗ trợ pháp lý toàn diện cho giao dịch',
-        items: ['Đội ngũ Pháp lý nội bộ', 'Đội ngũ pháp lý từ các đối tác của Citics'],
-        agent: 'Legal Agent',
-        icon: '<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="white"/></svg>'
-      }
-    ];
-
-    const lcSteps = document.querySelectorAll('.lc-step');
-    const lcFill = document.getElementById('lc-fill');
-    const lcDetail = document.getElementById('lc-detail');
-    const lcArrow = document.getElementById('lc-arrow');
-    let currentLc = 0;
-
-    function setLcStage(idx) {
-      if (idx === currentLc && lcSteps[idx].classList.contains('active')) return;
-      currentLc = idx;
-      const d = lcData[idx];
-
-      lcSteps.forEach((s, i) => {
-        s.classList.remove('active', 'done');
-        if (i === idx) s.classList.add('active');
-        else if (i < idx) s.classList.add('done');
-      });
-
-      const pct = idx === 0 ? 0 : (idx / (lcSteps.length - 1)) * 80;
-      if (lcFill) lcFill.style.width = pct + '%';
-
-      // Move connector arrow
-      if (lcArrow) {
-        const stepCount = lcSteps.length;
-        const stepPct = (100 / stepCount) * idx + (100 / stepCount / 2);
-        lcArrow.style.setProperty('--arrow-pos', stepPct + '%');
       }
 
-      lcDetail.classList.add('fading');
-      setTimeout(() => {
-        document.getElementById('lc-d-title').textContent = d.title;
-        document.getElementById('lc-d-sub').textContent = d.sub;
-        document.getElementById('lc-d-list').innerHTML = d.items.map(i => '<li>' + i + '</li>').join('');
-        document.getElementById('lc-d-agent').textContent = d.agent;
-        document.getElementById('lc-d-icon').innerHTML = d.icon;
-        lcDetail.classList.remove('fading');
-      }, 200);
-    }
-
-    const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
-    const lcDetailPanel = document.querySelector('.lc-detail-panel');
-    const lcConnectorArrow = document.getElementById('lc-arrow');
-
-    lcSteps.forEach((step, idx) => {
-      step.addEventListener('mouseenter', () => { if (!isMobile()) setLcStage(idx); });
-      step.addEventListener('click', () => {
-        if (!isMobile()) return;
-        const wasActive = step.classList.contains('active');
-        setLcStage(idx);
-        if (lcDetailPanel) {
-          if (wasActive && lcDetailPanel.classList.contains('lc-mobile-open')) {
-            // Collapse if tapping the same active step
-            lcDetailPanel.classList.remove('lc-mobile-open');
-            step.classList.remove('active');
-          } else {
-            // Move detail panel right after the clicked step
-            step.after(lcDetailPanel);
-            if (lcConnectorArrow) step.after(lcConnectorArrow);
-            // Small delay to allow DOM move before triggering transition
-            requestAnimationFrame(() => {
-              lcDetailPanel.classList.add('lc-mobile-open');
-            });
-          }
+      // Show success
+      if (successEl) {
+        showFormSuccess(form, successEl);
+      } else {
+        // Compact forms: replace with inline message
+        const wrap = form.closest('.eform-compact-inner') || form.closest('.eform-cta-inner');
+        if (wrap) {
+          const successMsg = document.createElement('div');
+          successMsg.className = 'form-success';
+          successMsg.style.cssText = 'display:flex;flex-direction:column;align-items:center;padding:32px 0;';
+          successMsg.innerHTML = `
+            <div class="success-icon">✦</div>
+            <h3 style="font-size:20px;font-weight:700;color:var(--blue);margin-bottom:8px;">Cảm ơn bạn!</h3>
+            <p style="color:var(--gray-600);font-size:14px;">Đội ngũ Citics Mortgages sẽ liên hệ bạn trong 24 giờ làm việc.</p>
+          `;
+          form.replaceWith(successMsg);
         }
-      });
-    });
-
-    setLcStage(0);
-
-    // ─── COOPERATION CIRCLE ───
-    const coopIcons = {
-      listing: '<svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v8h6v-5h2v5h6v-8h3L12 3z" fill="white"/></svg>',
-      buyer: '<svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-.32 0-.63.05-.91.14.57.81.9 1.79.9 2.86s-.34 2.05-.9 2.86c.28.09.59.14.91.14zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" fill="white"/></svg>',
-      mortgage: '<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="white"/></svg>',
-      value: '<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" fill="white"/></svg>',
-      legal: '<svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" fill="white"/></svg>'
-    };
-
-    const coopData = {
-      listing: { title: 'Listing Agent', sub: 'Agent đầu chủ — Nguồn hàng', items: ['Khảo sát bất động sản', 'Tư vấn giá cho chủ nhà', 'Ký hợp đồng môi giới', 'Quản lý điều kiện giao dịch'] },
-      buyer: { title: 'Buyer Agent', sub: 'Agent giao dịch — Khách mua', items: ['Tìm kiếm tài sản phù hợp', 'Dẫn khách xem nhà', 'Tư vấn quy trình mua bán', 'Đàm phán giá'] },
-      mortgage: { title: 'Mortgages Agent', sub: 'Agent tín dụng — Vay vốn', items: ['Tìm kiếm gói vay phù hợp', 'Tư vấn thủ tục, chi phí', 'Hoàn tất gói vay', 'Kết nối 34 ngân hàng đối tác'] },
-      value: { title: 'Value Agent', sub: 'Agent định giá — Data & Services', items: ['Định giá bất động sản', 'Bảo hiểm tài sản', 'Re-financing', 'Dịch vụ hậu giao dịch'] },
-      legal: { title: 'Legal Agent', sub: 'Agent pháp lý — Pháp lý', items: ['Tư vấn pháp lý giao dịch', 'Xử lý thủ tục mua bán', 'Công chứng hợp đồng', 'Hỗ trợ pháp lý liên quan'] }
-    };
-
-    const coopKeys = ['listing', 'buyer', 'mortgage', 'value', 'legal'];
-
-    function updateCoopDetail(key) {
-      const d = coopData[key];
-      if (!d) return;
-      document.getElementById('coop-detail-title').textContent = d.title;
-      document.getElementById('coop-detail-sub').textContent = d.sub;
-      document.getElementById('coop-detail-list').innerHTML = d.items.map(i => '<li>' + i + '</li>').join('');
-      const iconEl = document.getElementById('coop-detail-icon');
-      if (iconEl && coopIcons[key]) iconEl.innerHTML = coopIcons[key];
-
-      document.querySelectorAll('[data-coop]').forEach(n => n.classList.remove('active'));
-      document.querySelector('[data-coop="' + key + '"]')?.classList.add('active');
-
-      document.querySelectorAll('.coop-arrows path[data-arrow], .coop-action-badge').forEach(el => el.classList.remove('active'));
-      const arrowLine = document.querySelector('.coop-arrows path[data-arrow="' + key + '"]');
-      const arrowLabel = document.querySelector('.coop-action-badge[data-label="' + key + '"]');
-      if (arrowLine) arrowLine.classList.add('active');
-      if (arrowLabel) arrowLabel.classList.add('active');
-
-      document.getElementById('coop-detail').classList.add('amber-border');
+      }
+    } catch (err) {
+      // On error, show toast and re-enable submit
+      showToast('Có lỗi xảy ra. Vui lòng thử lại sau.');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalText;
+      }
     }
+  });
+}
 
-    document.querySelectorAll('[data-coop]').forEach(node => {
-      node.addEventListener('mouseenter', () => {
-        clearInterval(coopAutoInterval);
-        updateCoopDetail(node.dataset.coop);
-      });
-      node.addEventListener('click', (e) => {
-        e.stopPropagation();
-        clearInterval(coopAutoInterval);
-        updateCoopDetail(node.dataset.coop);
-      });
-    });
+// ─── TOAST NOTIFICATION ───
+function showToast(message) {
+  const existing = document.getElementById('toastMsg');
+  if (existing) existing.remove();
 
-    let coopAutoIdx = 0;
-    let coopAutoInterval = setInterval(() => {
-      coopAutoIdx = (coopAutoIdx + 1) % coopKeys.length;
-      updateCoopDetail(coopKeys[coopAutoIdx]);
-    }, 4000);
+  const toast = document.createElement('div');
+  toast.id = 'toastMsg';
+  toast.style.cssText = `
+    position:fixed;
+    bottom:80px;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:#1F2937;
+    color:white;
+    padding:12px 24px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:500;
+    z-index:9000;
+    opacity:0;
+    transition:opacity 0.3s ease, transform 0.3s ease;
+    white-space:nowrap;
+    font-family:var(--font);
+  `;
+  toast.textContent = message;
+  document.body.appendChild(toast);
 
-    let coopIdleTimer;
-    document.querySelector('.coop-circle')?.addEventListener('mouseleave', () => {
-      clearTimeout(coopIdleTimer);
-      coopIdleTimer = setTimeout(() => {
-        clearInterval(coopAutoInterval);
-        coopAutoInterval = setInterval(() => {
-          coopAutoIdx = (coopAutoIdx + 1) % coopKeys.length;
-          updateCoopDetail(coopKeys[coopAutoIdx]);
-        }, 4000);
-      }, 8000);
-    });
+  requestAnimationFrame(() => {
+    toast.style.opacity = '1';
+    toast.style.transform = 'translateX(-50%) translateY(0)';
+  });
 
-    updateCoopDetail('listing');
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(10px)';
+    setTimeout(() => toast.remove(), 300);
+  }, 3500);
+}
 
-    // ─── E-FORM SUBMISSION ───
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyIgZYO43caXib7fR-4L1TNvK6gSecVad3X87Ibn6n9qDr1b0wStkcJWrNOXIRbhTfY_Q/exec';
+// Register all forms
+handleFormSubmit('mortgageForm1', 'formSuccess1');
+handleFormSubmit('mortgageForm2', null);
+handleFormSubmit('mortgageForm3', null);
+handleFormSubmit('mortgageForm4', null);
 
-    function handleFormSubmit(formEl, type) {
-      formEl.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        // Validate required fields
-        const requiredFields = formEl.querySelectorAll('[required]');
-        let isValid = true;
-        requiredFields.forEach(field => {
-          if (!field.value) {
-            field.style.borderColor = '#e74c3c';
-            isValid = false;
-          } else {
-            field.style.borderColor = '';
-          }
-        });
-        if (!isValid) return;
-
-        const btn = formEl.querySelector('.btn-submit');
-        const originalText = btn.textContent;
-        btn.textContent = 'Đang gửi...';
-        btn.disabled = true;
-
-        // Collect form data
-        const formData = new FormData(formEl);
-        const data = { type };
-        formData.forEach((value, key) => { data[key] = value; });
-        // Checkbox handling (FormData omits unchecked checkboxes)
-        data.courseInterest = formEl.querySelector('[name="courseInterest"]').checked;
-
-        try {
-          const res = await fetch(GOOGLE_SCRIPT_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain' },
-            body: JSON.stringify(data),
-          });
-
-          btn.textContent = 'Đăng ký thành công!';
-          btn.style.background = '#40E0D0';
-          btn.style.color = '#fff';
-          formEl.reset();
-
-          // Show action buttons (web on desktop, app on mobile)
-          let actionsDiv = formEl.parentElement.querySelector('.form-success-actions');
-          if (!actionsDiv) {
-            actionsDiv = document.createElement('div');
-            actionsDiv.className = 'form-success-actions';
-            actionsDiv.innerHTML =
-              '<a href="https://agent.citics.vn/dang-ky" target="_blank" rel="noopener" class="btn btn-secondary form-action-web">Truy cập Web →</a>' +
-              '<a href="https://onelink.to/a5ekgf" target="_blank" rel="noopener" class="btn btn-secondary form-action-app">Tải App →</a>';
-            formEl.parentElement.appendChild(actionsDiv);
-          }
-          actionsDiv.classList.add('visible');
-
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-            btn.style.color = '';
-            btn.disabled = false;
-          }, 3000);
-        } catch (err) {
-          btn.textContent = 'Lỗi — Thử lại';
-          btn.style.background = '#e74c3c';
-          btn.disabled = false;
-
-          setTimeout(() => {
-            btn.textContent = originalText;
-            btn.style.background = '';
-          }, 3000);
-        }
-      });
-    }
-
-    handleFormSubmit(document.getElementById('agent-form'), 'agent');
-    handleFormSubmit(document.getElementById('store-form'), 'store');
-
+// ─── SMOOTH SCROLL FOR NAV LINKS ───
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const target = document.querySelector(anchor.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height'), 10) || 72;
+    const top = target.getBoundingClientRect().top + window.scrollY - navHeight;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
