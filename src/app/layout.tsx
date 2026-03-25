@@ -35,7 +35,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="vi" className={inter.variable}>
-      <body className="debug-grid">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
