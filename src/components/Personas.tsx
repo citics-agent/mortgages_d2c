@@ -2,11 +2,13 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const personas = [
   {
     title: 'Người mua nhà lần đầu',
     text: 'Cần được tư vấn & xác định khả năng vay phù hợp với thu nhập thực tế.',
-    image: '/assets/persona-firstbuyer.png',
+    image: `${bp}/assets/persona-firstbuyer.png`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
         <path d="M4 13.5L14 5l10 8.5" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -18,7 +20,7 @@ const personas = [
   {
     title: 'Người nâng cấp nhà',
     text: 'Cần xoay dòng tiền thông minh khi bán nhà cũ để mua nhà mới.',
-    image: '/assets/persona-upgrade.jpg',
+    image: `${bp}/assets/persona-upgrade.jpg`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
         <path d="M4 13.5L14 5l10 8.5" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -31,7 +33,7 @@ const personas = [
   {
     title: 'Nhà đầu tư BĐS',
     text: 'Muốn tối ưu khoản vay để tối đa hoá lợi suất đầu tư bất động sản.',
-    image: '/assets/persona-investor.png',
+    image: `${bp}/assets/persona-investor.png`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
         <path d="M2 24V16H8V24" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
@@ -44,7 +46,7 @@ const personas = [
   {
     title: 'Chủ doanh nghiệp SMEs',
     text: 'Cần xoay vòng vốn kinh doanh bằng tài sản thế chấp bất động sản.',
-    image: '/assets/persona-sme.png',
+    image: `${bp}/assets/persona-sme.png`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
         <rect x="3" y="10" width="22" height="14" rx="2.5" stroke="white" strokeWidth="1.75" />
@@ -57,7 +59,7 @@ const personas = [
   {
     title: 'Người tái cấu trúc khoản vay',
     text: 'Muốn tối ưu chi phí lãi vay hiện tại bằng cách tái cấu trúc khoản vay.',
-    image: '/assets/persona-restructure.jpg',
+    image: `${bp}/assets/persona-restructure.jpg`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
         <circle cx="14" cy="14" r="10" stroke="white" strokeWidth="1.75" />

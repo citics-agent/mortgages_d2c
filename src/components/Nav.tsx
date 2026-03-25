@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -58,7 +60,7 @@ export default function Nav() {
       <nav className={`nav${scrolled ? ' scrolled' : ''}`} id="nav">
         <div className="container nav-inner">
           <a href="#" className="nav-brand">
-            <img src="/assets/logo-mortgages-w.png" alt="Citics Mortgages" className="nav-logo" />
+            <img src={`${bp}/assets/logo-mortgages-w.png`} alt="Citics Mortgages" className="nav-logo" />
           </a>
           <div className="nav-links">
             <a href="#usp" className={activeSection === 'usp' ? 'active' : ''}>Lợi ích</a>

@@ -63,6 +63,8 @@ function FooterAccordion({ title, links }: { title: string; links: { label: stri
   );
 }
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export default function Footer() {
   return (
     <footer className="footer" id="footer">
@@ -85,14 +87,14 @@ export default function Footer() {
             <h4>Tải ứng dụng</h4>
             <div className="footer-qr-group">
               <div className="footer-qr">
-                <img src="/assets/qr-android.png" alt="QR Android" className="footer-qr-img" />
+                <img src={`${bp}/assets/qr-android.png`} alt="QR Android" className="footer-qr-img" />
                 <a href="https://play.google.com/store/apps/details?id=vn.citics.agent" target="_blank" rel="noopener">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                     alt="Google Play" className="footer-store-badge" />
                 </a>
               </div>
               <div className="footer-qr">
-                <img src="/assets/qr-ios.png" alt="QR iOS" className="footer-qr-img" />
+                <img src={`${bp}/assets/qr-ios.png`} alt="QR iOS" className="footer-qr-img" />
                 <a href="https://apps.apple.com/vn/app/citics-agent/id6504488573" target="_blank" rel="noopener">
                   <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                     alt="App Store" className="footer-store-badge" />
@@ -111,14 +113,14 @@ export default function Footer() {
             <h4>Tải ứng dụng</h4>
             <div className="footer-qr-group">
               <div className="footer-qr">
-                <img src="/assets/qr-android.png" alt="QR Android" className="footer-qr-img" />
+                <img src={`${bp}/assets/qr-android.png`} alt="QR Android" className="footer-qr-img" />
                 <a href="https://play.google.com/store/apps/details?id=vn.citics.agent" target="_blank" rel="noopener">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                     alt="Google Play" className="footer-store-badge" />
                 </a>
               </div>
               <div className="footer-qr">
-                <img src="/assets/qr-ios.png" alt="QR iOS" className="footer-qr-img" />
+                <img src={`${bp}/assets/qr-ios.png`} alt="QR iOS" className="footer-qr-img" />
                 <a href="https://apps.apple.com/vn/app/citics-agent/id6504488573" target="_blank" rel="noopener">
                   <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                     alt="App Store" className="footer-store-badge" />
@@ -131,7 +133,7 @@ export default function Footer() {
         {/* Company info */}
         <div className="footer-company">
           <div className="footer-company-top">
-            <img src="/assets/logo-mortgages-w.png" alt="Citics Mortgages" className="footer-logo" />
+            <img src={`${bp}/assets/logo-mortgages-w.png`} alt="Citics Mortgages" className="footer-logo" />
           </div>
           <p className="footer-slogan">La Bàn Cho Vay Thế Chấp Bất Động Sản.<br />
             Giúp bạn kết nối hồ sơ vay thế chấp với ngân hàng phù hợp, tăng khả năng phê duyệt và tiết kiệm thời gian.</p>
