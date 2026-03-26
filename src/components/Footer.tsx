@@ -15,7 +15,6 @@ const footerSections = [
   {
     title: 'Dịch vụ',
     links: [
-      { label: 'Lợi ích', href: '#usp' },
       { label: 'Quy trình vay', href: '#flow' },
       { label: 'Chính sách ưu đãi', href: '#policies' },
       { label: 'Ngân hàng đối tác', href: '#banks' },

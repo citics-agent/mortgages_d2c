@@ -11,7 +11,7 @@ export default function Nav() {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
 
-  const navSections = ['usp', 'flow', 'policies', 'banks', 'news'];
+  const navSections = ['flow', 'policies', 'banks', 'news'];
 
   {/* Scroll state + active section tracking */}
   useEffect(() => {
@@ -63,7 +63,6 @@ export default function Nav() {
             <img src={`${bp}/assets/logo-mortgages-w.png`} alt="Citics Mortgages" className="nav-logo" />
           </a>
           <div className="nav-links">
-            <a href="#usp" className={activeSection === 'usp' ? 'active' : ''}>Lợi ích</a>
             <a href="#flow" className={activeSection === 'flow' ? 'active' : ''}>Hành trình</a>
             <a href="#policies" className={activeSection === 'policies' ? 'active' : ''}>Chính sách</a>
             <a href="#banks" className={activeSection === 'banks' ? 'active' : ''}>Ngân hàng</a>
@@ -91,7 +90,6 @@ export default function Nav() {
         className={`nav-mobile-menu${menuOpen ? ' open' : ''}`}
         aria-hidden={!menuOpen}
       >
-        <a href="#usp" className={activeSection === 'usp' ? 'active' : ''} onClick={closeMenu}>Lợi ích</a>
         <a href="#flow" className={activeSection === 'flow' ? 'active' : ''} onClick={closeMenu}>Hành trình</a>
         <a href="#policies" className={activeSection === 'policies' ? 'active' : ''} onClick={closeMenu}>Chính sách</a>
         <a href="#banks" className={activeSection === 'banks' ? 'active' : ''} onClick={closeMenu}>Ngân hàng</a>

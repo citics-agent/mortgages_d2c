@@ -7,7 +7,7 @@ const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const personas = [
   {
     title: 'Người mua nhà lần đầu',
-    text: 'Cần được tư vấn & xác định khả năng vay phù hợp với thu nhập thực tế.',
+    text: 'Cần được tư vấn & xác định khả năng vay phù hợp với thu nhập thực tế',
     image: `${bp}/assets/persona-firstbuyer.png`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
@@ -19,7 +19,7 @@ const personas = [
   },
   {
     title: 'Người nâng cấp nhà',
-    text: 'Cần xoay dòng tiền thông minh khi bán nhà cũ để mua nhà mới.',
+    text: 'Người nâng cấp nhà chọn gói vay tốt',
     image: `${bp}/assets/persona-upgrade.jpg`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
@@ -32,7 +32,7 @@ const personas = [
   },
   {
     title: 'Nhà đầu tư BĐS',
-    text: 'Muốn tối ưu khoản vay để tối đa hoá lợi suất đầu tư bất động sản.',
+    text: 'Muốn xoay dòng tiền thông minh',
     image: `${bp}/assets/persona-investor.png`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
@@ -45,7 +45,7 @@ const personas = [
   },
   {
     title: 'Chủ doanh nghiệp SMEs',
-    text: 'Cần xoay vòng vốn kinh doanh bằng tài sản thế chấp bất động sản.',
+    text: 'Cần xoay vòng vốn kinh doanh',
     image: `${bp}/assets/persona-sme.png`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
@@ -58,7 +58,7 @@ const personas = [
   },
   {
     title: 'Người tái cấu trúc khoản vay',
-    text: 'Muốn tối ưu chi phí lãi vay hiện tại bằng cách tái cấu trúc khoản vay.',
+    text: 'Để tối ưu chi phí',
     image: `${bp}/assets/persona-restructure.jpg`,
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">

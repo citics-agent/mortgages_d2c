@@ -16,7 +16,7 @@ export default function Solutions() {
                 </svg>
               </div>
               <h3 className="bento-title">Phân tích hồ sơ vay</h3>
-              <p className="bento-desc">Đánh giá khả năng vay dựa trên thu nhập và tài sản, đưa ra báo cáo sơ bộ rõ ràng.</p>
+              <p className="bento-desc">Đánh giá khả năng vay dựa trên thu nhập và tài sản</p>
             </div>
             <div className="bento-deco bento-deco--chart">
               <svg viewBox="0 0 200 120" fill="none">
@@ -37,7 +37,7 @@ export default function Solutions() {
               </svg>
             </div>
             <h3 className="bento-title">So sánh nhiều ngân hàng</h3>
-            <p className="bento-desc">Đề xuất ngân hàng phù hợp với hồ sơ và mục tiêu ưu tiên: lãi suất, tốc độ giải ngân, hạn mức vay.</p>
+            <p className="bento-desc">Đề xuất ngân hàng phù hợp với hồ sơ và mục tiêu ưu tiên: lãi suất, tốc độ giải ngân, hạn mức vay,...</p>
           </div>
 
           {/* Accent — 1 col */}
@@ -48,7 +48,7 @@ export default function Solutions() {
               </svg>
             </div>
             <h3 className="bento-title">Chính sách ưu đãi</h3>
-            <p className="bento-desc">Các chính sách ngân hàng dành riêng cho đối tác chiến lược của Citics Mortgages.</p>
+            <p className="bento-desc">Các chính sách ngân hàng cho đối tác chiến lược</p>
           </div>
 
           {/* Large — spans 2 cols */}
@@ -62,7 +62,7 @@ export default function Solutions() {
                 </svg>
               </div>
               <h3 className="bento-title">Hỗ trợ chuẩn bị hồ sơ</h3>
-              <p className="bento-desc">Tăng khả năng phê duyệt khoản vay bằng cách chuẩn bị hồ sơ đúng theo yêu cầu ngân hàng.</p>
+              <p className="bento-desc">Tư vẫn hồ sơ miễn phí. giúp tăng khả năng phê duyệt khoản vay</p>
             </div>
             <div className="bento-deco bento-deco--chart">
               <svg viewBox="0 0 200 120" fill="none">
@@ -84,7 +84,7 @@ export default function Solutions() {
             </div>
             <div>
               <h3 className="bento-title">Quy trình giải ngân</h3>
-              <p className="bento-desc">Kết nối hồ sơ &amp; quy trình giải ngân minh bạch, theo dõi tiến độ rõ ràng từng bước.</p>
+              <p className="bento-desc">Kết nối hồ sơ &amp; Quy trình giải ngân minh bạch</p>
             </div>
           </div>
         </div>

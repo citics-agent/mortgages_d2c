@@ -5,65 +5,51 @@ const steps = [
   {
     badge: 'Bước 01',
     title: 'Khách hàng đăng ký thông tin vay',
-    sub: 'Thông tin cá nhân, liên lạc, tài chính',
     details: [
-      'Điền thông tin cá nhân: họ tên, ngày sinh, CMND/CCCD',
-      'Cung cấp thông tin thu nhập và nghề nghiệp',
-      'Mô tả tài sản thế chấp và nhu cầu vay vốn',
-      'Chọn mục đích vay: mua nhà, xây sửa, kinh doanh, tái cấu trúc',
+      '1. Thông tin cá nhân',
+      '2. Thông tin liên lạc',
+      '3. Nhu cầu & BĐS',
     ],
   },
   {
     badge: 'Bước 02',
-    title: 'Citics phân tích hồ sơ',
-    sub: 'Chuyên viên liên hệ và phân tích phù hợp với ngân hàng đối tác',
+    title: 'Citics Mortgages phân tích hồ sơ',
     details: [
-      'Chuyên viên Citics liên hệ trong vòng 24 giờ làm việc',
-      'Xác nhận nhu cầu vay và thông tin tài sản thế chấp',
-      'Phân tích hồ sơ phù hợp với các ngân hàng đối tác',
-      'Tư vấn bổ sung hồ sơ nếu cần thiết',
+      '1. Chuyên viên tư vấn liên hệ trực tiếp',
+      '2. Xác nhận nhu cầu & hồ sơ',
+      '3. Phân tích mức độ phù hợp với điều kiện các ngân hàng đối tác của Citics',
+      '4. Các chính sách & ưu đãi ngân hàng hiện tại',
+      '5. Bổ sung hồ sơ (nếu cần)',
     ],
   },
   {
     badge: 'Bước 03',
     title: 'Kết nối ngân hàng phù hợp',
-    sub: 'Gửi hồ sơ qua ngân hàng phù hợp',
     details: [
-      'Đối chiếu tiêu chí ngân hàng với hồ sơ khách hàng',
-      'Chọn ngân hàng tối ưu theo mục tiêu: lãi suất, hạn mức, tốc độ',
-      'Gửi hồ sơ chính thức đến ngân hàng đối tác',
+      'Gửi hồ sơ qua ngân hàng phù hợp',
     ],
   },
   {
     badge: 'Bước 04',
     title: 'Ngân hàng tư vấn và thẩm định hồ sơ',
-    sub: 'Chuyên viên ngân hàng liên hệ, thẩm định giá & hoàn thành hồ sơ',
     details: [
-      'Chuyên viên ngân hàng liên hệ trực tiếp với khách hàng',
-      'Xác nhận và bổ sung thông tin cần thiết',
-      'Thẩm định giá tài sản thế chấp qua đơn vị định giá độc lập',
-      'Hoàn thiện hồ sơ pháp lý theo yêu cầu ngân hàng',
+      '1. Chuyên viên ngân hàng liên hệ',
+      '2. Xác nhận các thông tin lần cuối',
+      '3. Thẩm định giá & hoàn thành hồ sơ',
     ],
   },
   {
     badge: 'Bước 05',
     title: 'Phê duyệt khoản vay',
-    sub: 'Trả kết quả duyệt vay cho khách hàng theo điều kiện phù hợp',
     details: [
-      'Ngân hàng ra quyết định phê duyệt khoản vay',
-      'Thông báo kết quả: hạn mức vay, lãi suất, kỳ hạn',
-      'Ký kết hợp đồng vay vốn và thế chấp tài sản',
+      'Trả kết quả duyệt vay cho khách hàng theo điều kiện phù hợp',
     ],
   },
   {
     badge: 'Bước 06',
     title: 'Giải ngân',
-    sub: 'Nhận vốn vay',
     details: [
-      'Hoàn tất thủ tục công chứng hợp đồng thế chấp',
-      'Ngân hàng thực hiện giải ngân theo điều khoản hợp đồng',
-      'Khách hàng nhận vốn vay và bắt đầu sử dụng',
-      'Citics hỗ trợ theo dõi sau giải ngân nếu cần',
+      'Nhận vốn vay',
     ],
   },
 ];
@@ -256,7 +242,7 @@ export default function FlowDiagram() {
                 <div className="flow-panel-head">
                   <span className="flow-panel-badge">{step.badge}</span>
                   <h3 className="flow-panel-title">{step.title}</h3>
-                  <p className="flow-panel-sub">{step.sub}</p>
+                  {/* sub removed */}
                 </div>
                 <ul className="flow-panel-details">
                   {step.details.map((detail, j) => (

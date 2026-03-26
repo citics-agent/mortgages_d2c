@@ -22,8 +22,8 @@ export default function Home() {
       {/* 1. Hero */}
       <Hero />
 
-      {/* 2. USP */}
-      <USP />
+      {/* 2. USP — disabled */}
+      {/* <USP /> */}
 
       {/* 3. EForm #1 - Primary (main form) */}
       <EForm
