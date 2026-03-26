@@ -2321,7 +2321,7 @@ ul { list-style: none; }
 .flow-panel .flow-panel-details li { color: var(--gray-200); transition: color 0.4s; }
 .flow-panel .flow-panel-badge { opacity: 0.3; transition: opacity 0.4s; }
 
-.flow-panel:last-child { border-bottom: none; }
+.flow-panel:last-child { border-bottom: none; min-height: 50%; }
 
 .flow-panel.active .flow-panel-title { color: var(--black); }
 .flow-panel.active .flow-panel-sub { color: var(--gray-600); }

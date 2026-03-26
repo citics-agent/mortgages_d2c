@@ -49,7 +49,9 @@ const steps = [
     badge: 'Bước 06',
     title: 'Giải ngân',
     details: [
-      'Nhận vốn vay',
+      '1. Hoàn tất công chứng hợp đồng thế chấp',
+      '2. Ngân hàng giải ngân theo hợp đồng',
+      '3. Khách hàng nhận vốn vay',
     ],
   },
 ];
@@ -84,7 +86,7 @@ export default function FlowDiagram() {
       },
       {
         root: layoutRef.current,
-        rootMargin: '-10% 0px -40% 0px',
+        rootMargin: '-10% 0px -20% 0px',
         threshold: 0,
       }
     );
