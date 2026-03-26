@@ -22,6 +22,7 @@ export default function Home() {
       {/* Hero + EForm seamless wrapper */}
       <div className="hero-eform-wrap">
         <Hero />
+        <div className="glass-divider" />
         <EForm
           variant="primary"
           id="form1"
