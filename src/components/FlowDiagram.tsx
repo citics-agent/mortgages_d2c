@@ -49,9 +49,7 @@ const steps = [
     badge: 'Bước 06',
     title: 'Giải ngân',
     details: [
-      '1. Hoàn tất công chứng hợp đồng thế chấp',
-      '2. Ngân hàng giải ngân theo hợp đồng',
-      '3. Khách hàng nhận vốn vay',
+      'Nhận vốn vay',
     ],
   },
 ];
