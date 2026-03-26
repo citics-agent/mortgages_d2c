@@ -468,10 +468,16 @@ ul { list-style: none; }
   align-self: stretch;
 }
 
+/* ========== HERO + EFORM SEAMLESS WRAPPER ========== */
+.hero-eform-wrap {
+  background: linear-gradient(160deg, #0335B0 0%, var(--blue) 40%, #0952F5 100%);
+  position: relative;
+}
+
 /* ========== HERO ========== */
 .hero {
-  min-height: 100svh;
-  background: linear-gradient(160deg, #0335B0 0%, var(--blue) 40%, #0952F5 100%);
+  min-height: 0;
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -940,10 +946,10 @@ ul { list-style: none; }
 
 /* ========== EFORM PRIMARY ========== */
 .eform-primary {
-  background: var(--blue);
+  background: transparent;
   padding-top: 48px;
   padding-bottom: 48px;
-  min-height: calc(100svh - var(--nav-height));
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -3178,7 +3184,7 @@ ul { list-style: none; }
 
   /* ── EFORM PRIMARY ── */
   .eform-primary {
-    padding: calc(var(--nav-height) + 24px) 0 36px;
+    padding: 24px 0 36px;
     min-height: 0;
     overflow: hidden;
   }

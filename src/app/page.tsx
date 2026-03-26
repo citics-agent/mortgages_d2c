@@ -19,23 +19,20 @@ export default function Home() {
       <ClientEffects />
       <Nav />
 
-      {/* 1. Hero */}
-      <Hero />
-
-      {/* 2. USP — disabled */}
-      {/* <USP /> */}
-
-      {/* 3. EForm #1 - Primary (main form) */}
-      <EForm
-        variant="primary"
-        id="form1"
-        formId="mortgageForm1"
-        title="Nhận tư vấn <span class='highlight-free'>miễn phí</span><br/>ngay hôm nay"
-        subtitle="Điền thông tin để nhận tư vấn. Đội ngũ Citics Mortgages sẽ liên hệ bạn trong 24 giờ làm việc."
-        buttonText="Nhận tư vấn miễn phí"
-        stat="5.000+"
-        statLabel="hồ sơ đã được duyệt vay trong vòng 1 năm"
-      />
+      {/* Hero + EForm seamless wrapper */}
+      <div className="hero-eform-wrap">
+        <Hero />
+        <EForm
+          variant="primary"
+          id="form1"
+          formId="mortgageForm1"
+          title="Nhận tư vấn <span class='highlight-free'>miễn phí</span><br/>ngay hôm nay"
+          subtitle="Điền thông tin để nhận tư vấn. Đội ngũ Citics Mortgages sẽ liên hệ bạn trong 24 giờ làm việc."
+          buttonText="Nhận tư vấn miễn phí"
+          stat="5.000+"
+          statLabel="hồ sơ đã được duyệt vay trong vòng 1 năm"
+        />
+      </div>
 
       {/* 5. Personas */}
       <Personas />
