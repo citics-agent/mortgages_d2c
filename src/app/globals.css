@@ -2537,7 +2537,7 @@ ul { list-style: none; }
 
 
 .bank-logo {
-  max-width: 100%;
+  max-width: 65%;
   max-height: 48px;
   object-fit: contain;
 }
