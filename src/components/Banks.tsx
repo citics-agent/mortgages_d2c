@@ -1,14 +1,14 @@
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const banks = [
-  { logo: `${bp}/assets/banks/vpb.png`, name: 'VPBank', scale: '80%' },
-  { logo: `${bp}/assets/banks/woori.png`, name: 'Woori', scale: '55%' },
-  { logo: `${bp}/assets/banks/msb.png`, name: 'MSB', scale: '60%' },
-  { logo: `${bp}/assets/banks/vib.png`, name: 'VIB', scale: '60%' },
-  { logo: `${bp}/assets/banks/mbv.png`, name: 'MBV', scale: '45%' },
-  { logo: `${bp}/assets/banks/ocb.png`, name: 'OCB', scale: '60%' },
-  { logo: `${bp}/assets/banks/hdbank.png`, name: 'HDBank', scale: '70%' },
-  { logo: `${bp}/assets/banks/bvb.png`, name: 'BVB', scale: '65%' },
+  { logo: `${bp}/assets/banks/vpb.png`, name: 'VPBank', scale: '90%' },
+  { logo: `${bp}/assets/banks/woori.png`, name: 'Woori', scale: '65%' },
+  { logo: `${bp}/assets/banks/msb.png`, name: 'MSB', scale: '70%' },
+  { logo: `${bp}/assets/banks/vib.png`, name: 'VIB', scale: '70%' },
+  { logo: `${bp}/assets/banks/mbv.png`, name: 'MBV', scale: '55%' },
+  { logo: `${bp}/assets/banks/ocb.png`, name: 'OCB', scale: '70%' },
+  { logo: `${bp}/assets/banks/hdbank.png`, name: 'HDBank', scale: '80%' },
+  { logo: `${bp}/assets/banks/bvb.png`, name: 'BVB', scale: '75%' },
 ];
 
 export default function Banks() {
