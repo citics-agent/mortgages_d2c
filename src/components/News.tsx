@@ -1,7 +1,3 @@
-'use client';
-
-import { useEffect, useRef } from 'react';
-
 const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const newsItems = [
@@ -46,80 +42,15 @@ function NewsCard({ item }: { item: typeof newsItems[number] }) {
 }
 
 export default function News() {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-
-    // Measure the width of one set (first N children = newsItems.length)
-    const cards = Array.from(track.children);
-    const setSize = newsItems.length;
-    let setWidth = 0;
-    for (let i = 0; i < setSize; i++) {
-      const card = cards[i] as HTMLElement;
-      setWidth += card.offsetWidth;
-    }
-    const gap = 24;
-    setWidth += setSize * gap;
-    track.style.setProperty('--news-set-width', `-${setWidth}px`);
-
-    // Touch swipe support
-    let startX = 0;
-    let scrollLeft = 0;
-    let isDragging = false;
-
-    const marquee = track.parentElement;
-    if (!marquee) return;
-
-    const onTouchStart = (e: TouchEvent) => {
-      isDragging = true;
-      startX = e.touches[0].clientX;
-      scrollLeft = marquee.scrollLeft;
-      track.style.animationPlayState = 'paused';
-      track.style.animation = 'none';
-      marquee.style.overflow = 'auto';
-      marquee.style.scrollBehavior = 'auto';
-    };
-
-    const onTouchMove = (e: TouchEvent) => {
-      if (!isDragging) return;
-      const x = e.touches[0].clientX;
-      const diff = startX - x;
-      marquee.scrollLeft = scrollLeft + diff;
-    };
-
-    const onTouchEnd = () => {
-      isDragging = false;
-    };
-
-    marquee.addEventListener('touchstart', onTouchStart, { passive: true });
-    marquee.addEventListener('touchmove', onTouchMove, { passive: true });
-    marquee.addEventListener('touchend', onTouchEnd);
-
-    return () => {
-      marquee.removeEventListener('touchstart', onTouchStart);
-      marquee.removeEventListener('touchmove', onTouchMove);
-      marquee.removeEventListener('touchend', onTouchEnd);
-    };
-  }, []);
-
   return (
     <section className="section news" id="news">
       <div className="container">
         <div className="section-header section-header--center reveal">
           <h2 className="section-title">Citics có gì mới?</h2>
         </div>
-      </div>
-      <div className="news-marquee reveal">
-        <div className="news-track" ref={trackRef}>
-          {/* Set 1 */}
+        <div className="news-static-grid reveal">
           {newsItems.map((item, i) => (
-            <NewsCard item={item} key={`s1-${i}`} />
-          ))}
-          {/* Set 2 — duplicate for seamless loop */}
-          {newsItems.map((item, i) => (
-            <NewsCard item={item} key={`s2-${i}`} />
+            <NewsCard item={item} key={i} />
           ))}
         </div>
       </div>

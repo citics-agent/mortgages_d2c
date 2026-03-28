@@ -34,7 +34,7 @@
 .debug-grid .flow-steps,
 .debug-grid .policy-grid,
 .debug-grid .banks-grid,
-.debug-grid .news-track {
+.debug-grid .news-static-grid {
   outline: 2px solid rgba(0, 255, 0, 0.6);
 }
 
@@ -48,7 +48,7 @@
 .debug-grid .flow-steps > *,
 .debug-grid .policy-grid > *,
 .debug-grid .banks-grid > *,
-.debug-grid .news-track > * {
+.debug-grid .news-static-grid > * {
   outline: 1px solid rgba(0, 150, 255, 0.5);
 }
 
@@ -2500,9 +2500,12 @@ ul { list-style: none; }
 /* ── Banks grid ── */
 .banks-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 24px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .banks-subtitle {
@@ -2532,6 +2535,12 @@ ul { list-style: none; }
   box-shadow: 0 4px 16px rgba(7, 65, 218, 0.1);
 }
 
+
+.bank-logo {
+  max-width: 100%;
+  max-height: 48px;
+  object-fit: contain;
+}
 
 .bank-logo-placeholder {
   font-size: 16px;
@@ -2580,28 +2589,10 @@ ul { list-style: none; }
 /* ========== NEWS ========== */
 .news { background: var(--white); padding-top: 0; }
 
-.news-marquee {
-  overflow: hidden;
-  position: relative;
-  margin: 0 clamp(var(--safe-zone), 10vw, 135px);
-  padding: 16px 0;
-}
-
-.news-track {
-  display: flex;
-  gap: 24px;
-  width: max-content;
-  animation: news-scroll 50s linear infinite;
-  will-change: transform;
-}
-
-.news-track:hover {
-  animation-play-state: paused;
-}
-
-@keyframes news-scroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(var(--news-set-width, -50%)); }
+.news-static-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .news-grid {
@@ -2618,10 +2609,7 @@ ul { list-style: none; }
   transition: transform var(--transition), box-shadow var(--transition);
   display: flex;
   flex-direction: column;
-  flex: 0 0 256px;
-  width: 256px;
-  min-width: 256px;
-  max-width: 256px;
+  width: 100%;
   text-decoration: none;
   color: inherit;
 }
@@ -3381,13 +3369,12 @@ ul { list-style: none; }
   .policies-form-wrap { margin-top: 32px; }
 
   /* ── BANKS ── */
-  .banks-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .banks-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .bank-card { min-height: 64px; padding: 14px 10px; }
-  .bank-name { font-size: 14px; }
+  .bank-logo { max-height: 36px; }
 
   /* ── NEWS ── */
-  .news-marquee { margin: 0; }
-  .news-card { flex: 0 0 220px; }
+  .news-static-grid { grid-template-columns: 1fr 1fr; }
 
   /* ── COMPACT FORM ── */
   .compact-form-fields { flex-direction: column; }
@@ -3419,7 +3406,7 @@ ul { list-style: none; }
   .usp-card-title { font-size: 18px; }
   .usp-card-desc { font-size: 13px; }
   .banks-grid { grid-template-columns: 1fr 1fr; }
-  .news-card { flex: 0 0 180px; }
+  .news-static-grid { grid-template-columns: 1fr; }
   .footer-download { grid-column: 1; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-brand { grid-column: 1; }

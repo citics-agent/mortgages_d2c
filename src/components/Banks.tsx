@@ -1,16 +1,14 @@
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const banks = [
-  { className: 'bank-name--vcb', name: 'Vietcombank' },
-  { className: 'bank-name--bidv', name: 'BIDV' },
-  { className: 'bank-name--sacom', name: 'Sacombank' },
-  { className: 'bank-name--tcb', name: 'Techcombank' },
-  { className: 'bank-name--vpb', name: 'VPBank' },
-  { className: 'bank-name--msb', name: 'MSB' },
-  { className: 'bank-name--mb', name: 'MB Bank' },
-  { className: 'bank-name--ocb', name: 'OCB' },
-  { className: 'bank-name--vtb', name: 'VietinBank' },
-  { className: 'bank-name--agr', name: 'Agribank' },
-  { className: 'bank-name--acb', name: 'ACB' },
-  { className: 'bank-name--shb', name: 'SHB' },
+  { logo: `${bp}/assets/banks/vpb.png`, name: 'VPBank' },
+  { logo: `${bp}/assets/banks/woori.png`, name: 'Woori' },
+  { logo: `${bp}/assets/banks/msb.png`, name: 'MSB' },
+  { logo: `${bp}/assets/banks/vib.png`, name: 'VIB' },
+  { logo: `${bp}/assets/banks/mbv.png`, name: 'MBV' },
+  { logo: `${bp}/assets/banks/ocb.png`, name: 'OCB' },
+  { logo: `${bp}/assets/banks/hdbank.png`, name: 'HDBank' },
+  { logo: `${bp}/assets/banks/bvb.png`, name: 'BVB' },
 ];
 
 export default function Banks() {
@@ -18,13 +16,18 @@ export default function Banks() {
     <section className="section banks" id="banks">
       <div className="container">
         <div className="section-header section-header--center reveal">
-          <h2 className="section-title">32 ngân hàng đối tác</h2>
+          <h2 className="section-title">8 ngân hàng đối tác</h2>
         </div>
 
         <div className="banks-grid reveal">
           {banks.map((bank, i) => (
             <div className="bank-card" key={i}>
-              <span className={bank.className}>{bank.name}</span>
+              <img
+                src={bank.logo}
+                alt={bank.name}
+                className="bank-logo"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
