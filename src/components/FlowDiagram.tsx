@@ -65,6 +65,29 @@ export default function FlowDiagram() {
   const overviewRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Escape the scroll trap: when internal scroll hits top/bottom, forward to page
+  useEffect(() => {
+    const layout = layoutRef.current;
+    if (!layout) return;
+
+    const handleWheel = (e: WheelEvent) => {
+      const { scrollTop, scrollHeight, clientHeight } = layout;
+      const atTop = scrollTop <= 0 && e.deltaY < 0;
+      const atBottom = scrollTop + clientHeight >= scrollHeight - 1 && e.deltaY > 0;
+
+      if (atTop || atBottom) {
+        layout.style.overflowY = 'hidden';
+        window.scrollBy({ top: e.deltaY, behavior: 'instant' as ScrollBehavior });
+        requestAnimationFrame(() => {
+          layout.style.overflowY = 'auto';
+        });
+      }
+    };
+
+    layout.addEventListener('wheel', handleWheel, { passive: true });
+    return () => layout.removeEventListener('wheel', handleWheel);
+  }, []);
+
   useEffect(() => {
     const panels = panelRefs.current.filter(Boolean) as HTMLDivElement[];
     if (panels.length === 0) return;

@@ -713,6 +713,12 @@ ul { list-style: none; }
   width: 100%;
 }
 
+.hero-visual-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .house-illustration {
   width: 100%;
   max-width: 380px;
@@ -1278,7 +1284,7 @@ ul { list-style: none; }
 }
 
 .persona-tab.active .persona-tab-progress {
-  animation: personaProgress 3s linear forwards;
+  animation: personaProgress 5s linear forwards;
 }
 
 @keyframes personaProgress {
@@ -1653,6 +1659,174 @@ ul { list-style: none; }
   margin-bottom: 24px;
 }
 
+/* ========== COMPARISON (Hub-spoke diagram) ========== */
+.comparison { background: var(--lavender-light); }
+
+.comparison-subtitle {
+  color: var(--gray-500);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.comparison-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 0 60px;
+}
+
+.comparison-label {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.comparison-label--problem { color: var(--amber); }
+.comparison-label--solution { color: var(--blue); }
+
+.comparison-diagram {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comparison-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.comparison-col {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  z-index: 2;
+  flex-shrink: 0;
+  width: 310px;
+}
+
+.comparison-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.comparison-row--right {
+  justify-content: flex-end;
+}
+
+.comparison-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: box-shadow 0.2s;
+}
+
+.comparison-icon--amber { color: var(--amber); }
+.comparison-icon--blue { color: var(--blue); }
+
+.comparison-row:hover .comparison-icon {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-card {
+  height: 96px;
+  width: 250px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.comparison-card:hover {
+  transform: scale(1.03);
+}
+
+.comparison-card--white {
+  background: white;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-card--white:hover {
+  box-shadow: 0 8px 32px rgba(255, 191, 1, 0.25);
+}
+
+.comparison-card--blue {
+  background: var(--blue);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-card--blue:hover {
+  box-shadow: 0 8px 32px rgba(7, 65, 218, 0.35);
+}
+
+.comparison-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.comparison-card--white .comparison-card-title { color: var(--gray-600); }
+.comparison-card--blue .comparison-card-title { color: white; }
+
+.comparison-card-desc {
+  font-size: 12px;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+.comparison-card--white .comparison-card-desc { color: var(--gray-400); }
+.comparison-card--blue .comparison-card-desc { color: rgba(255, 255, 255, 0.7); }
+
+.comparison-hub {
+  z-index: 2;
+  padding: 0 48px;
+  flex-shrink: 0;
+}
+
+.comparison-hub-ring {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(from 0deg, #0741DA, #11DAEF, #0741DA);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comparison-hub-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #0a1e5e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: 0 8px 40px rgba(7, 65, 218, 0.3);
+}
+
+.comparison-hub-logo {
+  height: 32px;
+  width: auto;
+}
+
 /* ========== SOLUTIONS (Bento) ========== */
 .solutions {
   background: var(--gray-50, #F8F9FB);
@@ -1888,53 +2062,148 @@ ul { list-style: none; }
 .opmodel { background: var(--white); }
 .opmodel > .container { margin: 0 clamp(var(--safe-zone), 10vw, 135px); max-width: none; }
 
+/* ========== OPMODEL HUB-AND-SPOKE DIAGRAM ========== */
+.opmodel-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 20px;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.opmodel-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--blue);
+}
+
 .opmodel-diagram {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0;
-  margin: 0 auto 32px;
-  max-width: 900px;
-  position: relative;
 }
 
-.opmodel-banks {
+.opmodel-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.opmodel-side {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 16px;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+}
+
+.opmodel-hub-wrap {
+  z-index: 2;
+  padding: 0 56px;
   flex-shrink: 0;
 }
 
-.bank-pill {
-  padding: 10px 16px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 700;
-  text-align: center;
-  min-width: 110px;
-  letter-spacing: 0.3px;
+.opmodel-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.bank-pill--vpb { background: #00632A; color: white; }
-.bank-pill--msb { background: #E31E25; color: white; }
-.bank-pill--mb  { background: #592D8C; color: white; }
-.bank-pill--ocb { background: #F37021; color: white; }
-.bank-pill--bidv { background: #005BAA; color: white; }
-.bank-pill--vcb { background: #007A33; color: white; }
+.opmodel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(7, 65, 218, 0.12);
+}
 
-.opmodel-arrows {
-  display: flex;
-  flex-direction: column;
+.opmodel-card--white {
+  background: var(--white);
+  border: 1.5px solid var(--gray-200);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.opmodel-card--blue {
+  background: var(--blue);
+  color: white;
   justify-content: center;
-  gap: 18px;
-  padding: 0 16px;
-  flex-shrink: 0;
+  min-height: 56px;
 }
 
+.opmodel-card-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 191, 1, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.opmodel-card-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.opmodel-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+  line-height: 1.3;
+}
+
+.opmodel-card-desc {
+  font-size: 12px;
+  color: var(--gray-500);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+
+.opmodel-side--right {
+  align-self: stretch;
+}
+
+.opmodel-bank-block {
+  background: var(--blue);
+  border-radius: 20px;
+  padding: 32px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  box-shadow: 0 4px 24px rgba(7, 65, 218, 0.15);
+}
+
+.opmodel-bank-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px 40px;
+}
+
+.opmodel-bank-logo {
+  height: 48px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
 
 .opmodel-center {
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   background: var(--blue);
   display: flex;
@@ -1943,20 +2212,16 @@ ul { list-style: none; }
   justify-content: center;
   gap: 6px;
   flex-shrink: 0;
-  box-shadow: 0 8px 40px rgba(7, 65, 218, 0.35);
+  box-shadow: 0 0 0 14px rgba(7, 65, 218, 0.1), 0 8px 40px rgba(7, 65, 218, 0.35);
   position: relative;
-}
-
-.opmodel-logo-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+  z-index: 1;
 }
 
 .opmodel-logo {
   height: 28px;
   width: auto;
+  max-width: 70%;
+  object-fit: contain;
 }
 
 .opmodel-badge {
@@ -1968,102 +2233,6 @@ ul { list-style: none; }
   border-radius: 50px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-}
-
-.opmodel-center-label {
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  margin-top: 4px;
-  font-weight: 500;
-}
-
-.opmodel-customer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  padding: 0 16px;
-}
-
-
-.opmodel-caption {
-  text-align: center;
-  font-size: 14px;
-  color: var(--gray-600);
-  font-weight: 500;
-  padding: 14px 24px;
-  background: var(--lavender-light);
-  border-radius: 50px;
-  max-width: max-content;
-  margin: 0 auto;
-}
-
-/* ========== OPMODEL STEPS (Momo 3-col: label → title → icon → desc) ========== */
-.opmodel-steps {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: 16px;
-  margin: 0 auto;
-  max-width: 960px;
-}
-
-.opmodel-step {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 32px 28px 28px;
-  background: var(--white);
-  border: 1.5px solid var(--gray-200);
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(7, 65, 218, 0.06);
-}
-
-.opmodel-step-num {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  color: var(--blue);
-  text-transform: uppercase;
-  margin-bottom: 12px;
-  opacity: 0.7;
-  align-self: flex-start;
-}
-
-.opmodel-step-title {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--black);
-  margin-bottom: 24px;
-  line-height: 1.3;
-  text-align: left;
-  align-self: flex-start;
-}
-
-.opmodel-step-icon {
-  margin-bottom: 20px;
-}
-
-.opmodel-step-desc {
-  font-size: 14px;
-  color: var(--gray-600);
-  line-height: 1.6;
-  text-align: left;
-  align-self: flex-start;
-}
-
-.opmodel-step-arrow {
-  display: flex;
-  align-items: center;
-  padding: 0 4px;
-  align-self: center;
-  flex-shrink: 0;
-  color: var(--blue);
-  opacity: 0.5;
 }
 
 /* ========== FLOW PROGRESSIVE ========== */
@@ -3047,15 +3216,7 @@ ul { list-style: none; }
   border-radius: 24px;
 }
 
-/* Opmodel placeholder */
-.opmodel-placeholder {
-  width: 100%;
-}
-
-.asset-ph--opmodel {
-  width: 100%;
-  border-radius: 24px;
-}
+/* Opmodel placeholder (legacy — kept for fallback) */
 
 .asset-ph--desktop {
   aspect-ratio: 1920 / 1200;
@@ -3271,6 +3432,31 @@ ul { list-style: none; }
     color: rgba(255, 255, 255, 0.85);
   }
 
+  /* ── COMPARISON ── */
+  .comparison-labels { display: none; }
+  .comparison-diagram { flex-direction: column; gap: 24px; }
+  .comparison-col { width: 100%; }
+  .comparison-lines { display: none; }
+  .comparison-hub { padding: 0; }
+  .comparison-hub-ring { width: 120px; height: 120px; }
+  .comparison-hub-logo { height: 24px; }
+  .comparison-card { width: 100%; }
+  .comparison-row, .comparison-row--right { justify-content: flex-start; }
+  .comparison-col--right::before {
+    content: 'Citics Mortgages giải quyết';
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+  .comparison-col--left::before {
+    content: 'Khó khăn khi tự vay';
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+
   /* ── PAINPOINTS ── */
   .pain-grid { grid-template-columns: 1fr; }
   .pain-card--full { grid-column: 1; }
@@ -3309,20 +3495,13 @@ ul { list-style: none; }
   .opmodel .section-header--center { text-align: left; }
   .opmodel .section-title { font-size: clamp(24px, 6vw, 30px); }
   .opmodel > .container { margin: 0 auto; max-width: var(--container); }
-  .opmodel-diagram { flex-direction: column; gap: 16px; }
-  .opmodel-arrows { flex-direction: row; padding: 0; }
-  .arrow-line { width: 40px; height: 2px; }
-  .arrow-line--right { transform: rotate(90deg); }
-  .opmodel-arrows--left { transform: rotate(90deg); }
-  .opmodel-arrows--right { transform: rotate(90deg); }
-  .opmodel-steps { flex-direction: column; gap: 0; }
-  .opmodel-step { padding: 20px 0; border-bottom: 1px solid var(--gray-200); }
-  .opmodel-step:last-child { border-bottom: none; }
-  .opmodel-step-num { align-self: flex-start; }
-  .opmodel-step-title { font-size: 16px; }
-  .opmodel-step-desc { font-size: 14px; }
-  .opmodel-step-arrow { margin-top: 0; padding: 8px 0; align-self: flex-start; transform: rotate(90deg); }
-  .opmodel-step-icon svg { width: 80px; height: 80px; }
+  .opmodel-labels { display: none; }
+  .opmodel-lines { display: none; }
+  .opmodel-diagram { flex-direction: column; gap: 24px; align-items: center; }
+  .opmodel-side { width: 100%; }
+  .opmodel-hub-wrap { padding: 0; }
+  .opmodel-center { width: 120px; height: 120px; }
+  .opmodel-logo { height: 22px; }
 
   /* ── FLOW ── */
   .section.flow { padding-top: 0; height: 100vh; }

@@ -28,11 +28,11 @@ export default function Hero() {
             </div>
           </div>
           <div className="hero-visual">
-            <div className="asset-ph asset-ph--hero">
-              <div className="asset-ph-icon">&#x1F3E1;</div>
-              <div className="asset-ph-file">hero-visual.png / .jpg</div>
-              <div className="asset-ph-size">Desktop 1120 &times; 960px &middot; Mobile 800 &times; 800px</div>
-            </div>
+            <img
+              src="/assets/hero-banner.png"
+              alt="Citics Mortgages – Tư vấn vay thế chấp"
+              className="hero-visual-img"
+            />
           </div>
         </div>
       </div>

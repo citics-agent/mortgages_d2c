@@ -71,7 +71,7 @@ const personas = [
   },
 ];
 
-const ROTATION_INTERVAL = 3000;
+const ROTATION_INTERVAL = 5000;
 
 export default function Personas() {
   const [activeIndex, setActiveIndex] = useState(0);

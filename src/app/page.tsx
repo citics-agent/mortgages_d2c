@@ -41,7 +41,7 @@ export default function Home() {
       {/* 6. Painpoints */}
       <Painpoints />
 
-      {/* 7. Solutions */}
+{/* 7. Solutions */}
       <Solutions />
 
       {/* 8. EForm #2 - CTA */}
