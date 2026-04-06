@@ -1,3 +1,4 @@
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
 const iconSize = { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5" } as const;
 
 const problems = [
@@ -104,7 +105,7 @@ export default function Comparison() {
           <div className="comparison-hub">
             <div className="comparison-hub-ring">
               <div className="comparison-hub-inner">
-                <img src="/assets/logo-mortgages-w.png" alt="Citics Mortgages" className="comparison-hub-logo" />
+                <img src={`${bp}/assets/logo-mortgages-w.png`} alt="Citics Mortgages" className="comparison-hub-logo" />
               </div>
             </div>
           </div>

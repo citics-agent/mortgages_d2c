@@ -1,5 +1,7 @@
 'use client';
 
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const customers = [
   {
     title: 'Người mua nhà lần đầu',
@@ -55,12 +57,12 @@ const customers = [
 ];
 
 const bankLogos = [
-  { name: 'VPBank', logo: '/assets/banks/vpb.png' },
-  { name: 'OCB', logo: '/assets/banks/ocb.png' },
-  { name: 'HDBank', logo: '/assets/banks/hdbank.png' },
-  { name: 'VIB', logo: '/assets/banks/vib.png' },
-  { name: 'MSB', logo: '/assets/banks/msb.png' },
-  { name: 'MB', logo: '/assets/banks/mb.png' },
+  { name: 'VPBank', logo: `${bp}/assets/banks/vpb.png` },
+  { name: 'OCB', logo: `${bp}/assets/banks/ocb.png` },
+  { name: 'HDBank', logo: `${bp}/assets/banks/hdbank.png` },
+  { name: 'VIB', logo: `${bp}/assets/banks/vib.png` },
+  { name: 'MSB', logo: `${bp}/assets/banks/msb.png` },
+  { name: 'MB', logo: `${bp}/assets/banks/mb.png` },
 ];
 
 export default function OperatingModel() {
@@ -121,7 +123,7 @@ export default function OperatingModel() {
             <div className="opmodel-center">
               <img
                 className="opmodel-logo"
-                src="/assets/logo-mortgages-w.png"
+                src={`${bp}/assets/logo-mortgages-w.png`}
                 alt="Citics Mortgages"
               />
             </div>

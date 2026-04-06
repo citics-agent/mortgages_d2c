@@ -256,7 +256,7 @@ export default function FlowDiagram() {
             {steps.map((step, i) => (
               <div
                 key={i}
-                className={`flow-panel${i === activeStep ? ' active' : ''}`}
+                className={`flow-panel${i === activeStep ? ' active' : ''}${i < activeStep ? ' done' : ''}`}
                 data-flow-panel={i}
                 ref={(el) => {
                   panelRefs.current[i] = el;

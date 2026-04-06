@@ -1,3 +1,5 @@
+const bp = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 export default function Hero() {
   return (
     <section className="hero" id="hero">
@@ -29,7 +31,7 @@ export default function Hero() {
           </div>
           <div className="hero-visual">
             <img
-              src="/assets/hero-banner.png"
+              src={`${bp}/assets/hero-banner.png`}
               alt="Citics Mortgages – Tư vấn vay thế chấp"
               className="hero-visual-img"
             />
