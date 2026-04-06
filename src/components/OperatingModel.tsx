@@ -118,6 +118,13 @@ export default function OperatingModel() {
             ))}
           </div>
 
+          {/* Mobile flow arrow: customers → hub */}
+          <div className="opmodel-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+
           {/* CENTER HUB */}
           <div className="opmodel-hub-wrap">
             <div className="opmodel-center">
@@ -127,6 +134,13 @@ export default function OperatingModel() {
                 alt="Citics Mortgages"
               />
             </div>
+          </div>
+
+          {/* Mobile flow arrow: hub → banks */}
+          <div className="opmodel-arrow">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
           </div>
 
           {/* RIGHT: Bank partners — single block, full height */}

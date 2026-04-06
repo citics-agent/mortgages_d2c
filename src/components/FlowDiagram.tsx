@@ -88,33 +88,61 @@ export default function FlowDiagram() {
     return () => layout.removeEventListener('wheel', handleWheel);
   }, []);
 
+  // Scroll-position based active step — smooth in both directions
   useEffect(() => {
-    const panels = panelRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (panels.length === 0) return;
+    const layout = layoutRef.current;
+    if (!layout) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(
-              (entry.target as HTMLElement).dataset.flowPanel
-            );
-            if (!isNaN(index) && !isClickScrolling.current) {
-              setActiveStep(index);
-            }
+    const onScroll = () => {
+      if (isClickScrolling.current) return;
+      const panels = panelRefs.current.filter(Boolean) as HTMLDivElement[];
+      if (panels.length === 0) return;
+
+      // Detect if layout is a scroll container or if page scrolls (mobile)
+      const isScrollable = layout.scrollHeight > layout.clientHeight + 10;
+
+      if (isScrollable) {
+        // Desktop: measure relative to layout container
+        const layoutTop = layout.getBoundingClientRect().top;
+        const threshold = layout.clientHeight * 0.25;
+        let current = 0;
+
+        for (let i = 0; i < panels.length; i++) {
+          const panelTop = panels[i].getBoundingClientRect().top - layoutTop;
+          if (panelTop <= threshold) {
+            current = i;
           }
-        });
-      },
-      {
-        root: layoutRef.current,
-        rootMargin: '-10% 0px -20% 0px',
-        threshold: 0,
-      }
-    );
+        }
 
-    panels.forEach((panel) => observer.observe(panel));
+        // At the bottom of scroll → activate last step
+        const { scrollTop, scrollHeight, clientHeight } = layout;
+        if (scrollTop + clientHeight >= scrollHeight - 5) {
+          current = panels.length - 1;
+        }
+
+        setActiveStep(current);
+      } else {
+        // Mobile: measure relative to viewport
+        const threshold = window.innerHeight * 0.35;
+        let current = 0;
+
+        for (let i = 0; i < panels.length; i++) {
+          if (panels[i].getBoundingClientRect().top <= threshold) {
+            current = i;
+          }
+        }
+
+        setActiveStep(current);
+      }
+    };
+
+    // Listen on both layout (desktop) and window (mobile)
+    layout.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
     return () => {
-      panels.forEach((panel) => observer.unobserve(panel));
+      layout.removeEventListener('scroll', onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
@@ -199,13 +227,25 @@ export default function FlowDiagram() {
                   if (!panel || !layout) return;
                   isClickScrolling.current = true;
                   setActiveStep(i);
-                  let offset = 0;
-                  let el: HTMLElement | null = panel;
-                  while (el && el !== layout) {
-                    offset += el.offsetTop;
-                    el = el.offsetParent as HTMLElement | null;
+
+                  const isScrollable = layout.scrollHeight > layout.clientHeight + 10;
+                  if (isScrollable) {
+                    // Desktop: scroll the layout container
+                    let offset = 0;
+                    let el: HTMLElement | null = panel;
+                    while (el && el !== layout) {
+                      offset += el.offsetTop;
+                      el = el.offsetParent as HTMLElement | null;
+                    }
+                    layout.scrollTo({ top: offset, behavior: 'smooth' });
+                  } else {
+                    // Mobile: scroll the page
+                    const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height'), 10) || 60;
+                    const stickyHeader = document.querySelector('.flow-sticky-header');
+                    const headerHeight = stickyHeader ? stickyHeader.getBoundingClientRect().height : 0;
+                    const top = panel.getBoundingClientRect().top + window.scrollY - navHeight - headerHeight - 8;
+                    window.scrollTo({ top, behavior: 'smooth' });
                   }
-                  layout.scrollTo({ top: offset, behavior: 'smooth' });
                   setTimeout(() => { isClickScrolling.current = false; }, 800);
                 }}
               >

@@ -4,6 +4,13 @@ export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="container hero-inner">
+        <div className="hero-visual hero-visual--mobile">
+          <img
+            src={`${bp}/assets/hero-banner.png`}
+            alt="Citics Mortgages – Tư vấn vay thế chấp"
+            className="hero-visual-img"
+          />
+        </div>
         <div className="hero-top">
           <h1 className="hero-headline">
             La Bàn Cho Vay<br />

@@ -137,10 +137,12 @@ export default function Personas() {
                 <div className="persona-tab-progress"></div>
                 {/* Mobile inline expand */}
                 <div className="persona-tab-expand">
-                  <div className="persona-tab-expand-img">
-                    <img src={persona.image} alt={persona.title} />
+                  <div className="persona-tab-expand-inner">
+                    <div className="persona-tab-expand-img">
+                      <img src={persona.image} alt={persona.title} />
+                    </div>
+                    <p className="persona-tab-expand-text">{persona.text}</p>
                   </div>
-                  <p className="persona-tab-expand-text">{persona.text}</p>
                 </div>
               </div>
             ))}

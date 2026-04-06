@@ -3,7 +3,7 @@ export default function Painpoints() {
     <section className="section painpoints" id="painpoints">
       <div className="container">
         <div className="section-header section-header--center reveal">
-          <h2 className="section-title section-title--white">Họ đang gặp khó khăn khi tìm khoản vay</h2>
+          <h2 className="section-title section-title--white">Họ đang gặp <span className="text-amber">khó khăn</span> khi tìm khoản vay</h2>
         </div>
 
         <div className="pain-grid">
