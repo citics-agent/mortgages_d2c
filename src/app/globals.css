@@ -2369,6 +2369,10 @@ ul { list-style: none; }
 }
 
 .flow-layout {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   display: grid;
   grid-template-columns: 80px 1fr;
   gap: 48px;
