@@ -710,8 +710,12 @@ ul { list-style: none; }
   flex-wrap: wrap;
 }
 
+
 /* Mobile-only hero image (above title) — hidden on desktop */
-.hero-visual--mobile { display: none; }
+.hero-visual--mobile { display: none !important; }
+@media (max-width: 1024px) {
+  .hero-visual--mobile { display: flex !important; justify-content: center; margin-bottom: 16px; min-height: 0; overflow: visible; }
+}
 
 .hero-visual {
   display: flex;
@@ -723,8 +727,8 @@ ul { list-style: none; }
 }
 
 .hero-visual-img {
-  width: 110%;
-  max-width: 560px;
+  width: 143%;
+  max-width: 728px;
   height: auto;
   object-fit: contain;
   filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.25));
