@@ -1449,15 +1449,6 @@ ul { list-style: none; }
   opacity: 0.7;
 }
 
-.pain-title { /* kept for compat */
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1.4;
-  margin-bottom: 8px;
-  transition: font-size 0.3s ease;
-}
-
 .pain-desc {
   font-size: 16px;
   font-weight: 600;
@@ -3577,7 +3568,6 @@ ul { list-style: none; }
   .pain-grid { grid-template-columns: 1fr; }
   .pain-card--full { grid-column: 1; }
   .pain-num { font-size: 15px; }
-  .pain-title { font-size: 16px; }
   .pain-desc { font-size: 15px; }
   .painpoints .section-header { margin-bottom: 24px; }
 

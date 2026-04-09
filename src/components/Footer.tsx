@@ -54,7 +54,7 @@ function FooterAccordion({ title, links }: { title: string; links: { label: stri
       <ul className="footer-accordion-list">
         {links.map((link, i) => (
           <li key={i}>
-            <a href={link.href} {...(link.external ? { target: '_blank', rel: 'noopener' } : {})}>{link.label}</a>
+            <a href={link.href} {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{link.label}</a>
           </li>
         ))}
       </ul>
@@ -76,7 +76,7 @@ export default function Footer() {
               <ul>
                 {section.links.map((link, j) => (
                   <li key={j}>
-                    <a href={link.href} {...(link.external ? { target: '_blank', rel: 'noopener' } : {})}>{link.label}</a>
+                    <a href={link.href} {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{link.label}</a>
                   </li>
                 ))}
               </ul>
@@ -87,14 +87,14 @@ export default function Footer() {
             <div className="footer-qr-group">
               <div className="footer-qr">
                 <img src={`${bp}/assets/qr-android.png`} alt="QR Android" className="footer-qr-img" />
-                <a href="https://play.google.com/store/apps/details?id=vn.citics.agent" target="_blank" rel="noopener">
+                <a href="https://play.google.com/store/apps/details?id=vn.citics.agent" target="_blank" rel="noopener noreferrer">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                     alt="Google Play" className="footer-store-badge" />
                 </a>
               </div>
               <div className="footer-qr">
                 <img src={`${bp}/assets/qr-ios.png`} alt="QR iOS" className="footer-qr-img" />
-                <a href="https://apps.apple.com/vn/app/citics-agent/id6504488573" target="_blank" rel="noopener">
+                <a href="https://apps.apple.com/vn/app/citics-agent/id6504488573" target="_blank" rel="noopener noreferrer">
                   <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                     alt="App Store" className="footer-store-badge" />
                 </a>
@@ -113,14 +113,14 @@ export default function Footer() {
             <div className="footer-qr-group">
               <div className="footer-qr">
                 <img src={`${bp}/assets/qr-android.png`} alt="QR Android" className="footer-qr-img" />
-                <a href="https://play.google.com/store/apps/details?id=vn.citics.agent" target="_blank" rel="noopener">
+                <a href="https://play.google.com/store/apps/details?id=vn.citics.agent" target="_blank" rel="noopener noreferrer">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
                     alt="Google Play" className="footer-store-badge" />
                 </a>
               </div>
               <div className="footer-qr">
                 <img src={`${bp}/assets/qr-ios.png`} alt="QR iOS" className="footer-qr-img" />
-                <a href="https://apps.apple.com/vn/app/citics-agent/id6504488573" target="_blank" rel="noopener">
+                <a href="https://apps.apple.com/vn/app/citics-agent/id6504488573" target="_blank" rel="noopener noreferrer">
                   <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                     alt="App Store" className="footer-store-badge" />
                 </a>
@@ -165,19 +165,19 @@ export default function Footer() {
         <div className="footer-bottom">
           <p>&copy; 2026 Bản quyền thuộc về Citics.vn</p>
           <div className="footer-social">
-            <a href="https://www.facebook.com/CiticsAgent" target="_blank" rel="noopener" aria-label="Facebook Fanpage">
+            <a href="https://www.facebook.com/CiticsAgent" target="_blank" rel="noopener noreferrer" aria-label="Facebook Fanpage">
               <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>
             </a>
-            <a href="https://www.facebook.com/groups/citicsagenthub" target="_blank" rel="noopener" aria-label="Facebook Group">
+            <a href="https://www.facebook.com/groups/citicsagenthub" target="_blank" rel="noopener noreferrer" aria-label="Facebook Group">
               <svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><line x1="19" y1="8" x2="19" y2="14" stroke="currentColor" strokeWidth="2" /><line x1="16" y1="11" x2="22" y2="11" stroke="currentColor" strokeWidth="2" /></svg>
             </a>
-            <a href="https://www.tiktok.com/@citics_agent" target="_blank" rel="noopener" aria-label="TikTok">
+            <a href="https://www.tiktok.com/@citics_agent" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
               <svg viewBox="0 0 32 32"><path d="M16.708 0.027C18.453 0 20.188 0.016 21.921 0C22.052 1.979 22.786 3.978 24.188 5.391C25.59 6.828 27.56 7.558 29.504 7.786V12.637C27.676 12.576 25.843 12.179 24.186 11.401C23.461 11.069 22.786 10.647 22.131 10.202C22.121 14.876 22.148 19.548 22.104 24.214C21.991 26.143 21.302 28.048 20.112 29.577C18.258 32.025 15.261 33.508 12.209 33.486C10.333 33.538 8.469 32.988 6.886 31.984C4.275 30.316 2.571 27.381 2.405 24.334C2.384 23.746 2.376 23.158 2.403 22.573C2.623 19.868 3.947 17.303 5.98 15.562C8.281 13.55 11.494 12.587 14.479 13.171C14.507 15.168 14.422 17.166 14.422 19.163C13.22 18.752 11.828 18.753 10.685 19.328C9.817 19.753 9.1 20.455 8.656 21.316C8.296 21.975 8.2 22.741 8.219 23.479C8.375 25.449 10.169 27.142 12.157 27.049C13.455 27.066 14.698 26.389 15.447 25.344C15.674 25.032 15.888 24.694 15.949 24.312C16.107 22.952 16.055 21.588 16.072 20.222C16.084 13.484 16.055 6.748 16.089 0.013L16.708 0.027Z" /></svg>
             </a>
-            <a href="https://www.youtube.com/@Citics.Official" target="_blank" rel="noopener" aria-label="YouTube">
+            <a href="https://www.youtube.com/@Citics.Official" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.43z" /><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" /></svg>
             </a>
-            <a href="https://zalo.me/citicsvn" target="_blank" rel="noopener" aria-label="Zalo OA">
+            <a href="https://zalo.me/citicsvn" target="_blank" rel="noopener noreferrer" aria-label="Zalo OA">
               <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.76 1.44 5.22 3.68 6.82V22l3.86-2.12c.78.22 1.6.34 2.46.34 5.52 0 10-4.04 10-9S17.52 2 12 2zm.88 12.2H9.2l-.02-.02c-.04-.06-.06-.14-.06-.22 0-.12.04-.24.12-.34l3.24-4.44h-3.2c-.22 0-.4-.16-.44-.38v-.04c0-.24.18-.42.42-.42h3.72c.04.04.08.1.1.16.02.08.04.16.02.24-.02.08-.04.14-.08.2L9.78 13.4h3.08c.24 0 .42.18.42.42 0 .22-.18.38-.4.38z" /></svg>
             </a>
           </div>

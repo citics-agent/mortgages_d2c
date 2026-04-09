@@ -1,6 +1,5 @@
 import Nav from '@/components/Nav';
 import Hero from '@/components/Hero';
-import USP from '@/components/USP';
 import EForm from '@/components/EForm';
 import Personas from '@/components/Personas';
 import Painpoints from '@/components/Painpoints';
