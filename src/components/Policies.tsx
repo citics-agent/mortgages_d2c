@@ -47,48 +47,8 @@ export default function Policies() {
             <h3 className="policy-title">Cashback độc quyền</h3>
           </div>
 
-          {/* Card 2: Định giá tài sản */}
+          {/* Card 2: Sơ bộ giá trị tài sản */}
           <div className="policy-card reveal reveal-delay-2">
-            <div className="policy-accent">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 13.5L14 5l10 8.5"
-                  stroke="white"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M7 12V24h5v-5.5a2 2 0 0 1 4 0V24h5V12"
-                  stroke="white"
-                  strokeWidth="1.75"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <rect
-                  x="17.5"
-                  y="13.5"
-                  width="3.5"
-                  height="3.5"
-                  rx="0.75"
-                  stroke="white"
-                  strokeWidth="1.25"
-                  opacity="0.65"
-                />
-              </svg>
-            </div>
-            <div className="policy-value policy-value--text">Miễn phí</div>
-            <h3 className="policy-title">Định giá tài sản</h3>
-          </div>
-
-          {/* Card 3: Sơ bộ giá trị tài sản */}
-          <div className="policy-card reveal reveal-delay-3">
             <div className="policy-accent">
               <svg
                 width="28"

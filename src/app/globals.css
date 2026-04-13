@@ -2617,8 +2617,10 @@ ul { list-style: none; }
 
 .policy-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .policy-card {
@@ -3717,8 +3719,7 @@ ul { list-style: none; }
 
   /* ── POLICIES ── */
   .policies .container { padding: 0 12px; }
-  .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .policy-card:first-child { grid-column: 1 / -1; }
+  .policy-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
   .policy-card { padding: 16px 14px; }
   .policy-accent { display: none; }
   .policy-value { font-size: 24px; margin-bottom: 4px; }

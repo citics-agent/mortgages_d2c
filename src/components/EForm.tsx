@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, FormEvent } from 'react';
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3381onHsoyZpUxZoJD3buAYjdAiRXI76_QSq59H-62SzH86XG39Uz0B04K7CI0k_t/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzH-5eCdrnG47vixrH184BjHtDUneTl3wbClas-FhXA87kpBZ1WniHYnSKbkReZSaKr/exec';
 
 type EFormProps = {
   variant: 'primary' | 'compact' | 'cta';
