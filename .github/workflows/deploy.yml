@@ -9,6 +9,7 @@ jobs:
     uses: citics-agent/deploy-workflows/.github/workflows/deploy.yml@main
     secrets:
       ssh_key: ${{ secrets.SSH_KEY }}
+      landing_server_ip: ${{ secrets.LANDING_SERVER_IP }}
     with:
       site_domain: mortgages_d2c.citics.vn
       build_folder: .next
