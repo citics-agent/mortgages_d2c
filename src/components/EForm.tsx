@@ -146,6 +146,7 @@ export default function EForm({ variant, id, formId, title, subtitle, buttonText
         <div className="eform-bg-gradient"></div>
         <div className="container eform-inner">
           <div className="eform-content reveal">
+            {/* title supports inline HTML (e.g. <span class="highlight-free">). Author-controlled from page.tsx / Policies.tsx — never pass user input. */}
             <h2
               className="section-title section-title--white"
               dangerouslySetInnerHTML={{ __html: title }}
@@ -267,6 +268,7 @@ export default function EForm({ variant, id, formId, title, subtitle, buttonText
     return (
       <section className="section eform eform-cta" id={id}>
         <div className="container eform-cta-inner reveal">
+          {/* title supports inline HTML — author-controlled. See primary variant note above. */}
           <h2
             className="section-title section-title--white"
             dangerouslySetInnerHTML={{ __html: title }}
