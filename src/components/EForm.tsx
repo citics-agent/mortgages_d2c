@@ -2,7 +2,10 @@
 
 import { useState, useEffect, useRef, FormEvent } from 'react';
 
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzH-5eCdrnG47vixrH184BjHtDUneTl3wbClas-FhXA87kpBZ1WniHYnSKbkReZSaKr/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxN_7UHsJIpPD4kjdyZXuS_ERsOWuMf1U46WfcpsSqQ0zQ-R8mW1wmtOXQ8QI3H2EIr/exec';
+
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'] as const;
+type UtmKey = (typeof UTM_KEYS)[number];
 
 type EFormProps = {
   variant: 'primary' | 'compact' | 'cta';
@@ -89,6 +92,18 @@ export default function EForm({ variant, id, formId, title, subtitle, buttonText
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [phoneError, setPhoneError] = useState('');
+  const [utmParams, setUtmParams] = useState<Partial<Record<UtmKey, string>>>({});
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const captured: Partial<Record<UtmKey, string>> = {};
+    UTM_KEYS.forEach((key) => {
+      const val = params.get(key);
+      if (val) captured[key] = val;
+    });
+    setUtmParams(captured);
+  }, []);
 
   function validatePhone(value: string): boolean {
     const cleaned = value.replace(/\s/g, '');
@@ -130,6 +145,18 @@ export default function EForm({ variant, id, formId, title, subtitle, buttonText
       }
 
       setIsSuccess(true);
+
+      if (typeof window !== 'undefined') {
+        const w = window as Window & { dataLayer?: Record<string, unknown>[] };
+        w.dataLayer = w.dataLayer || [];
+        w.dataLayer.push({
+          event: 'mortgage_form_submit',
+          form_id: formId,
+          form_variant: variant,
+          ...utmParams,
+        });
+      }
+
       showToast('Đăng ký thành công! Chúng tôi sẽ liên hệ bạn sớm.', 'success');
       form.reset();
     } catch {
@@ -224,6 +251,16 @@ export default function EForm({ variant, id, formId, title, subtitle, buttonText
                       </select>
                     </div>
                   </div>
+
+                  {UTM_KEYS.map((key) => (
+                    <input
+                      key={key}
+                      type="hidden"
+                      name={key}
+                      value={utmParams[key] ?? ''}
+                      readOnly
+                    />
+                  ))}
 
                   <button
                     type="submit"
