@@ -105,6 +105,21 @@ export default function EForm({ variant, id, formId, title, subtitle, buttonText
     setUtmParams(captured);
   }, []);
 
+  // Fire conversion event ONLY when success screen actually renders in DOM.
+  // Validation fail / network error → isSuccess stays false → no event fired.
+  useEffect(() => {
+    if (!isSuccess) return;
+    if (typeof window === 'undefined') return;
+    const w = window as Window & { dataLayer?: Record<string, unknown>[] };
+    w.dataLayer = w.dataLayer || [];
+    w.dataLayer.push({
+      event: 'mortgage_form_submit',
+      form_id: formId,
+      form_variant: variant,
+      ...utmParams,
+    });
+  }, [isSuccess, formId, variant, utmParams]);
+
   function validatePhone(value: string): boolean {
     const cleaned = value.replace(/\s/g, '');
     if (!/^(03|05|07|08|09)\d{8}$/.test(cleaned)) {
@@ -145,18 +160,6 @@ export default function EForm({ variant, id, formId, title, subtitle, buttonText
       }
 
       setIsSuccess(true);
-
-      if (typeof window !== 'undefined') {
-        const w = window as Window & { dataLayer?: Record<string, unknown>[] };
-        w.dataLayer = w.dataLayer || [];
-        w.dataLayer.push({
-          event: 'mortgage_form_submit',
-          form_id: formId,
-          form_variant: variant,
-          ...utmParams,
-        });
-      }
-
       showToast('Đăng ký thành công! Chúng tôi sẽ liên hệ bạn sớm.', 'success');
       form.reset();
     } catch {
