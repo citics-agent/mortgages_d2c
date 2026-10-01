@@ -40,6 +40,13 @@ Dự án được cấu hình build tĩnh (Static Export) trên Next.js (`output
 ### Active Decisions (file)
 - [DEC-003](decisions/003-google-ads-gtag-hardcode.md): Gắn cứng Google Ads gtag `AW-18085381290` vào layout — ACCEPTED 2026-10-01
 
+### Deploy thực tế (verified 2026-10-01)
+- Production `get-mortgages.citics.vn` deploy qua webhook push → `get-mortgages.citics.vn/webhook` (server tự build). GitHub log 500 timeout là bình thường.
+- `.github/workflows/deploy.yml` luôn fail (gọi workflow private từ repo public) — không phải đường deploy. Câu "pipeline deploy.yml đang fail" trong DEC-003 không chặn deploy.
+
+### Blockers
+- Chờ MKT gửi Conversion Label Google Ads để đếm conversion form.
+
 ### ADR 2: Quy trình Deploy Web Tĩnh (Static Export Deployment)
 
 **Bối cảnh (Context):**
