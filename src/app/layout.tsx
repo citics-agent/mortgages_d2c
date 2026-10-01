@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 
 const GTM_ID = 'GTM-5LZ7XPL9';
@@ -40,26 +39,27 @@ export default function RootLayout({
   return (
     <html lang="vi" className={inter.variable}>
       <head>
-        {/* Google Tag Manager */}
-        <Script id="gtm-init" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        {/* Google Tag Manager — plain <script> so it ships in the raw HTML <head> (next/script only injects client-side, invisible to Google's tag checkers) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
+})(window,document,'script','dataLayer','${GTM_ID}');`,
+          }}
+        />
         {/* End Google Tag Manager */}
         {/* Google tag (gtag.js) — Google Ads */}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="gtag-ads-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${GOOGLE_ADS_ID}');`}
-        </Script>
+gtag('config', '${GOOGLE_ADS_ID}');`,
+          }}
+        />
         {/* End Google tag */}
       </head>
       <body>

@@ -38,7 +38,8 @@ Dự án được cấu hình build tĩnh (Static Export) trên Next.js (`output
 - **Cách test Form:** Khi code Next.js ở Local, luôn đảm bảo URL webhook (`GOOGLE_SCRIPT_URL`) là bản Deploy id mới nhất. Click gửi dữ liệu, mở Telegram để check ping bot và kiểm tra dữ liệu lưu trên Google Sheet. Mọi thông báo lỗi sẽ nằm trên hệ thống báo lỗi Execution log của Google Scripts thay vì Terminal của Next.js.
 
 ### Active Decisions (file)
-- [DEC-003](decisions/003-google-ads-gtag-hardcode.md): Gắn cứng Google Ads gtag `AW-18085381290` vào layout — ACCEPTED 2026-10-01
+- [DEC-003](decisions/003-google-ads-gtag-hardcode.md): Gắn cứng Google Ads gtag `AW-18085381290` vào layout — SUPERSEDED (cách gắn) bởi DEC-004
+- [DEC-004](decisions/004-tags-as-raw-head-scripts.md): GTM + gtag render `<script>` thô trong `<head>` để Google detect được — ACCEPTED 2026-10-01
 
 ### Deploy thực tế (verified 2026-10-01)
 - Production `get-mortgages.citics.vn` deploy qua webhook push → `get-mortgages.citics.vn/webhook` (server tự build). GitHub log 500 timeout là bình thường.
