@@ -1,3 +1,11 @@
+---
+project: Mortgages Landing Page
+status: DEVELOPMENT
+last_verified: 2026-10-01
+owner: Jayden Pham
+deadline: 2026-06-30
+---
+
 # Ứng Dụng: Citics Mortgages Landing Page
 
 Manifest này đóng vai trò như một nguồn chân lý (Source of Truth) cho các quyết định kiến trúc, quy trình làm việc (workflows) và quản lý state của dự án Mortgages Landing Page.
@@ -28,6 +36,9 @@ Dự án được cấu hình build tĩnh (Static Export) trên Next.js (`output
 - **Tránh lộ Data/Token:** Mọi token bí mật của Telegram hiện đang nằm an toàn ở máy chủ của Google (không bị chèn vào JS bundle lộ bên ngoài).
 - **Cách cập nhật Bot:** Nếu có thay đổi `BOT_TOKEN` hay `CHAT_ID`, cần mở file `.gs` (Google Sheet -> Extensions -> Apps Script) để thay đổi và **Deploy bản mới nhất (New deployment)**. Code Frontend không cần build lại. 
 - **Cách test Form:** Khi code Next.js ở Local, luôn đảm bảo URL webhook (`GOOGLE_SCRIPT_URL`) là bản Deploy id mới nhất. Click gửi dữ liệu, mở Telegram để check ping bot và kiểm tra dữ liệu lưu trên Google Sheet. Mọi thông báo lỗi sẽ nằm trên hệ thống báo lỗi Execution log của Google Scripts thay vì Terminal của Next.js.
+
+### Active Decisions (file)
+- [DEC-003](decisions/003-google-ads-gtag-hardcode.md): Gắn cứng Google Ads gtag `AW-18085381290` vào layout — ACCEPTED 2026-10-01
 
 ### ADR 2: Quy trình Deploy Web Tĩnh (Static Export Deployment)
 

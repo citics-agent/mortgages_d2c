@@ -4,6 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 
 const GTM_ID = 'GTM-5LZ7XPL9';
+const GOOGLE_ADS_ID = 'AW-18085381290';
 
 const inter = Inter({
   subsets: ['latin', 'vietnamese'],
@@ -48,6 +49,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','${GTM_ID}');`}
         </Script>
         {/* End Google Tag Manager */}
+        {/* Google tag (gtag.js) — Google Ads */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-ads-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ADS_ID}');`}
+        </Script>
+        {/* End Google tag */}
       </head>
       <body>
         {/* Google Tag Manager (noscript) */}
