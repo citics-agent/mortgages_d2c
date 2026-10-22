@@ -24,6 +24,10 @@ Mở http://localhost:8082.
 | `npm run dev` | Chạy dev, cổng 8082 |
 | `npm run build` | Build tĩnh. Bản production xuất ra `docs/` với base path `/mortgages_d2c` |
 
+## Biến môi trường
+
+**Không cần file `.env`** để chạy hoặc build, và không có bí mật nào trong biến môi trường. `NEXT_PUBLIC_BASE_PATH` do `next.config.mjs` tự đặt. URL gửi form (`GOOGLE_SCRIPT_URL`) nằm cứng trong `src/components/EForm.tsx`.
+
 ## Cấu trúc
 
 ```
