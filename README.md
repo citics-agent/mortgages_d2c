@@ -97,6 +97,17 @@ Gửi thử form sẽ ghi dòng thật vào Sheet, test xong nhớ xoá.
 
 Log lỗi form xem ở Executions của Apps Script, không phải terminal.
 
+## Nhờ AI hỗ trợ
+
+Mở thư mục repo này trong Claude Code, Codex hoặc Cursor, AI sẽ tự đọc README này làm bối cảnh. Mở đầu yêu cầu bằng trang, branch, domain, ví dụ:
+
+> Repo này là landing page Mortgages (branch main, domain get-mortgages.citics.vn). Đọc README.md. Hãy đổi [nội dung] ở [mục trên trang]. Chỉ sửa file cần thiết và cho tôi xem `git diff` trước khi commit.
+
+Site không đổi sau khi push: bảo AI dùng `gh` CLI xem các lần chạy Actions và webhook deliveries gần nhất, chỉ báo cáo, chưa sửa.
+Không để AI sửa thư mục `docs/` (bản build).
+
+Lưu ý: không dán token, mật khẩu, link Google Sheet lead hay dữ liệu khách vào AI chạy trên web. Luôn xem `git diff` trước khi commit, không để AI `git push --force` hay commit file `.env`.
+
 ## Lưu ý an toàn
 
 - Repo đang public: không commit token, key, mật khẩu.
