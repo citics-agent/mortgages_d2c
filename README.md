@@ -53,6 +53,23 @@ Ghi chú:
 - Workflow `.github/workflows/deploy.yml` luôn fail, không phải đường deploy, có thể bỏ qua.
 - Sửa trực tiếp trên GitHub web vẫn được, miễn commit vào `main`.
 
+## Sửa nội dung từng mục
+
+Nội dung nằm cứng trong code, mỗi mục là một file trong `src/components/`. Sửa chữ trực tiếp, lưu rồi chạy thử bằng `npm run dev`.
+
+| Mục trên trang | File | Cách sửa |
+|---|---|---|
+| Đầu trang (tiêu đề, 5 gạch đầu dòng) | `Hero.tsx` | Sửa chữ trong thẻ `<h1>`, `<p>`, `<li>`. Có chữ "8+ ngân hàng", đổi khi số ngân hàng đổi |
+| Chính sách và ưu đãi (2 thẻ: Cashback 0.3%, Miễn phí sơ bộ giá trị tài sản) | `Policies.tsx` | Sửa `policy-value` (con số) và `policy-title` (tên chính sách). Không dùng ảnh |
+| Ngân hàng đối tác | `Banks.tsx` | Sửa mảng `banks` (logo, tên, tỉ lệ). Logo ở `public/assets/banks/`, đã có sẵn logo chưa dùng (ACB, BIDV, TCB...). Tiêu đề "8 ngân hàng đối tác" phải đổi tay khi đổi số lượng |
+| Tin tức | `News.tsx` | Sửa mảng `newsItems`: `img`, `source`, `title`, `href`. Ảnh ở `public/assets/news-*.jpg` |
+| Chân trang (hotline, email, ĐKKD, mạng xã hội, link tải app) | `Footer.tsx` | Sửa chữ và link trực tiếp |
+| Form đăng ký, nơi nhận lead | `EForm.tsx` | `GOOGLE_SCRIPT_URL` trỏ tới Apps Script ghi vào Google Sheet |
+
+Trang này **không có** mục "hình ảnh hoạt động".
+
+Ảnh mới: bỏ vào `public/assets/`, khuyến nghị dưới 500 KB, rộng từ 700 px. Đường dẫn trong code viết dạng `` `${bp}/assets/ten-file.jpg` ``.
+
 ## Tracking (MKT hay sửa)
 
 Cấu hình trong `src/app/layout.tsx`:
