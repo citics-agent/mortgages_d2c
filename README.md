@@ -68,9 +68,11 @@ Việc đang chờ: gắn **Conversion Label** Google Ads để đếm conversio
 
 ## Form đăng ký
 
-`src/components/EForm.tsx` kiểm tra dữ liệu rồi POST JSON sang Google Apps Script (`GOOGLE_SCRIPT_URL`, đã nằm trong code). Apps Script ghi vào Google Sheet và gửi thông báo Telegram/email. Token Telegram nằm trong Apps Script, **không nằm trong repo này**.
+`src/components/EForm.tsx` kiểm tra dữ liệu rồi POST JSON sang Google Apps Script (`GOOGLE_SCRIPT_URL`, đã nằm trong code). Apps Script (thuộc tài khoản `doitac@citics.vn`) ghi vào Google Sheet nhận lead. Telegram bot trước đây đã bị revoke nên hiện **không còn thông báo Telegram**. Nếu tạo bot mới, đặt token trong Apps Script, **không để trong repo này**.
 
-Đổi bot, chat id hoặc nơi lưu lead:
+Gửi thử form sẽ ghi dòng thật vào Sheet, test xong nhớ xoá.
+
+Đổi nơi lưu lead hoặc thêm thông báo:
 1. Mở Google Sheet nhận lead → Extensions → Apps Script.
 2. Sửa file `.gs`.
 3. Deploy → **New deployment** (Web app, Execute as: Me, Anyone).
