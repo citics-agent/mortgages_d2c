@@ -81,7 +81,7 @@ Cấu hình trong `src/app/layout.tsx`:
 
 Hai tag này phải là thẻ `<script>` thô trong `<head>` để Google nhận diện được (xem `decisions/004-tags-as-raw-head-scripts.md`). Đừng đổi sang cách nạp khác.
 
-Việc đang chờ: gắn **Conversion Label** Google Ads để đếm conversion khi gửi form. Khi có label, thêm sự kiện conversion vào thời điểm gửi form thành công trong `src/components/EForm.tsx`.
+Việc đang chờ: gắn **Conversion Label** Google Ads để Google Ads đếm lượt gửi form là chuyển đổi. `EForm.tsx` đã bắn sự kiện `mortgage_form_submit` lên `dataLayer` khi form thành công, nên cách khuyến nghị là cấu hình trong GTM, không cần sửa code: tạo tag "Google Ads Conversion Tracking" (ID `18085381290` + Label) với trigger Custom Event `mortgage_form_submit`. Chỉ chọn một cách (GTM hoặc `gtag('event','conversion',...)` trong code), làm cả hai sẽ đếm trùng.
 
 ## Form đăng ký
 
